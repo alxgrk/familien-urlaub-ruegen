@@ -1,0 +1,462 @@
+.cayobeach,
+.heroSectionIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.heroSectionIcon {
+  width: 120rem;
+  height: 20.81rem;
+  object-fit: cover;
+}
+.cayobeach {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--font-size-21xl);
+  line-height: 100%;
+  font-family: var(--font-belleza);
+  color: var(--light-text-color);
+  text-align: left;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+}
+.logo {
+  align-self: stretch;
+  position: relative;
+  height: 2.5rem;
+}
+.frameWrapper,
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.logoWrapper {
+  align-self: stretch;
+  padding: var(--padding-3xs);
+  justify-content: flex-start;
+}
+.frameWrapper {
+  flex: 1;
+  justify-content: center;
+}
+.start {
+  position: relative;
+  font-size: var(--body-size);
+  line-height: 125%;
+  font-weight: 500;
+  font-family: var(--title-2);
+  color: var(--light-text-color);
+  text-align: left;
+}
+.startWrapper {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-5xs) 0;
+  background-color: transparent;
+  flex: 1;
+  justify-content: center;
+}
+.buchungWrapper,
+.navigationMenu,
+.startWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.buchungWrapper {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-5xs) 0;
+  background-color: transparent;
+  flex: 1;
+  border-bottom: 1px solid var(--light-text-color);
+  justify-content: center;
+}
+.navigationMenu {
+  width: 29.75rem;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+}
+.hamburgerMenuIcon {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.frameParent,
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+.frameParent {
+  width: 76.5rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+.navbar {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent);
+  padding: var(--padding-21xl) 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+}
+.heroSectionParent {
+  align-self: stretch;
+  position: relative;
+  height: 20.81rem;
+}
+.klickenSieAuf,
+.unsereVerfgbarkeiten {
+  align-self: stretch;
+  position: relative;
+  line-height: 125%;
+}
+.klickenSieAuf {
+  font-size: var(--subtitle-size);
+  font-weight: 500;
+  color: var(--color-dimgray-300);
+}
+.calendarSectionInner,
+.unsereVerfgbarkeitenParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.unsereVerfgbarkeitenParent {
+  width: 40.06rem;
+  gap: var(--gap-5xs);
+}
+.calendarSectionInner {
+  width: 76.5rem;
+}
+.calendar1Icon {
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 43.75rem;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.calendar1Wrapper,
+.calendarSection {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-5xl) var(--padding-101xl);
+  align-items: center;
+  justify-content: flex-start;
+}
+.calendarSection {
+  background: linear-gradient(180deg, #fff5eb, #fff 47.47%);
+  padding: var(--padding-141xl) var(--padding-5xs);
+  gap: var(--gap-5xs);
+}
+.coverIcon,
+.h3 {
+  position: relative;
+}
+.coverIcon {
+  width: 16.69rem;
+  height: 53.75rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.h3 {
+  line-height: 125%;
+}
+.formControl,
+.formControlInputStyle1 {
+  font-family: var(--link);
+  font-size: var(--link-size);
+  align-self: stretch;
+}
+.formControl {
+  position: relative;
+  letter-spacing: 0.2px;
+  line-height: 1.5rem;
+  font-weight: 600;
+  color: var(--color-darkslategray-400);
+  text-align: left;
+}
+.formControlInputStyle1 {
+  border: 0;
+  background-color: transparent;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.customSelect,
+.formControlInputStyle1,
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+.formGroup {
+  align-self: stretch;
+  height: 5.25rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+}
+.customSelect {
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.customSelect,
+.formControlInputStyle13 {
+  align-self: stretch;
+}
+.cardContent,
+.formGroup4 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.formGroup4 {
+  border: 0;
+  background-color: transparent;
+  font-weight: 600;
+  font-family: var(--link);
+  font-size: var(--link-size);
+}
+.cardContent {
+  border-radius: 1px;
+  background-color: var(--light-text-color);
+  overflow: hidden;
+  gap: var(--gap-3xs);
+}
+.abschicken {
+  position: relative;
+  line-height: 1.5rem;
+}
+.abschickenWrapper,
+.div,
+.formCard1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.abschickenWrapper {
+  border-radius: var(--br-45xl);
+  background-color: var(--rectangle-805);
+  height: 2.75rem;
+  flex-direction: row;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  font-size: var(--button-size);
+  color: var(--light-text-color);
+}
+.div,
+.formCard1 {
+  overflow: hidden;
+}
+.div {
+  align-self: stretch;
+  background-color: var(--light-text-color);
+  width: 38.13rem;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: var(--padding-5xl) var(--padding-31xl);
+  box-sizing: border-box;
+  align-items: center;
+  gap: var(--gap-21xl);
+}
+.formCard1 {
+  border-radius: var(--br-xl);
+  flex-direction: row;
+  align-items: flex-start;
+}
+.reservationSection {
+  align-self: stretch;
+  background: linear-gradient(180deg, #fff 51.04%, #fff5eb);
+  height: 65.63rem;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem var(--padding-5xs);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+}
+.frame1 {
+  font-size: var(--font-size-13xl);
+  color: var(--color-darkslategray-400);
+}
+.frame,
+.frame1 {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cayobeach1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 100%;
+  backdrop-filter: blur(4px);
+}
+.logo1 {
+  position: relative;
+  width: 5rem;
+  height: 2.5rem;
+  color: var(--color-black);
+  font-family: var(--font-belleza);
+}
+.familienurlaubAmStrand,
+.rgenGrundstcksGbr {
+  position: relative;
+  font-size: var(--link-size);
+  line-height: 125%;
+  display: inline-block;
+  width: 20rem;
+}
+.familienurlaubAmStrand {
+  font-size: var(--button-size);
+}
+.companyDetailsSocialMedia {
+  flex-direction: column;
+  gap: var(--gap-base);
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-dimgray-300);
+}
+.companyDetailsSocialMedia,
+.homeLink,
+.homeLinkWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.homeLink {
+  flex-direction: column;
+  gap: var(--gap-5xs);
+}
+.homeLinkWrapper {
+  width: 12rem;
+  flex-direction: row;
+}
+.datenschutz {
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  line-height: 125%;
+  color: inherit;
+}
+.homeLinkContainer {
+  width: 10.88rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.companyDetailsSocialMediaParent,
+.rgenGrundstcksGbr2023AlWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.rgenGrundstcksGbr2023AlWrapper {
+  align-items: center;
+  text-align: left;
+  font-size: var(--caption-size);
+  color: var(--color-dimgray-500);
+}
+.buchung,
+.footer,
+.footer1 {
+  display: flex;
+  flex-direction: column;
+}
+.footer1 {
+  width: 76.5rem;
+  padding: var(--padding-61xl) 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-53xl);
+}
+.buchung,
+.footer {
+  align-items: center;
+}
+.footer {
+  align-self: stretch;
+  background-color: var(--rectangle-810);
+  justify-content: flex-end;
+  font-size: var(--body-size);
+  color: var(--color-gray-300);
+}
+.buchung {
+  position: relative;
+  border-radius: var(--br-base);
+  background-color: var(--light-text-color);
+  width: 100%;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: center;
+  font-size: var(--display-1-size);
+  color: var(--color-black);
+  font-family: var(--title-2);
+}
+@media screen and (max-width: 1200px) {
+  .navigationMenu {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: row;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 960px) {
+  .navigationMenu {
+    display: none;
+  }
+  .hamburgerMenuIcon {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: column;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 420px) {
+  .navigationMenu {
+    display: none;
+  }
+  .hamburgerMenuIcon {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: column;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

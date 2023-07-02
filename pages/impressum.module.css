@@ -1,0 +1,441 @@
+.cayobeach,
+.heroSectionIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.heroSectionIcon {
+  width: 120rem;
+  height: 20.81rem;
+  object-fit: cover;
+}
+.cayobeach {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--font-size-21xl);
+  line-height: 100%;
+  font-family: var(--font-belleza);
+  color: var(--light-text-color);
+  text-align: left;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+}
+.logo {
+  align-self: stretch;
+  position: relative;
+  height: 2.5rem;
+}
+.frameWrapper,
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.logoWrapper {
+  align-self: stretch;
+  padding: var(--padding-3xs);
+  justify-content: flex-start;
+}
+.frameWrapper {
+  flex: 1;
+  justify-content: center;
+}
+.start {
+  position: relative;
+  font-size: var(--body-size);
+  line-height: 125%;
+  font-weight: 500;
+  font-family: var(--title-2);
+  color: var(--light-text-color);
+  text-align: left;
+}
+.startWrapper {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-5xs) 0;
+  background-color: transparent;
+  flex: 1;
+  justify-content: center;
+}
+.impressumWrapper,
+.navigationMenu,
+.startWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.impressumWrapper {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-5xs) 0;
+  background-color: transparent;
+  flex: 1;
+  border-bottom: 1px solid var(--light-text-color);
+  justify-content: center;
+}
+.navigationMenu {
+  width: 29.75rem;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+}
+.hamburgerMenuIcon {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.frameParent,
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+.frameParent {
+  width: 76.5rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+.navbar {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent);
+  padding: var(--padding-21xl) 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+}
+.heroSectionParent {
+  align-self: stretch;
+  position: relative;
+  height: 20.81rem;
+}
+.angabenGem,
+.unserImpressum {
+  align-self: stretch;
+  position: relative;
+  line-height: 125%;
+}
+.angabenGem {
+  font-size: var(--subtitle-size);
+  font-weight: 500;
+}
+.unserImpressumParent {
+  width: 29.69rem;
+  gap: var(--gap-5xs);
+}
+.headerSection,
+.headerSectionInner,
+.unserImpressumParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.headerSectionInner {
+  width: 76.5rem;
+}
+.headerSection {
+  align-self: stretch;
+  background: linear-gradient(180deg, #fff5eb, #fff 47.47%);
+  padding: var(--padding-53xl) var(--padding-5xs);
+}
+.heading2 {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-2xl);
+}
+.rgenGrundstcksGbr {
+  margin: 0;
+}
+.rgenGrundstcksGbrContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 10.73rem;
+  height: 4.44rem;
+  flex-shrink: 0;
+}
+.p {
+  align-self: stretch;
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.strongVertretenContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 9.15rem;
+  height: 3.31rem;
+  flex-shrink: 0;
+}
+.heading21,
+.p1 {
+  align-self: stretch;
+}
+.p1 {
+  height: 3.38rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.heading21 {
+  position: relative;
+  font-size: var(--font-size-3xl);
+}
+.telefon49151Container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 16.37rem;
+  height: 3.31rem;
+  flex-shrink: 0;
+}
+.heading22 {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--subtitle-size);
+}
+.umsatzsteuerIdentifikationsnu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 28.99rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.p3,
+.wirSindNicht {
+  align-self: stretch;
+  font-size: var(--caption-size);
+}
+.p3 {
+  height: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.wirSindNicht {
+  position: relative;
+}
+.eRecht24de {
+  text-decoration: underline;
+  color: var(--color-blue);
+}
+.quelleERecht24deTxtContainer {
+  line-break: anywhere;
+  width: 100%;
+}
+.quelleERecht24de {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 8.18rem;
+  height: 1.06rem;
+  flex-shrink: 0;
+}
+.p5 {
+  height: 1.13rem;
+  align-items: flex-start;
+  font-size: var(--caption-size);
+}
+.codetodesign,
+.p5,
+.textSection {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.codetodesign {
+  padding: 2.25rem;
+  align-items: flex-start;
+  gap: var(--gap-xl);
+}
+.textSection {
+  background: linear-gradient(180deg, #fff 79.17%, #fff5eb);
+  padding: var(--padding-53xl) var(--padding-5xs);
+  align-items: center;
+}
+.frame1 {
+  text-align: left;
+  font-size: var(--link-size);
+  font-family: var(--font-inter);
+}
+.frame,
+.frame1 {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cayobeach1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 100%;
+  backdrop-filter: blur(4px);
+}
+.logo1 {
+  position: relative;
+  width: 5rem;
+  height: 2.5rem;
+  color: var(--color-black);
+  font-family: var(--font-belleza);
+}
+.familienurlaubAmStrand,
+.rgenGrundstcksGbr1 {
+  position: relative;
+  font-size: var(--link-size);
+  line-height: 125%;
+  display: inline-block;
+  width: 20rem;
+}
+.familienurlaubAmStrand {
+  font-size: var(--button-size);
+}
+.companyDetailsSocialMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-dimgray-300);
+}
+.hauptsaison0106 {
+  position: relative;
+  line-height: 125%;
+}
+.homeLink,
+.homeLinkWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.homeLink {
+  flex-direction: column;
+  gap: var(--gap-5xs);
+}
+.homeLinkWrapper {
+  width: 12rem;
+  flex-direction: row;
+}
+.datenschutz {
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  line-height: 125%;
+  color: inherit;
+}
+.homeLinkContainer {
+  width: 10.88rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.companyDetailsSocialMediaParent,
+.rgenGrundstcksGbr2023AlWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.rgenGrundstcksGbr2023AlWrapper {
+  align-items: center;
+  text-align: left;
+  font-size: var(--caption-size);
+  color: var(--color-dimgray-500);
+}
+.footer,
+.footer1,
+.impressum {
+  display: flex;
+  flex-direction: column;
+}
+.footer1 {
+  width: 76.5rem;
+  padding: var(--padding-61xl) 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-53xl);
+}
+.footer,
+.impressum {
+  align-items: center;
+}
+.footer {
+  align-self: stretch;
+  background-color: var(--rectangle-810);
+  justify-content: flex-end;
+  font-size: var(--body-size);
+  color: var(--color-gray-300);
+}
+.impressum {
+  position: relative;
+  border-radius: var(--br-base);
+  background-color: var(--light-text-color);
+  width: 100%;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: center;
+  font-size: var(--display-1-size);
+  color: var(--color-black);
+  font-family: var(--title-2);
+}
+@media screen and (max-width: 1200px) {
+  .navigationMenu {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: row;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 960px) {
+  .navigationMenu {
+    display: none;
+  }
+  .hamburgerMenuIcon {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: column;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 420px) {
+  .navigationMenu {
+    display: none;
+  }
+  .hamburgerMenuIcon {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: column;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,848 @@
+.cayobeach,
+.heroSectionIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.heroSectionIcon {
+  width: 120rem;
+  height: 20.81rem;
+  object-fit: cover;
+}
+.cayobeach {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--font-size-21xl);
+  line-height: 100%;
+  font-family: var(--font-belleza);
+  color: var(--light-text-color);
+  text-align: left;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+}
+.logo {
+  align-self: stretch;
+  position: relative;
+  height: 2.5rem;
+}
+.frameWrapper,
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.logoWrapper {
+  align-self: stretch;
+  padding: var(--padding-3xs);
+  justify-content: flex-start;
+}
+.frameWrapper {
+  flex: 1;
+  justify-content: center;
+}
+.start {
+  position: relative;
+  font-size: var(--body-size);
+  line-height: 125%;
+  font-weight: 500;
+  font-family: var(--title-2);
+  color: var(--light-text-color);
+  text-align: left;
+}
+.navigationMenu,
+.startWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.startWrapper {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-5xs) 0;
+  background-color: transparent;
+  flex: 1;
+  justify-content: center;
+}
+.navigationMenu {
+  width: 29.75rem;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+}
+.hamburgerMenuIcon {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.frameParent,
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+.frameParent {
+  width: 76.5rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+.navbar {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent);
+  padding: var(--padding-21xl) 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+}
+.heroSectionParent {
+  align-self: stretch;
+  position: relative;
+  height: 20.81rem;
+}
+.angabenGem,
+.unsereDatenschutzerklrung {
+  align-self: stretch;
+  position: relative;
+  line-height: 125%;
+}
+.angabenGem {
+  font-size: var(--subtitle-size);
+  font-weight: 500;
+}
+.headerSectionInner,
+.unsereDatenschutzerklrungParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.unsereDatenschutzerklrungParent {
+  gap: var(--gap-5xs);
+}
+.headerSectionInner {
+  width: 76.5rem;
+}
+.headerSection,
+.heading2,
+.heading3 {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.headerSection {
+  background: linear-gradient(180deg, #fff5eb, #fff 47.47%);
+  flex-direction: column;
+  padding: var(--padding-53xl) var(--padding-5xs);
+  justify-content: flex-start;
+}
+.heading2,
+.heading3 {
+  position: relative;
+  flex-shrink: 0;
+}
+.heading2 {
+  font-size: var(--font-size-2xl);
+  height: 1.63rem;
+}
+.heading3 {
+  font-size: 0.98rem;
+  height: 1.31rem;
+}
+.dieFolgendenHinweise {
+  margin: 0;
+}
+.dieFolgendenHinweiseContainer1 {
+  line-break: anywhere;
+  width: 100%;
+}
+.dieFolgendenHinweiseContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 77.48rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.p {
+  align-self: stretch;
+  height: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.dieDatenverarbeitungAufContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.94rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.heading41 {
+  font-size: var(--link-size);
+}
+.heading41,
+.ihreDatenWerden {
+  align-self: stretch;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 1.06rem;
+  flex-shrink: 0;
+}
+.andereDatenWerdenContainer,
+.sieHabenJederzeitContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 73.54rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.sieHabenJederzeitContainer {
+  width: 78.45rem;
+  height: 4.44rem;
+}
+.p3 {
+  align-self: stretch;
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.dasExterneHostingContainer,
+.musterhostingAgMusterwegContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 77.6rem;
+  height: 4.44rem;
+  flex-shrink: 0;
+}
+.musterhostingAgMusterwegContainer {
+  width: 7.48rem;
+  height: 3.31rem;
+}
+.p6 {
+  align-self: stretch;
+  height: 3.38rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.wirHabenEinenContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.32rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.dieBetreiberDieserContainer,
+.telefon490Container,
+.wennSieDieseContainer,
+.wirWeisenDaraufContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 70.93rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.telefon490Container,
+.wennSieDieseContainer,
+.wirWeisenDaraufContainer {
+  width: 74.89rem;
+}
+.telefon490Container,
+.wirWeisenDaraufContainer {
+  width: 78.85rem;
+}
+.telefon490Container {
+  width: 12.38rem;
+}
+.sofernSieInContainer,
+.soweitInnerhalbDieserContainer,
+.verantwortlicheStelleIstContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 77.86rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.sofernSieInContainer,
+.soweitInnerhalbDieserContainer {
+  width: 78.09rem;
+  height: 4.44rem;
+}
+.sofernSieInContainer {
+  width: 77.67rem;
+  height: 8.94rem;
+}
+.heading37,
+.p15 {
+  align-self: stretch;
+  display: flex;
+}
+.p15 {
+  height: 9rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.heading37 {
+  position: relative;
+  font-size: 1.05rem;
+  align-items: center;
+  height: 1.31rem;
+  flex-shrink: 0;
+}
+.vieleDatenverarbeitungsvorgn,
+.wennDieDatenverarbeitungContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 76.55rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.wennDieDatenverarbeitungContainer {
+  width: 78.78rem;
+  height: 7.81rem;
+}
+.p17 {
+  align-self: stretch;
+  height: 7.88rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--font-size-mini);
+}
+.werdenIhrePersonenbezogenenContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.75rem;
+  height: 4.44rem;
+  flex-shrink: 0;
+}
+.p18 {
+  align-self: stretch;
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--font-size-mini);
+}
+.imFalleVonContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 75.18rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.sieHabenDasContainer2,
+.sieHabenImContainer,
+.wennSieDieContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.62rem;
+  height: 3.31rem;
+  flex-shrink: 0;
+}
+.sieHabenDasContainer2,
+.wennSieDieContainer {
+  width: 74.97rem;
+  height: 2.19rem;
+}
+.wennSieDieContainer {
+  width: 75.27rem;
+}
+.item,
+.itemWenn {
+  position: absolute;
+  left: 2.5rem;
+  display: flex;
+}
+.item {
+  top: 0;
+  width: 76.5rem;
+  height: 2.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.itemWenn {
+  top: 2.25rem;
+  align-items: center;
+  width: 69.42rem;
+  height: 1.06rem;
+}
+.wennSieEinenContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 75.84rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.item1 {
+  position: absolute;
+  top: 5.63rem;
+  left: 2.5rem;
+  width: 76.5rem;
+  height: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.wennWirIhreContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 76.14rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.item2 {
+  position: absolute;
+  top: 3.38rem;
+  left: 2.5rem;
+  width: 76.5rem;
+  height: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.list {
+  align-self: stretch;
+  position: relative;
+  height: 7.88rem;
+}
+.dieseSeiteNutztContainer,
+.wennSieDieContainer2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 77.26rem;
+  height: 3.31rem;
+  flex-shrink: 0;
+}
+.dieseSeiteNutztContainer {
+  width: 78.41rem;
+}
+.derNutzungVonContainer {
+  width: 76.18rem;
+  height: 2.19rem;
+}
+.derNutzungVonContainer,
+.heading23,
+.itemBrowsertyp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.heading23 {
+  align-self: stretch;
+  font-size: var(--subtitle-size);
+  height: 1.63rem;
+}
+.itemBrowsertyp {
+  width: 13.01rem;
+  height: 1.06rem;
+}
+.itemVerwendetes {
+  width: 11.37rem;
+}
+.itemHostname,
+.itemIpAdresse,
+.itemReferrer,
+.itemUhrzeit,
+.itemVerwendetes {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 1.06rem;
+  flex-shrink: 0;
+}
+.itemReferrer {
+  font-size: var(--link-size);
+  width: 5.59rem;
+}
+.itemHostname,
+.itemIpAdresse,
+.itemUhrzeit {
+  width: 15.09rem;
+}
+.itemIpAdresse,
+.itemUhrzeit {
+  width: 10.4rem;
+}
+.itemIpAdresse {
+  width: 4.46rem;
+}
+.list1 {
+  align-self: stretch;
+  height: 6.75rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--padding-21xl);
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.06rem;
+}
+.dieErfassungDieserContainer,
+.dieVerarbeitungDieserContainer,
+.wennSieUnsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.61rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.dieVerarbeitungDieserContainer,
+.wennSieUnsContainer {
+  width: 77.52rem;
+}
+.dieVerarbeitungDieserContainer {
+  width: 78.2rem;
+  height: 3.31rem;
+}
+.dieVonIhnenContainer,
+.dieVonIhnenContainer2,
+.mitHilfeVonContainer,
+.wennSieUnsContainer2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 73.39rem;
+  height: 2.19rem;
+  flex-shrink: 0;
+}
+.dieVonIhnenContainer2,
+.mitHilfeVonContainer,
+.wennSieUnsContainer2 {
+  width: 77.1rem;
+}
+.dieVonIhnenContainer2,
+.mitHilfeVonContainer {
+  width: 77.99rem;
+}
+.mitHilfeVonContainer {
+  width: 78.53rem;
+  height: 3.31rem;
+}
+.dieNutzungDiesesContainer,
+.dieVerarbeitungDerContainer,
+.wennSieDenContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.49rem;
+  height: 4.44rem;
+  flex-shrink: 0;
+}
+.dieVerarbeitungDerContainer,
+.wennSieDenContainer {
+  width: 77.75rem;
+  height: 3.31rem;
+}
+.dieVerarbeitungDerContainer {
+  width: 77.08rem;
+}
+.p36 {
+  align-self: stretch;
+  height: 3.38rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--link-size);
+}
+.dieVonIhnenContainer4 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.55rem;
+  height: 3.31rem;
+  flex-shrink: 0;
+}
+.sieKnnenDer {
+  font-family: var(--font-inter);
+}
+.nachIhrerAustragungContainer,
+.wirBindenDasContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.5rem;
+  height: 4.44rem;
+  flex-shrink: 0;
+}
+.wirBindenDasContainer {
+  width: 76.5rem;
+  height: 5.56rem;
+}
+.p39 {
+  align-self: stretch;
+  height: 5.63rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.dieNutzungVonContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 77.92rem;
+  height: 4.44rem;
+  flex-shrink: 0;
+}
+.httpsfriendlycaptchacomle {
+  text-decoration: underline;
+  color: var(--color-blue);
+}
+.span {
+  color: var(--color-black);
+}
+.dieSpeicherungUndContainer,
+.mitFriendlyCaptchaContainer,
+.quelleHttpswwweRecht24 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 78.65rem;
+  height: 3.31rem;
+  flex-shrink: 0;
+}
+.dieSpeicherungUndContainer,
+.quelleHttpswwweRecht24 {
+  width: 77.85rem;
+  height: 4.44rem;
+}
+.quelleHttpswwweRecht24 {
+  width: 13.31rem;
+  height: 1.06rem;
+}
+.p44 {
+  align-self: stretch;
+  height: 1.13rem;
+  align-items: flex-start;
+}
+.codetodesign,
+.codetodesignWrapper,
+.p44,
+.textSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.codetodesign {
+  align-self: stretch;
+  align-items: flex-start;
+  gap: 1.19rem;
+}
+.codetodesignWrapper,
+.textSection {
+  align-items: center;
+}
+.codetodesignWrapper {
+  width: 78.94rem;
+}
+.textSection {
+  align-self: stretch;
+  background: linear-gradient(180deg, #fff 79.17%, #fff5eb);
+  padding: var(--padding-53xl) var(--padding-5xs);
+}
+.frame1 {
+  text-align: left;
+  font-size: var(--caption-size);
+  font-family: var(--font-inter);
+}
+.frame,
+.frame1 {
+  align-self: stretch;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cayobeach1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 100%;
+  backdrop-filter: blur(4px);
+}
+.logo1 {
+  position: relative;
+  width: 5rem;
+  height: 2.5rem;
+  color: var(--color-black);
+  font-family: var(--font-belleza);
+}
+.familienurlaubAmStrand,
+.rgenGrundstcksGbr {
+  position: relative;
+  font-size: var(--link-size);
+  line-height: 125%;
+  display: inline-block;
+  width: 20rem;
+}
+.familienurlaubAmStrand {
+  font-size: var(--button-size);
+}
+.companyDetailsSocialMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-dimgray-300);
+}
+.hauptsaison0106 {
+  position: relative;
+  line-height: 125%;
+}
+.homeLink,
+.homeLinkWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.homeLink {
+  flex-direction: column;
+  gap: var(--gap-5xs);
+}
+.homeLinkWrapper {
+  width: 12rem;
+  flex-direction: row;
+}
+.datenschutz {
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  line-height: 125%;
+  color: inherit;
+}
+.homeLinkContainer {
+  width: 10.88rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.companyDetailsSocialMediaParent,
+.rgenGrundstcksGbr2023AlWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.rgenGrundstcksGbr2023AlWrapper {
+  align-items: center;
+  text-align: left;
+  font-size: var(--caption-size);
+  color: var(--color-dimgray-500);
+}
+.dsgvo,
+.footer,
+.footer1 {
+  display: flex;
+  flex-direction: column;
+}
+.footer1 {
+  width: 76.5rem;
+  padding: var(--padding-61xl) 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-53xl);
+}
+.dsgvo,
+.footer {
+  align-items: center;
+}
+.footer {
+  align-self: stretch;
+  background-color: var(--rectangle-810);
+  justify-content: flex-end;
+  font-size: var(--body-size);
+  color: var(--color-gray-300);
+}
+.dsgvo {
+  position: relative;
+  border-radius: var(--br-base);
+  background-color: var(--light-text-color);
+  width: 100%;
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: center;
+  font-size: var(--display-1-size);
+  color: var(--color-black);
+  font-family: var(--title-2);
+}
+@media screen and (max-width: 1200px) {
+  .navigationMenu {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: row;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 960px) {
+  .navigationMenu {
+    display: none;
+  }
+  .hamburgerMenuIcon {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: column;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 420px) {
+  .navigationMenu {
+    display: none;
+  }
+  .hamburgerMenuIcon {
+    display: flex;
+  }
+  .companyDetailsSocialMediaParent {
+    flex-direction: column;
+    gap: var(--gap-21xl);
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
