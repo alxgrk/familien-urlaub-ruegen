@@ -2,39 +2,16 @@ import type { NextPage } from "next";
 import { useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "./unterkuenfte.module.css";
+import AccommodationsContainer from "../components/accommodations-container";
+
 const Unterkuenfte: NextPage = () => {
   const router = useRouter();
 
-  const onCayoBeachClick = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
-  const onFrameButtonClick = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
-  const onFrameButton1Click = useCallback(() => {
-    router.push("/unterkuenfte");
-  }, [router]);
-
-  const onFrameButton2Click = useCallback(() => {
+  const onReserveNowButtonSmallClick = useCallback(() => {
     router.push("/buchung");
   }, [router]);
 
-  const onFrameButton3Click = useCallback(() => {
-    router.push("/lage");
-  }, [router]);
-
-  const onFrameButton4Click = useCallback(() => {
-    router.push("/impressum");
-  }, [router]);
-
-  const onFrameContainer11Click = useCallback(() => {
-    router.push("/buchung");
-  }, [router]);
-
-  const onFrameContainer18Click = useCallback(() => {
+  const onReserveNowButtonClick = useCallback(() => {
     router.push("/buchung");
   }, [router]);
 
@@ -59,291 +36,130 @@ const Unterkuenfte: NextPage = () => {
   }, [router]);
 
   return (
-    <div className={styles.unterkuenfte}>
-      <div className={styles.heroSectionParent}>
-        <img
-          className={styles.heroSectionIcon}
-          alt=""
-          src="/hero-section1@2x.png"
-        />
-        <nav className={styles.navbar}>
-          <div className={styles.frameParent}>
-            <div className={styles.frameWrapper}>
-              <div className={styles.logoWrapper}>
-                <div className={styles.logo}>
-                  <button
-                    className={styles.cayobeach}
-                    onClick={onCayoBeachClick}
-                  >
-                    Familienurlaub Rügen
-                  </button>
-                </div>
-              </div>
+    <div className="relative rounded-2xl bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-left text-[1rem] text-light-text-color font-title-2 lg:w-auto lg:[align-self:unset]">
+      <div className="self-stretch h-[20.81rem] flex flex-col items-center justify-start bg-[url(/sidepage-header@3x.png)] bg-cover bg-no-repeat bg-[top] lg:self-stretch lg:w-auto md:self-stretch md:w-auto">
+        <div className="self-stretch h-[5.63rem] flex flex-row py-[0.63rem] px-[1rem] box-border items-center justify-between lg:w-auto lg:[align-self:unset] lg:flex-row lg:gap-[15rem] lg:items-center lg:justify-center md:self-stretch md:w-auto md:flex-row md:gap-[0rem] md:items-center md:justify-between md:pl-[0.63rem] md:pr-[0.63rem] md:box-border sm:self-stretch sm:w-auto sm:flex-row sm:gap-[0rem] sm:items-center sm:justify-center">
+          <div className="h-[3.75rem] flex flex-row items-center justify-start lg:w-auto lg:[align-self:unset] md:w-auto md:[align-self:unset] md:items-center md:justify-between md:gap-[0rem] md:pl-[1rem] md:box-border sm:pl-[0.5rem] sm:box-border">
+            <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-[2.5rem] leading-[100%] font-belleza text-light-text-color text-left inline-block [backdrop-filter:blur(4px)] sm:text-[2rem]">
+              Familienurlaub Rügen
+            </button>
+          </div>
+          <div className="h-[3.75rem] flex flex-row items-center justify-start gap-[3.31rem] lg:flex lg:w-auto lg:[align-self:unset] lg:gap-[3.31rem] md:hidden md:items-end md:justify-center sm:hidden">
+            <div className="relative leading-[125%] font-medium">Start</div>
+            <div className="relative leading-[125%] font-medium">
+              Unterkünfte
             </div>
-            <div className={styles.navigationMenu}>
-              <button
-                className={styles.startWrapper}
-                onClick={onFrameButtonClick}
-              >
-                <div className={styles.start}>Start</div>
-              </button>
-              <button
-                className={styles.unterknfteWrapper}
-                onClick={onFrameButton1Click}
-              >
-                <div className={styles.start}>Unterkünfte</div>
-              </button>
-              <button
-                className={styles.startWrapper}
-                onClick={onFrameButton2Click}
-              >
-                <div className={styles.start}>Buchung</div>
-              </button>
-              <button
-                className={styles.startWrapper}
-                onClick={onFrameButton3Click}
-              >
-                <div className={styles.start}>Lage</div>
-              </button>
-              <button
-                className={styles.startWrapper}
-                onClick={onFrameButton4Click}
-              >
-                <div className={styles.start}>Impressum</div>
-              </button>
-            </div>
+            <div className="relative leading-[125%] font-medium">Buchung</div>
+            <div className="relative leading-[125%] font-medium">Lage</div>
+            <div className="relative leading-[125%] font-medium">Impressum</div>
+          </div>
+          <div className="flex-1 h-[3.75rem] hidden flex-col items-end justify-center md:flex md:w-auto md:[align-self:unset] md:flex-col md:gap-[0.63rem] md:items-end md:justify-center md:pl-[1rem] md:pr-[1rem] md:box-border sm:pl-[0rem] sm:pr-[0rem] sm:box-border">
             <img
-              className={styles.hamburgerMenuIcon}
+              className="w-[1.49rem] h-[1.5rem] overflow-hidden shrink-0 md:flex sm:flex"
               alt=""
-              src="/notification.svg"
+              src="/notification2.svg"
             />
           </div>
-        </nav>
-      </div>
-      <div className={styles.frame}>
-        <div className={styles.roomsSection}>
-          <div className={styles.frameGroup}>
-            <div className={styles.unsereUnterknfteParent}>
-              <b className={styles.unsereUnterknfte}>Unsere Unterkünfte</b>
-              <div className={styles.frAlleFamiliengren}>
-                Für alle Familiengrößen
-              </div>
-            </div>
-            <div className={styles.frameContainer}>
-              <div className={styles.frameDiv}>
-                <div className={styles.image1Parent}>
-                  <img
-                    className={styles.image1Icon}
-                    alt=""
-                    src="/image1@2x.png"
-                  />
-                  <img
-                    className={styles.image3Icon}
-                    alt=""
-                    src="/image3@2x.png"
-                  />
-                </div>
-                <img
-                  className={styles.image2Icon}
-                  alt=""
-                  src="/image2@2x.png"
-                />
-              </div>
-              <div className={styles.frameParent1}>
-                <div className={styles.frameParent2}>
-                  <div className={styles.bisZu3PersonenParent}>
-                    <div className={styles.bisZu3}>Bis zu 3 Personen</div>
-                    <div className={styles.kleinesFerienhaus}>
-                      Kleines Ferienhaus
-                    </div>
-                  </div>
-                  <div className={styles.frameWrapper1}>
-                    <div className={styles.unserKleinesFerienhausIstIWrapper}>
-                      <div className={styles.unsereUnterknfte}>
-                        Unser kleines Ferienhaus ist ideal für zwei Personen und
-                        bietet bei maximaler Auslastung 4 Schlafplätze. Diese
-                        gemütlichen Häuschen befinden sich am Ende des
-                        Grundstücks ganz in der Nähe des Strandes zum Tromper
-                        Wiek.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <Link className={styles.frameA} href="/buchung">
-                  <div
-                    className={styles.jetztReservierenWrapper}
-                    onClick={onFrameContainer11Click}
-                  >
-                    <b className={styles.jetztReservieren}>Jetzt reservieren</b>
-                  </div>
-                  <div className={styles.frameChild} />
-                </Link>
-              </div>
-            </div>
-            <div className={styles.frameParent3}>
-              <div className={styles.frameParent4}>
-                <div className={styles.frameParent2}>
-                  <div className={styles.bisZu3PersonenParent}>
-                    <div className={styles.bisZu3}>Bis zu 6 Personen</div>
-                    <div className={styles.kleinesFerienhaus}>
-                      Großes Ferienhaus
-                    </div>
-                  </div>
-                  <div className={styles.frameWrapper1}>
-                    <div className={styles.unserKleinesFerienhausIstIWrapper}>
-                      <div className={styles.unsereUnterknfte}>
-                        Das größte unserer Ferienhäuser bietet 4 bis maximal 6
-                        Personen Platz und ist damit ideal für kleine Gruppen
-                        oder große Familien, die in der Nähe der Ostsee Erholung
-                        suchen. Einige der Häuser besitzen auch eine Schlafcouch
-                        die es dann bis zu 6 Personen erlaubt in unserem großen
-                        Ferienhaus zu übernachten.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <Link className={styles.frameA} href="/buchung">
-                  <div
-                    className={styles.jetztReservierenWrapper}
-                    onClick={onFrameContainer18Click}
-                  >
-                    <b className={styles.jetztReservieren}>Jetzt reservieren</b>
-                  </div>
-                  <div className={styles.frameChild} />
-                </Link>
-              </div>
-              <div className={styles.frameParent7}>
-                <div className={styles.image1Parent}>
-                  <img
-                    className={styles.image1Icon1}
-                    alt=""
-                    src="/image11@2x.png"
-                  />
-                  <img
-                    className={styles.image3Icon1}
-                    alt=""
-                    src="/image31@2x.png"
-                  />
-                </div>
-                <img
-                  className={styles.image1Icon2}
-                  alt=""
-                  src="/image12@2x.png"
-                />
-              </div>
-            </div>
-          </div>
         </div>
-        <div className={styles.frame1}>
-          <div className={styles.commonRoomsSection}>
-            <div className={styles.frameParent8}>
-              <div className={styles.dasGemeinschaftshausParent}>
-                <b className={styles.unsereUnterknfte}>Das Gemeinschaftshaus</b>
-                <div className={styles.frAlleFamiliengren}>
-                  Für gesellige Abende
-                </div>
+      </div>
+      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start text-center text-[3.5rem] text-black">
+        <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+        <div className="flex-1 flex flex-col items-center justify-start">
+          <div className="self-stretch flex flex-col items-center justify-start">
+            <AccommodationsContainer />
+            <div className="self-stretch flex flex-col py-[0rem] px-[6rem] items-center justify-start gap-[1rem]">
+              <b className="self-stretch relative leading-[125%]">
+                Das Gemeinschaftshaus
+              </b>
+              <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
+                Für gesellige Abende
               </div>
-              <div className={styles.frameParent9}>
-                <div className={styles.frameParent10}>
-                  <div className={styles.image1Container}>
-                    <img
-                      className={styles.image1Icon3}
-                      alt=""
-                      src="/image13@2x.png"
-                    />
-                    <img
-                      className={styles.image3Icon2}
-                      alt=""
-                      src="/image32@2x.png"
-                    />
-                  </div>
+              <div className="self-stretch rounded-xl overflow-hidden flex flex-row items-center justify-between border-[1px] border-solid border-dimgray-200 sm:flex-row sm:gap-[0rem] sm:items-center sm:justify-start">
+                <div className="flex-1 h-[50rem] flex flex-col items-center justify-between min-h-[30rem]">
                   <img
-                    className={styles.image2Icon}
+                    className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover min-h-[25rem]"
                     alt=""
-                    src="/image21@2x.png"
+                    src="/image14@2x.png"
+                  />
+                  <img
+                    className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
+                    alt=""
+                    src="/image32@2x.png"
                   />
                 </div>
-                <div className={styles.frameWrapper3}>
-                  <div className={styles.frameParent11}>
-                    <div className={styles.bisZu20PersonenWrapper}>
-                      <div className={styles.bisZu3}>Bis zu 20 Personen</div>
-                    </div>
-                    <div className={styles.frameWrapper4}>
-                      <div
-                        className={styles.unserGemeinschaftshausImUntWrapper}
-                      >
-                        <div className={styles.unsereUnterknfte}>
-                          Unser Gemeinschaftshaus im unteren Teil des
-                          Familiencamps bietet alles für ein gemütliches
-                          Beisammensein. Eine geräumige Küche, große Tische und
-                          eine große Anzahl von Stühlen bieten jedem Gast Platz
-                          um beispielsweise das Fernsehprogramm auf dem riesigen
-                          Flatscreen zu verfolgen, oder einfach einen geselligen
-                          Abend mit Freunden zu verbringen.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <img
+                  className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover min-h-[30rem]"
+                  alt=""
+                  src="/image22@2x.png"
+                />
+              </div>
+              <div className="self-stretch flex flex-col py-[0rem] px-[6rem] items-center justify-start gap-[1.5rem] text-left text-[1rem] text-rectangle-807">
+                <div className="relative leading-[125%]">
+                  Bis zu 20 Personen
+                </div>
+                <div className="self-stretch relative leading-[125%] text-dimgray-200 text-center">
+                  Unser Gemeinschaftshaus im unteren Teil des Familiencamps
+                  bietet alles für ein gemütliches Beisammensein. Eine geräumige
+                  Küche, große Tische und eine große Anzahl von Stühlen bieten
+                  jedem Gast Platz um beispielsweise das Fernsehprogramm auf dem
+                  riesigen Flatscreen zu verfolgen, oder einfach einen
+                  geselligen Abend mit Freunden zu verbringen.
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className={styles.footer}>
-        <div className={styles.footer1}>
-          <div className={styles.companyDetailsSocialMediaParent}>
-            <div className={styles.companyDetailsSocialMedia}>
-              <div className={styles.logo1}>
-                <div className={styles.cayobeach1}>Familiencamp Rügen</div>
+          <div className="self-stretch flex flex-col p-[3rem] items-center justify-start gap-[0.5rem] text-[1rem] text-gray-200">
+            <div className="self-stretch flex flex-row items-start justify-between md:flex-row md:gap-[0.63rem] md:items-start md:justify-center sm:flex-col sm:gap-[3rem] sm:items-start sm:justify-center">
+              <div className="self-stretch flex-1 flex flex-col items-start justify-center gap-[1rem] text-left text-[2.5rem] text-dimgray-100 sm:flex-[unset] sm:self-stretch">
+                <div className="self-stretch flex flex-row items-start justify-start text-black font-belleza">
+                  <div className="flex-1 relative leading-[100%] [backdrop-filter:blur(4px)]">
+                    Familiencamp Rügen
+                  </div>
+                </div>
+                <div className="relative text-[0.88rem] leading-[125%] inline-block w-[20rem]">
+                  Rügen Grundstücks GbR
+                </div>
+                <div className="relative text-[1.13rem] leading-[125%] inline-block w-[20rem]">
+                  Familienurlaub am Strand von Rügen
+                </div>
               </div>
-              <div className={styles.rgenGrundstcksGbr}>
-                Rügen Grundstücks GbR
+              <div className="self-stretch flex-1 flex flex-col items-center justify-center gap-[0.5rem] sm:items-start sm:justify-center sm:flex-[unset] sm:self-stretch">
+                <div className="relative leading-[125%]">
+                  Hauptsaison: 01.06. - 31.08
+                </div>
+                <div className="relative leading-[125%]">{`Nebensaison:   01.03. - 31.05. & 01.09. - 31.10.`}</div>
               </div>
-              <div className={styles.familienurlaubAmStrand}>
-                Familienurlaub am Strand von Rügen
-              </div>
-            </div>
-            <div className={styles.homeLinkWrapper}>
-              <div className={styles.homeLink}>
-                <div className={styles.bisZu3}>Hauptsaison: 01.06. - 31.08</div>
-                <div
-                  className={styles.bisZu3}
-                >{`Nebensaison:   01.03. - 31.05. & 01.09. - 31.10.`}</div>
-              </div>
-            </div>
-            <div className={styles.homeLinkContainer}>
-              <div className={styles.homeLink}>
+              <div className="flex-1 flex flex-col items-end justify-center gap-[0.5rem] sm:items-start sm:justify-center sm:flex-[unset] sm:self-stretch">
                 <Link
-                  className={styles.datenschutz}
+                  className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
                   href="/unterkuenfte"
                   onClick={onUnterknfteClick}
                 >
                   Unterkünfte
                 </Link>
                 <Link
-                  className={styles.datenschutz}
+                  className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
                   href="/buchung"
                   onClick={onBuchungClick}
                 >
                   Buchung
                 </Link>
                 <Link
-                  className={styles.datenschutz}
+                  className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
                   href="/lage"
                   onClick={onLageClick}
                 >
                   Lage
                 </Link>
                 <Link
-                  className={styles.datenschutz}
+                  className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
                   href="/d-s-g-v-o"
                   onClick={onDatenschutzClick}
                 >
                   Datenschutzerklärung
                 </Link>
                 <Link
-                  className={styles.datenschutz}
+                  className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
                   href="/impressum"
                   onClick={onImpressumClick}
                 >
@@ -351,13 +167,14 @@ const Unterkuenfte: NextPage = () => {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className={styles.rgenGrundstcksGbr2023AlWrapper}>
-            <div className={styles.bisZu3}>
-              © Rügen Grundstücks GbR 2023. Alle Rechte vorbehalten.
+            <div className="self-stretch h-[1rem] flex flex-col items-center justify-between text-left text-[0.81rem] text-dimgray-300">
+              <div className="relative leading-[125%]">
+                © Rügen Grundstücks GbR 2023. Alle Rechte vorbehalten.
+              </div>
             </div>
           </div>
         </div>
+        <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
       </div>
     </div>
   );
