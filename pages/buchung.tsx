@@ -4,22 +4,20 @@ import {
   TextField,
   FormControl,
   InputLabel,
-  MenuItem,
   FormHelperText,
   Select,
-  Icon,
 } from "@mui/material";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
+import Sidebar from "../components/Sidebar";
 
 const Buchung: NextPage = () => {
   const [
-    formControlInputStyle1DateTimePickerValue,
-    setFormControlInputStyle1DateTimePickerValue,
+    birthdayChild1,
+    setBirthdayChild1,
   ] = useState<string | null>(null);
   const router = useRouter();
 
@@ -53,14 +51,14 @@ const Buchung: NextPage = () => {
           mobileNavigationMenuHeight="1.5rem"
         />
         <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
-          <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+          <Sidebar/>
           <div className="flex-1 flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch flex flex-col py-[6rem] px-[0.5rem] items-center justify-start gap-[0.5rem]">
-                <b className="self-stretch relative leading-[125%]">
+                <b className="self-center relative leading-[125%] sm:text-[2rem]">
                   Unsere Verfügbarkeiten
                 </b>
-                <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
+                <div className="self-center relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:text-[1rem]">
                   Klicken Sie auf die An- und Abreisedaten in der jeweiligen
                   Kategorie.
                 </div>
@@ -70,19 +68,20 @@ const Buchung: NextPage = () => {
                   src="/calendar-11@2x.png"
                 />
               </div>
-              <div className="self-stretch flex flex-row py-[4rem] px-[0.5rem] items-center justify-center text-[2rem] text-darkslategray sm:flex-col sm:items-center sm:justify-between sm:gap-[0rem]">
+              <div className="self-center flex flex-row items-center justify-center text-[2rem] text-darkslategray
+              border-[1px] border-solid border-slate-200
+              md:flex-col sm:flex-col sm:py-[0.5rem]">
                 <img
-                  className="self-stretch relative max-h-full w-[21.88rem] overflow-hidden shrink-0 object-cover sm:hidden sm:w-[26.25rem] sm:flex-1 sm:min-w-[18.75rem] sm:max-w-[26.25rem]"
+                  className="self-stretch relative max-w-[21.88rem] overflow-hidden shrink-0 object-cover
+                  md:hidden sm:hidden"
                   alt=""
                   src="/cover@2x.png"
                 />
-                <div className="self-stretch bg-light-text-color overflow-hidden flex flex-col py-[1.5rem] px-[3.13rem] box-border items-center justify-start gap-[2.5rem] min-w-[31.25rem] max-w-[37.5rem]">
+                <div className="self-stretch bg-light-text-color overflow-hidden flex flex-col py-[1.5rem] px-[3.13rem] box-border
+                items-center justify-start gap-[2.5rem] min-w-[31.25rem] max-w-[37.5rem] sm:min-w-[10rem] sm:px-[1rem]">
                   <b className="relative leading-[125%]">Kontaktformular</b>
                   <form className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <div className="self-stretch relative text-[0.88rem] tracking-[0.2px] leading-[1.5rem] font-semibold font-link text-darkslategray text-left">
-                        Name *
-                      </div>
                       <TextField
                         className="[border:none] bg-[transparent] self-stretch"
                         color="primary"
@@ -96,9 +95,6 @@ const Buchung: NextPage = () => {
                       />
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <div className="self-stretch relative text-[0.88rem] tracking-[0.2px] leading-[1.5rem] font-semibold font-link text-darkslategray text-left">
-                        Email-Adresse *
-                      </div>
                       <TextField
                         className="[border:none] bg-[transparent] self-stretch"
                         color="primary"
@@ -112,9 +108,6 @@ const Buchung: NextPage = () => {
                       />
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <div className="self-stretch relative text-[0.88rem] tracking-[0.2px] leading-[1.5rem] font-semibold font-link text-darkslategray text-left">
-                        Telefonnummer
-                      </div>
                       <TextField
                         className="[border:none] bg-[transparent] self-stretch"
                         color="primary"
@@ -127,9 +120,6 @@ const Buchung: NextPage = () => {
                       />
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <div className="self-stretch relative text-[0.88rem] tracking-[0.2px] leading-[1.5rem] font-semibold font-link text-darkslategray text-left">
-                        Anzahl Erwachsene *
-                      </div>
                       <FormControl
                         className="self-stretch"
                         variant="standard"
@@ -148,9 +138,6 @@ const Buchung: NextPage = () => {
                       </FormControl>
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <div className="self-stretch relative text-[0.88rem] tracking-[0.2px] leading-[1.5rem] font-semibold font-link text-darkslategray text-left">
-                        Anzahl Kinder *
-                      </div>
                       <FormControl
                         className="self-stretch"
                         variant="standard"
@@ -167,33 +154,22 @@ const Buchung: NextPage = () => {
                       </FormControl>
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <div className="self-stretch relative text-[0.88rem] tracking-[0.2px] leading-[1.5rem] font-semibold font-link text-darkslategray text-left">
-                        Geburtstag Kind 1 *
-                      </div>
-                      <div className="self-stretch">
-                        <DatePicker
-                          label="Geburtstag Kind 1"
-                          value={formControlInputStyle1DateTimePickerValue}
-                          onChange={(newValue: any) => {
-                            setFormControlInputStyle1DateTimePickerValue(
-                              newValue
-                            );
-                          }}
-                          components={{
-                            OpenPickerIcon: () => (
-                              <Icon>calendar_today_sharp</Icon>
-                            ),
-                          }}
-                          slotProps={{
-                            textField: {
-                              variant: "standard",
-                              size: "medium",
-                              required: true,
-                              color: "primary",
-                            },
-                          }}
-                        />
-                      </div>
+                      <DatePicker
+                        className="self-stretch"
+                        label="Geburtstag Kind 1"
+                        value={birthdayChild1}
+                        onChange={(newValue: any) => {
+                          setBirthdayChild1(newValue);
+                        }}
+                        slotProps={{
+                          textField: {
+                            variant: "standard",
+                            size: "medium",
+                            required: true,
+                            color: "primary",
+                          },
+                        }}
+                      />
                     </div>
                     <textarea
                       className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
@@ -201,7 +177,8 @@ const Buchung: NextPage = () => {
                     />
                   </form>
                   <div
-                    className="rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer text-left text-[1.13rem] text-light-text-color"
+                    className="rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer
+                    text-left text-[1.13rem] text-light-text-color"
                     onClick={onSendButtonContainerClick}
                   >
                     <b className="relative leading-[1.5rem]">Abschicken</b>
@@ -211,7 +188,7 @@ const Buchung: NextPage = () => {
             </div>
             <Footer/>
           </div>
-          <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+          <Sidebar/>
         </div>
       </div>
     </LocalizationProvider>
