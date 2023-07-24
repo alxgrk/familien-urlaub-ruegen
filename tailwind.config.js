@@ -64,14 +64,20 @@ module.exports = {
       "7xl": "1.63rem",
     },
     screens: {
+      xl: {
+        min: "1201px",
+      },
       lg: {
+        min: "961px",
         max: "1200px",
       },
       md: {
+        min: "681px",
         max: "960px",
       },
       sm: {
-        max: "420px",
+        min: "0px",
+        max: "680px",
       },
     },
   },

@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 const Left: NextPage = () => {
   return (
-    <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+    <div className="self-stretch w-[5%] overflow-hidden shrink-0 lg:hidden md:hidden sm:hidden" />
   );
 };
 

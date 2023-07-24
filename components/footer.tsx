@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
-import { useMemo } from "react";
+import {useCallback, useMemo} from "react";
 import Link from "next/link";
 import CSS, { Property } from "csstype";
+import {useRouter} from "next/router";
 
 type FooterType = {
   /** Style props */
@@ -9,7 +10,6 @@ type FooterType = {
   footerWidth?: Property.Width;
   footerPadding?: Property.Padding;
   footerGap?: Property.Gap;
-  footerAlignSelf?: Property.AlignSelf;
   companyDetailsSocialMediaGap?: Property.Gap;
   familiencampRgenFontSize?: Property.FontSize;
   rgenGrundstcksGbRFontSize?: Property.FontSize;
@@ -36,44 +36,86 @@ type FooterType = {
   onImpressumClick?: () => void;
 };
 
-const Footer: NextPage<FooterType> = ({
-  footerPosition,
-  footerWidth,
-  footerPadding,
-  footerGap,
-  footerAlignSelf,
-  companyDetailsSocialMediaGap,
-  familiencampRgenFontSize,
-  rgenGrundstcksGbRFontSize,
-  rgenGrundstcksGbRWidth,
-  familienurlaubAmStrandFontSize,
-  familienurlaubAmStrandWidth,
-  seasonsGap,
-  hauptsaison0106FontSize,
-  nebensaison0103FontSize,
-  linksGap,
-  unterknfteFontSize,
-  buchungFontSize,
-  lageFontSize,
-  datenschutzFontSize,
-  impressumFontSize,
-  copyrightHeight,
-  rgenGrundstcksGbRFontSize1,
-  onUnterknfteClick,
-  onBuchungClick,
-  onLageClick,
-  onDatenschutzClick,
-  onImpressumClick,
-}) => {
+const defaultProps = {
+  footerPosition: "unset",
+  footerWidth: "unset",
+  footerPadding: "3rem",
+  footerGap: "0.5rem",
+  companyDetailsSocialMediaGap: "1rem",
+  familiencampRgenFontSize: "2.5rem",
+  rgenGrundstcksGbRFontSize: "0.88rem",
+  rgenGrundstcksGbRWidth: "20rem",
+  familienurlaubAmStrandFontSize: "1.13rem",
+  familienurlaubAmStrandWidth: "20rem",
+  seasonsGap: "0.5rem",
+  hauptsaison0106FontSize: "1rem",
+  nebensaison0103FontSize: "1rem",
+  linksGap: "0.5rem",
+  unterknfteFontSize: "1rem",
+  buchungFontSize: "1rem",
+  lageFontSize: "1rem",
+  datenschutzFontSize: "1rem",
+  impressumFontSize: "1rem",
+  copyrightHeight: "1rem",
+  rgenGrundstcksGbRFontSize1: "0.81rem",
+}
+
+const Footer: NextPage<FooterType> = (props) => {
+
+  const {
+    footerPosition,
+    footerWidth,
+    footerPadding,
+    footerGap,
+    companyDetailsSocialMediaGap,
+    familiencampRgenFontSize,
+    rgenGrundstcksGbRFontSize,
+    rgenGrundstcksGbRWidth,
+    familienurlaubAmStrandFontSize,
+    familienurlaubAmStrandWidth,
+    seasonsGap,
+    hauptsaison0106FontSize,
+    nebensaison0103FontSize,
+    linksGap,
+    unterknfteFontSize,
+    buchungFontSize,
+    lageFontSize,
+    datenschutzFontSize,
+    impressumFontSize,
+    copyrightHeight,
+    rgenGrundstcksGbRFontSize1,
+  } = Object.assign({}, defaultProps, props);
+
+  const router = useRouter();
+
+  const onUnterknfteClick = useCallback(() => {
+    router.push("/unterkuenfte");
+  }, [router]);
+
+  const onBuchungClick = useCallback(() => {
+    router.push("/buchung");
+  }, [router]);
+
+  const onLageClick = useCallback(() => {
+    router.push("/lage");
+  }, [router]);
+
+  const onDatenschutzClick = useCallback(() => {
+    router.push("/d-s-g-v-o");
+  }, [router]);
+
+  const onImpressumClick = useCallback(() => {
+    router.push("/impressum");
+  }, [router]);
+
   const footerStyle: CSS.Properties = useMemo(() => {
     return {
       position: footerPosition,
       width: footerWidth,
       padding: footerPadding,
       gap: footerGap,
-      alignSelf: footerAlignSelf,
     };
-  }, [footerPosition, footerWidth, footerPadding, footerGap, footerAlignSelf]);
+  }, [footerPosition, footerWidth, footerPadding, footerGap]);
 
   const companyDetailsSocialMediaStyle: CSS.Properties = useMemo(() => {
     return {
@@ -169,7 +211,8 @@ const Footer: NextPage<FooterType> = ({
 
   return (
     <div
-      className="relative w-[1520px] flex flex-col p-12 box-border items-center justify-start gap-[8px] text-center text-base text-gray-200 font-title-2"
+      className="flex flex-col p-12 box-border items-center justify-start gap-[8px] text-center text-base text-gray-200 font-title-2
+      md:self-stretch lg:self-stretch xl:self-stretch"
       style={footerStyle}
     >
       <div className="self-stretch flex flex-row items-start justify-between md:flex-row md:gap-[10px] md:items-start md:justify-center sm:flex-col sm:gap-[48px] sm:items-start sm:justify-center">

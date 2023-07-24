@@ -7,11 +7,8 @@ type NavbarType = {
   mobileNavigationMenu?: boolean;
 
   /** Style props */
-  navbarPosition?: Property.Position;
-  navbarWidth?: Property.Width;
   navbarHeight?: Property.Height;
   navbarPadding?: Property.Padding;
-  navbarGap?: Property.Gap;
   navbarAlignSelf?: Property.AlignSelf;
   navbarJustifyContent?: Property.JustifyContent;
   logoHeight?: Property.Height;
@@ -38,11 +35,8 @@ type NavbarType = {
 const Navbar: NextPage<NavbarType> = ({
   hamburgerMenu,
   mobileNavigationMenu,
-  navbarPosition,
-  navbarWidth,
   navbarHeight,
   navbarPadding,
-  navbarGap,
   navbarAlignSelf,
   navbarJustifyContent,
   logoHeight,
@@ -67,20 +61,16 @@ const Navbar: NextPage<NavbarType> = ({
 }) => {
   const navbarStyle: CSS.Properties = useMemo(() => {
     return {
-      position: navbarPosition,
-      width: navbarWidth,
+      position: "unset",
+      width: "unset",
       height: navbarHeight,
       padding: navbarPadding,
-      gap: navbarGap,
       alignSelf: navbarAlignSelf,
       justifyContent: navbarJustifyContent,
     };
   }, [
-    navbarPosition,
-    navbarWidth,
     navbarHeight,
     navbarPadding,
-    navbarGap,
     navbarAlignSelf,
     navbarJustifyContent,
   ]);
@@ -163,22 +153,28 @@ const Navbar: NextPage<NavbarType> = ({
 
   return (
     <div
-      className="relative w-[1474px] h-[90px] flex flex-row py-2.5 px-0 box-border items-center justify-start gap-[400px] text-left text-base text-light-text-color font-title-2 lg:flex-row lg:gap-[240px] lg:items-center lg:justify-center md:w-auto md:[align-self:unset] md:flex-row md:gap-[0px] md:items-center md:justify-center md:pl-2.5 md:pr-2.5 md:box-border sm:flex-row sm:gap-[0px] sm:items-center sm:justify-center"
+      className="relative h-[90px] flex flex-row py-2.5 px-0 box-border items-center justify-start
+      text-left text-base text-light-text-color font-title-2
+      lg:flex-row lg:items-center lg:justify-center md:w-auto md:[align-self:unset] md:flex-row md:gap-[0px] md:items-center md:justify-center md:pl-2.5 md:pr-2.5 md:box-border
+      sm:flex-row sm:gap-[0px] sm:items-center sm:justify-center"
       style={navbarStyle}
     >
       <div
-        className="flex-1 h-[60px] flex flex-row py-0 px-[50px] box-border items-center justify-start md:flex-1 md:items-center md:justify-start"
+        className="flex-1 flex flex-row py-0 pl-1
+        box-border items-center justify-start md:flex-1 md:items-center md:justify-start"
         style={logoStyle}
       >
         <button
-          className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-21xl leading-[100%] font-belleza text-light-text-color text-left inline-block [backdrop-filter:blur(4px)]"
+          className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-21xl
+          leading-[100%] font-belleza text-light-text-color text-left inline-block [backdrop-filter:blur(4px)]"
           style={cayoBeachStyle}
         >
           Familienurlaub Rügen
         </button>
       </div>
       <div
-        className="flex-1 h-[60px] flex flex-row py-0 px-[50px] box-border items-center justify-end gap-[53px] lg:flex lg:gap-[53px] md:hidden md:items-end md:justify-center sm:hidden"
+        className="flex-1 flex flex-row py-0 pr-[1rem]
+        box-border items-center justify-end gap-[10%] md:hidden md:items-end md:justify-center sm:hidden"
         style={navigationMenuStyle}
       >
         <div className="relative leading-[125%] font-medium" style={startStyle}>
@@ -208,7 +204,7 @@ const Navbar: NextPage<NavbarType> = ({
       </div>
       {!mobileNavigationMenu && (
         <div
-          className="flex-1 h-[60px] hidden flex-col items-end justify-center md:flex md:flex-1 md:items-center md:justify-end"
+          className="flex-1 pr-[1rem] hidden flex-col items-end justify-center md:flex md:flex-1 sm:flex sm:flex-1"
           style={mobileNavigationMenuStyle}
         >
           <img

@@ -23,26 +23,6 @@ const Buchung: NextPage = () => {
   ] = useState<string | null>(null);
   const router = useRouter();
 
-  const onUnterknfteClick = useCallback(() => {
-    router.push("/unterkuenfte");
-  }, [router]);
-
-  const onBuchungClick = useCallback(() => {
-    router.push("/buchung");
-  }, [router]);
-
-  const onLageClick = useCallback(() => {
-    router.push("/lage");
-  }, [router]);
-
-  const onDatenschutzClick = useCallback(() => {
-    router.push("/d-s-g-v-o");
-  }, [router]);
-
-  const onImpressumClick = useCallback(() => {
-    router.push("/impressum");
-  }, [router]);
-
   const onSendButtonContainerClick = useCallback(() => {
     router.push("/buchung");
   }, [router]);
@@ -229,35 +209,7 @@ const Buchung: NextPage = () => {
                 </div>
               </div>
             </div>
-            <Footer
-              footerPosition="unset"
-              footerWidth="unset"
-              footerPadding="3rem"
-              footerGap="0.5rem"
-              footerAlignSelf="stretch"
-              companyDetailsSocialMediaGap="1rem"
-              familiencampRgenFontSize="2.5rem"
-              rgenGrundstcksGbRFontSize="0.88rem"
-              rgenGrundstcksGbRWidth="20rem"
-              familienurlaubAmStrandFontSize="1.13rem"
-              familienurlaubAmStrandWidth="20rem"
-              seasonsGap="0.5rem"
-              hauptsaison0106FontSize="1rem"
-              nebensaison0103FontSize="1rem"
-              linksGap="0.5rem"
-              unterknfteFontSize="1rem"
-              buchungFontSize="1rem"
-              lageFontSize="1rem"
-              datenschutzFontSize="1rem"
-              impressumFontSize="1rem"
-              copyrightHeight="1rem"
-              rgenGrundstcksGbRFontSize1="0.81rem"
-              onUnterknfteClick={onUnterknfteClick}
-              onBuchungClick={onBuchungClick}
-              onLageClick={onLageClick}
-              onDatenschutzClick={onDatenschutzClick}
-              onImpressumClick={onImpressumClick}
-            />
+            <Footer/>
           </div>
           <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
         </div>

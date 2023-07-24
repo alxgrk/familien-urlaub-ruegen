@@ -141,11 +141,8 @@ const SidePageHeader: NextPage<SidePageHeaderType> = ({
       <Navbar
         hamburgerMenu="/notification2.svg"
         mobileNavigationMenu={false}
-        navbarPosition="unset"
-        navbarWidth="unset"
         navbarHeight="90px"
         navbarPadding="10px 16px"
-        navbarGap="unset"
         navbarAlignSelf="stretch"
         navbarJustifyContent="space-between"
         logoHeight="60px"
