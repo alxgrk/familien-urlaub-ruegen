@@ -32,7 +32,7 @@ const Dsgvo: NextPage = () => {
         <Sidebar/>
         <div className="flex-1 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-col items-center justify-start md:w-auto md:[align-self:unset] sm:w-auto sm:[align-self:unset]">
-            <div className="self-stretch flex flex-col py-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem]
+            <div className="self-stretch flex flex-col pt-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem]
             md:w-auto md:[align-self:unset] sm:w-auto sm:[align-self:unset] sm:pl-[0.5rem] sm:box-border">
               <b className="self-stretch relative leading-[125%] md:text-[2.63rem] sm:text-[1.75rem]">
                 Unsere Datenschutzerklärung

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
+import Sidebar from "../components/Sidebar";
 
 const Impressum: NextPage = () => {
   return (
@@ -31,11 +32,11 @@ const Impressum: NextPage = () => {
         mobileNavigationMenuHeight="1.5rem"
       />
       <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
-        <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+        <Sidebar/>
         <div className="flex-1 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-col items-center justify-start">
-            <div className="self-stretch flex flex-col py-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem] sm:items-center sm:justify-center">
-              <b className="self-stretch relative leading-[125%] sm:text-[1.88rem] sm:text-center sm:flex-1">
+            <div className="self-stretch flex flex-col pt-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem] sm:items-center sm:justify-center">
+              <b className="self-stretch relative leading-[125%] sm:text-center sm:flex-1 md:text-[2.63rem] sm:text-[1.75rem]">
                 Unser Impressum
               </b>
               <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium sm:flex-1">
@@ -43,12 +44,9 @@ const Impressum: NextPage = () => {
               </div>
             </div>
             <div className="self-stretch flex flex-col p-[2.25rem] items-start justify-start gap-[1.25rem] text-left text-[0.88rem] font-inter sm:w-auto sm:[align-self:unset] sm:items-start sm:justify-center sm:pl-[2.25rem] sm:box-border">
-              <b className="self-stretch relative text-[1.31rem]">
-                Angaben gemäß § 5 TMG
-              </b>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[10.73rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">Rügen Grundstücks GbR</p>
                     <p className="m-0">c/o Christine Girke</p>
                     <p className="m-0">Gartenweg 3</p>
@@ -56,9 +54,9 @@ const Impressum: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[9.15rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       <b>Vertreten durch:</b>
                     </p>
@@ -67,9 +65,9 @@ const Impressum: NextPage = () => {
                 </div>
               </div>
               <b className="self-stretch relative text-[1.38rem]">Kontakt</b>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[16.37rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">Telefon: +49 151 64681052</p>
                     <p className="m-0">
                       E-Mail: info@familien-urlaub-ruegen.de
@@ -78,9 +76,9 @@ const Impressum: NextPage = () => {
                 </div>
               </div>
               <b className="self-stretch relative text-[1.25rem]">Steuer-ID</b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start text-[0.81rem]">
-                <div className="relative flex items-center w-[28.99rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start text-[0.81rem]">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Umsatzsteuer-Identifikationsnummer gemäß § 27 a
                       Umsatzsteuergesetz:
@@ -98,9 +96,9 @@ const Impressum: NextPage = () => {
                 Streitbeilegungsverfahren vor einer
                 Verbraucherschlichtungsstelle teilzunehmen.
               </div>
-              <div className="self-stretch h-[1.13rem] flex flex-col items-start justify-start text-[0.81rem]">
-                <div className="relative flex items-center w-[8.18rem] h-[1.06rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start text-[0.81rem]">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <span>{`Quelle: `}</span>
                     <span className="[text-decoration:underline] text-blue">
                       e-recht24.de
@@ -112,7 +110,7 @@ const Impressum: NextPage = () => {
           </div>
           <Footer/>
         </div>
-        <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+        <Sidebar/>
       </div>
     </div>
   );
