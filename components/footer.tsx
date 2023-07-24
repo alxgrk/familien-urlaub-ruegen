@@ -8,7 +8,6 @@ type FooterType = {
   /** Style props */
   footerPosition?: Property.Position;
   footerWidth?: Property.Width;
-  footerPadding?: Property.Padding;
   footerGap?: Property.Gap;
   companyDetailsSocialMediaGap?: Property.Gap;
   familiencampRgenFontSize?: Property.FontSize;
@@ -39,7 +38,6 @@ type FooterType = {
 const defaultProps = {
   footerPosition: "unset",
   footerWidth: "unset",
-  footerPadding: "3rem",
   footerGap: "0.5rem",
   companyDetailsSocialMediaGap: "1rem",
   familiencampRgenFontSize: "2.5rem",
@@ -65,7 +63,6 @@ const Footer: NextPage<FooterType> = (props) => {
   const {
     footerPosition,
     footerWidth,
-    footerPadding,
     footerGap,
     companyDetailsSocialMediaGap,
     familiencampRgenFontSize,
@@ -112,10 +109,9 @@ const Footer: NextPage<FooterType> = (props) => {
     return {
       position: footerPosition,
       width: footerWidth,
-      padding: footerPadding,
       gap: footerGap,
     };
-  }, [footerPosition, footerWidth, footerPadding, footerGap]);
+  }, [footerPosition, footerWidth, footerGap]);
 
   const companyDetailsSocialMediaStyle: CSS.Properties = useMemo(() => {
     return {
@@ -211,7 +207,7 @@ const Footer: NextPage<FooterType> = (props) => {
 
   return (
     <div
-      className="flex flex-col p-12 box-border items-center justify-start gap-[8px] text-center text-base text-gray-200 font-title-2
+      className="flex flex-col p-2 box-border items-center justify-start gap-[8px] text-center text-base text-gray-200 font-title-2
       md:self-stretch lg:self-stretch xl:self-stretch"
       style={footerStyle}
     >
