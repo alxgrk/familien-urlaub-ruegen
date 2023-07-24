@@ -207,7 +207,7 @@ const Footer: NextPage<FooterType> = (props) => {
 
   return (
     <div
-      className="flex flex-col p-2 box-border items-center justify-start gap-[8px] text-center text-base text-gray-200 font-title-2
+      className="flex flex-col py-[2rem] px-[0.5rem] box-border items-center justify-start gap-[8px] text-center text-base text-gray-200 font-title-2
       md:self-stretch lg:self-stretch xl:self-stretch"
       style={footerStyle}
     >
@@ -279,7 +279,7 @@ const Footer: NextPage<FooterType> = (props) => {
           </Link>
           <Link
             className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
-            href="/d-s-g-v-o"
+            href="/dsgvo"
             onClick={onDatenschutzClick}
             style={datenschutzStyle}
           >

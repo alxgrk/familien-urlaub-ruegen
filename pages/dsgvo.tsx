@@ -1,11 +1,9 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
+import Sidebar from "../components/Sidebar";
 
-const DSGVO: NextPage = () => {
+const Dsgvo: NextPage = () => {
   return (
     <div className="relative rounded-2xl bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
       <SidePageHeader
@@ -31,11 +29,12 @@ const DSGVO: NextPage = () => {
         mobileNavigationMenuHeight="1.5rem"
       />
       <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
-        <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+        <Sidebar/>
         <div className="flex-1 flex flex-col items-center justify-start">
           <div className="self-stretch flex flex-col items-center justify-start md:w-auto md:[align-self:unset] sm:w-auto sm:[align-self:unset]">
-            <div className="self-stretch flex flex-col py-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem] md:w-auto md:[align-self:unset] sm:w-auto sm:[align-self:unset] sm:pl-[0.5rem] sm:box-border">
-              <b className="self-stretch relative leading-[125%] md:text-[1.88rem]">
+            <div className="self-stretch flex flex-col py-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem]
+            md:w-auto md:[align-self:unset] sm:w-auto sm:[align-self:unset] sm:pl-[0.5rem] sm:box-border">
+              <b className="self-stretch relative leading-[125%] md:text-[2.63rem] sm:text-[1.75rem]">
                 Unsere Datenschutzerklärung
               </b>
               <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium">
@@ -43,15 +42,15 @@ const DSGVO: NextPage = () => {
               </div>
             </div>
             <div className="self-stretch flex flex-col p-[2.25rem] items-start justify-start gap-[1.19rem] text-left text-[0.81rem] font-inter lg:pl-[2.25rem] lg:box-border md:items-start md:justify-center md:pl-[2.25rem] md:box-border">
-              <b className="self-stretch relative text-[1.31rem] flex items-center h-[1.63rem] shrink-0">
+              <b className="self-stretch relative text-[1.31rem] flex items-center shrink-0">
                 1. Datenschutz auf einen Blick
               </b>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Allgemeine Hinweise
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.48rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die folgenden Hinweise geben einen einfachen Überblick
                       darüber, was mit Ihren personenbezogenen Daten passiert,
@@ -67,16 +66,16 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Datenerfassung auf dieser Website
               </b>
-              <b className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <b className="self-stretch relative flex items-center shrink-0">
                 Wer ist verantwortlich für die Datenerfassung auf dieser
                 Website?
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.94rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Datenverarbeitung auf dieser Website erfolgt durch den
                       Websitebetreiber. Dessen Kontaktdaten können Sie dem
@@ -87,17 +86,17 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.88rem] flex items-center h-[1.06rem] shrink-0">
+              <b className="self-stretch relative text-[0.88rem] flex items-center shrink-0">
                 Wie erfassen wir Ihre Daten?
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese
                 mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie
                 in ein Kontaktformular eingeben.
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[73.54rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Andere Daten werden automatisch oder nach Ihrer
                       Einwilligung beim Besuch der Website durch unsere
@@ -112,20 +111,20 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.88rem] flex items-center h-[1.06rem] shrink-0">
+              <b className="self-stretch relative text-[0.88rem] flex items-center shrink-0">
                 Wofür nutzen wir Ihre Daten?
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Ein Teil der Daten wird erhoben, um eine fehlerfreie
                 Bereitstellung der Website zu gewährleisten. Andere Daten können
                 zur Analyse Ihres Nutzerverhaltens verwendet werden.
               </div>
-              <b className="self-stretch relative text-[0.88rem] flex items-center h-[1.06rem] shrink-0">
+              <b className="self-stretch relative text-[0.88rem] flex items-center shrink-0">
                 Welche Rechte haben Sie bezüglich Ihrer Daten?
               </b>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.45rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Sie haben jederzeit das Recht, unentgeltlich Auskunft über
                       Herkunft, Empfänger und Zweck Ihrer gespeicherten
@@ -148,22 +147,22 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie
                 sich jederzeit an uns wenden.
               </div>
-              <b className="self-stretch relative text-[1.31rem] flex items-center h-[1.63rem] shrink-0">
+              <b className="self-stretch relative text-[1.31rem] flex items-center shrink-0">
                 2. Hosting
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Externes Hosting
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.94rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Diese Website wird extern gehostet. Die personenbezogenen
                       Daten, die auf dieser Website erfasst werden, werden auf
@@ -179,9 +178,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.6rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Das externe Hosting erfolgt zum Zwecke der
                       Vertragserfüllung gegenüber unseren potenziellen und
@@ -208,30 +207,30 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Unser(e) Hoster wird bzw. werden Ihre Daten nur insoweit
                 verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten
                 erforderlich ist und unsere Weisungen in Bezug auf diese Daten
                 befolgen.
               </div>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Wir setzen folgende(n) Hoster ein:
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[7.48rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">Musterhosting AG</p>
                     <p className="m-0">Musterweg 100</p>
                     <p className="m-0">90210 Musterstadt</p>
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.88rem] flex items-center h-[1.06rem] shrink-0">
+              <b className="self-stretch relative text-[0.88rem] flex items-center shrink-0">
                 Auftragsverarbeitung
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.32rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wir haben einen Vertrag über Auftragsverarbeitung (AVV)
                       zur Nutzung des oben genannten Dienstes geschlossen.
@@ -246,15 +245,15 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[1.31rem] flex items-center h-[1.63rem] shrink-0">
+              <b className="self-stretch relative text-[1.31rem] flex items-center shrink-0">
                 3. Allgemeine Hinweise und Pflicht­informationen
               </b>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Datenschutz
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[70.93rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Betreiber dieser Seiten nehmen den Schutz Ihrer
                       persönlichen Daten sehr ernst. Wir behandeln Ihre
@@ -267,9 +266,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[74.89rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wenn Sie diese Website benutzen, werden verschiedene
                       personenbezogene Daten erhoben. Personenbezogene Daten
@@ -284,9 +283,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.85rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wir weisen darauf hin, dass die Datenübertragung im
                       Internet (z. B. bei der Kommunikation per E-Mail)
@@ -297,33 +296,33 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Hinweis zur verantwortlichen Stelle
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Die verantwortliche Stelle für die Datenverarbeitung auf dieser
                 Website ist:
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[7.48rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">Beispielfirma</p>
                     <p className="m-0">Musterweg 10</p>
                     <p className="m-0">90210 Musterstadt</p>
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[12.38rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">Telefon: +49 (0) 123 44 55 66</p>
                     <p className="m-0">E-Mail: info@beispielfirma.de</p>
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.86rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Verantwortliche Stelle ist die natürliche oder juristische
                       Person, die allein oder gemeinsam mit anderen über die
@@ -334,12 +333,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Speicherdauer
               </b>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.09rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Soweit innerhalb dieser Datenschutzerklärung keine
                       speziellere Speicherdauer genannt wurde, verbleiben Ihre
@@ -362,13 +361,13 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Allgemeine Hinweise zu den Rechtsgrundlagen der
                 Datenverarbeitung auf dieser Website
               </b>
-              <div className="self-stretch h-[9rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.67rem] h-[8.94rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Sofern Sie in die Datenverarbeitung eingewilligt haben,
                       verarbeiten wir Ihre personenbezogenen Daten auf Grundlage
@@ -415,12 +414,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[1.05rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[1.05rem] flex items-center shrink-0">
                 Widerruf Ihrer Einwilligung zur Datenverarbeitung
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[76.55rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Viele Datenverarbeitungsvorgänge sind nur mit Ihrer
                       ausdrücklichen Einwilligung möglich. Sie können eine
@@ -434,13 +433,13 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen
                 sowie gegen Direktwerbung (Art. 21 DSGVO)
               </b>
-              <div className="self-stretch h-[7.88rem] flex flex-col items-start justify-start text-[0.94rem]">
-                <div className="relative flex items-center w-[78.78rem] h-[7.81rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start text-[0.94rem]">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1
                       LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS
@@ -475,9 +474,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start text-[0.94rem]">
-                <div className="relative flex items-center w-[78.75rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start text-[0.94rem]">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM
                       DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT,
@@ -500,12 +499,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Beschwerde­recht bei der zuständigen Aufsichts­behörde
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[75.18rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Im Falle von Verstößen gegen die DSGVO steht den
                       Betroffenen ein Beschwerderecht bei einer
@@ -520,12 +519,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Recht auf Daten­übertrag­barkeit
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.94rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Sie haben das Recht, Daten, die wir auf Grundlage Ihrer
                       Einwilligung oder in Erfüllung eines Vertrags
@@ -541,12 +540,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Auskunft, Berichtigung und Löschung
               </b>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.62rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Sie haben im Rahmen der geltenden gesetzlichen
                       Bestimmungen jederzeit das Recht auf unentgeltliche
@@ -563,12 +562,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Recht auf Einschränkung der Verarbeitung
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[74.97rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Sie haben das Recht, die Einschränkung der Verarbeitung
                       Ihrer personenbezogenen Daten zu verlangen. Hierzu können
@@ -580,91 +579,66 @@ const DSGVO: NextPage = () => {
                     </p>
                   </span>
                 </div>
-              </div>
-              <div className="self-stretch relative h-[7.88rem]">
-                <div className="absolute top-[0rem] left-[2.5rem] w-[76.5rem] h-[2.25rem] flex flex-col items-start justify-start">
-                  <div className="relative flex items-center w-[75.27rem] h-[2.19rem] shrink-0">
-                    <span className="[line-break:anywhere] w-full">
-                      <p className="m-0">
-                        Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten
-                        personenbezogenen Daten bestreiten, benötigen wir in der
-                        Regel Zeit, um dies zu überprüfen. Für die Dauer der
-                        Prüfung haben Sie das
-                      </p>
-                      <p className="m-0">
-                        Recht, die Einschränkung der Verarbeitung Ihrer
-                        personenbezogenen Daten zu verlangen.
-                      </p>
-                    </span>
-                  </div>
-                </div>
-                <div className="absolute top-[2.25rem] left-[2.5rem] flex items-center w-[69.42rem] h-[1.06rem]">
-                  Wenn die Verarbeitung Ihrer personenbezogenen Daten
-                  unrechtmäßig geschah/geschieht, können Sie statt der Löschung
-                  die Einschränkung der Datenverarbeitung verlangen.
-                </div>
-                <div className="absolute top-[5.63rem] left-[2.5rem] w-[76.5rem] h-[2.25rem] flex flex-col items-start justify-start">
-                  <div className="relative flex items-center w-[75.84rem] h-[2.19rem] shrink-0">
-                    <span className="[line-break:anywhere] w-full">
-                      <p className="m-0">
-                        Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO
-                        eingelegt haben, muss eine Abwägung zwischen Ihren und
-                        unseren Interessen vorgenommen werden. Solange noch
-                        nicht feststeht,
-                      </p>
-                      <p className="m-0">
-                        wessen Interessen überwiegen, haben Sie das Recht, die
-                        Einschränkung der Verarbeitung Ihrer personenbezogenen
-                        Daten zu verlangen.
-                      </p>
-                    </span>
-                  </div>
-                </div>
-                <div className="absolute top-[3.38rem] left-[2.5rem] w-[76.5rem] h-[2.25rem] flex flex-col items-start justify-start">
-                  <div className="relative flex items-center w-[76.14rem] h-[2.19rem] shrink-0">
-                    <span className="[line-break:anywhere] w-full">
-                      <p className="m-0">
-                        Wenn wir Ihre personenbezogenen Daten nicht mehr
-                        benötigen, Sie sie jedoch zur Ausübung, Verteidigung
-                        oder Geltendmachung von Rechtsansprüchen benötigen,
-                        haben Sie das Recht, statt
-                      </p>
-                      <p className="m-0">
-                        der Löschung die Einschränkung der Verarbeitung Ihrer
-                        personenbezogenen Daten zu verlangen.
-                      </p>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.26rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
-                    <p className="m-0">
+                <ul>
+                  <li>
+                    <p>
+                      Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten
+                      personenbezogenen Daten bestreiten, benötigen wir in der
+                      Regel Zeit, um dies zu überprüfen. Für die Dauer der
+                      Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer
+                      personenbezogenen Daten zu verlangen.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Wenn die Verarbeitung Ihrer personenbezogenen Daten
+                      unrechtmäßig geschah/geschieht, können Sie statt der Löschung
+                      die Einschränkung der Datenverarbeitung verlangen.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO
+                      eingelegt haben, muss eine Abwägung zwischen Ihren und
+                      unseren Interessen vorgenommen werden. Solange noch
+                      nicht feststeht,
+                      wessen Interessen überwiegen, haben Sie das Recht, die
+                      Einschränkung der Verarbeitung Ihrer personenbezogenen
+                      Daten zu verlangen.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Wenn wir Ihre personenbezogenen Daten nicht mehr
+                      benötigen, Sie sie jedoch zur Ausübung, Verteidigung
+                      oder Geltendmachung von Rechtsansprüchen benötigen,
+                      haben Sie das Recht, statt
+                      der Löschung die Einschränkung der Verarbeitung Ihrer
+                      personenbezogenen Daten zu verlangen.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
                       Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten
                       eingeschränkt haben, dürfen diese Daten – von ihrer
                       Speicherung abgesehen – nur mit Ihrer Einwilligung oder
                       zur Geltendmachung,
-                    </p>
-                    <p className="m-0">
                       Ausübung oder Verteidigung von Rechtsansprüchen oder zum
                       Schutz der Rechte einer anderen natürlichen oder
                       juristischen Person oder aus Gründen eines wichtigen
                       öffentlichen Interesses der
-                    </p>
-                    <p className="m-0">
                       Europäischen Union oder eines Mitgliedstaats verarbeitet
                       werden.
                     </p>
-                  </span>
-                </div>
+                  </li>
+                </ul>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 SSL- bzw. TLS-Verschlüsselung
               </b>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.41rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Diese Seite nutzt aus Sicherheitsgründen und zum Schutz
                       der Übertragung vertraulicher Inhalte, wie zum Beispiel
@@ -681,17 +655,17 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die
                 Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen
                 werden.
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Widerspruch gegen Werbe-E-Mails
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[76.18rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Der Nutzung von im Rahmen der Impressumspflicht
                       veröffentlichten Kontaktdaten zur Übersendung von nicht
@@ -707,44 +681,44 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[1.25rem] flex items-center h-[1.63rem] shrink-0">
+              <b className="self-stretch relative text-[1.25rem] flex items-center shrink-0">
                 4. Datenerfassung auf dieser Website
               </b>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Server-Log-Dateien
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Der Provider der Seiten erhebt und speichert automatisch
                 Informationen in so genannten Server-Log-Dateien, die Ihr
                 Browser automatisch an uns übermittelt. Dies sind:
               </div>
-              <div className="self-stretch h-[6.75rem] flex flex-col py-[0rem] px-[2.5rem] box-border items-start justify-start gap-[0.06rem]">
-                <div className="relative flex items-center w-[13.01rem] h-[1.06rem] shrink-0">
+              <div className="self-stretch flex flex-col py-[0rem] px-[2.5rem] box-border items-start justify-start gap-[0.06rem]">
+                <div className="relative flex items-center shrink-0">
                   Browsertyp und Browserversion
                 </div>
-                <div className="relative flex items-center w-[11.37rem] h-[1.06rem] shrink-0">
+                <div className="relative flex items-center shrink-0">
                   verwendetes Betriebssystem
                 </div>
-                <div className="relative text-[0.88rem] flex items-center w-[5.59rem] h-[1.06rem] shrink-0">
+                <div className="relative text-[0.88rem] flex items-center shrink-0">
                   Referrer URL
                 </div>
-                <div className="relative flex items-center w-[15.09rem] h-[1.06rem] shrink-0">
+                <div className="relative flex items-center shrink-0">
                   Hostname des zugreifenden Rechners
                 </div>
-                <div className="relative flex items-center w-[10.4rem] h-[1.06rem] shrink-0">
+                <div className="relative flex items-center shrink-0">
                   Uhrzeit der Serveranfrage
                 </div>
-                <div className="relative flex items-center w-[4.46rem] h-[1.06rem] shrink-0">
+                <div className="relative flex items-center shrink-0">
                   IP-Adresse
                 </div>
               </div>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Eine Zusammenführung dieser Daten mit anderen Datenquellen wird
                 nicht vorgenommen.
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.61rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Erfassung dieser Daten erfolgt auf Grundlage von Art.
                       6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein
@@ -758,12 +732,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[1.05rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[1.05rem] flex items-center shrink-0">
                 Kontaktformular
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.52rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wenn Sie uns per Kontaktformular Anfragen zukommen lassen,
                       werden Ihre Angaben aus dem Anfrageformular inklusive der
@@ -778,9 +752,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.2rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Verarbeitung dieser Daten erfolgt auf Grundlage von
                       Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der
@@ -801,9 +775,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[73.39rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die von Ihnen im Kontaktformular eingegebenen Daten
                       verbleiben bei uns, bis Sie uns zur Löschung auffordern,
@@ -819,12 +793,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Anfrage per E-Mail, Telefon oder Telefax
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.1rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wenn Sie uns per E-Mail, Telefon oder Telefax
                       kontaktieren, wird Ihre Anfrage inklusive aller daraus
@@ -838,9 +812,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.2rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Verarbeitung dieser Daten erfolgt auf Grundlage von
                       Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der
@@ -861,9 +835,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.99rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die von Ihnen an uns per Kontaktanfragen übersandten Daten
                       verbleiben bei uns, bis Sie uns zur Löschung auffordern,
@@ -879,18 +853,18 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[1.25rem] flex items-center h-[1.63rem] shrink-0">
+              <b className="self-stretch relative text-[1.25rem] flex items-center shrink-0">
                 5. Analyse-Tools und Werbung
               </b>
-              <b className="self-stretch relative text-[1.05rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[1.05rem] flex items-center shrink-0">
                 Matomo
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Diese Website benutzt den Open Source Webanalysedienst Matomo.
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.53rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Mit Hilfe von Matomo sind wir in der Lage Daten über die
                       Nutzung unserer Website durch die Websitebesucher zu
@@ -910,9 +884,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.49rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Nutzung dieses Analyse-Tools erfolgt auf Grundlage von
                       Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein
@@ -937,23 +911,23 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <b className="self-stretch relative flex items-center shrink-0">
                 Hosting
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Wir hosten Matomo ausschließlich auf unseren eigenen Servern,
                 sodass alle Analysedaten bei uns verbleiben und nicht
                 weitergegeben werden.
               </div>
-              <b className="self-stretch relative text-[1.25rem] flex items-center h-[1.63rem] shrink-0">
+              <b className="self-stretch relative text-[1.25rem] flex items-center shrink-0">
                 6. Newsletter
               </b>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 Newsletter­daten
               </b>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.75rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wenn Sie den auf der Website angebotenen Newsletter
                       beziehen möchten, benötigen wir von Ihnen eine
@@ -974,9 +948,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start text-[0.88rem]">
-                <div className="relative flex items-center w-[77.08rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start text-[0.88rem]">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Verarbeitung der in das Newsletteranmeldeformular
                       eingegebenen Daten erfolgt ausschließlich auf Grundlage
@@ -996,9 +970,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.55rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die von Ihnen zum Zwecke des Newsletter-Bezugs bei uns
                       hinterlegten Daten werden von uns bis zu Ihrer Austragung
@@ -1018,13 +992,13 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Daten, die zu anderen Zwecken bei uns gespeichert wurden,
                 bleiben hiervon unberührt.
               </div>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.5rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Nach Ihrer Austragung aus der Newsletterverteilerliste
                       wird Ihre E-Mail-Adresse bei uns bzw. dem
@@ -1053,18 +1027,18 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[1.31rem] flex items-center h-[1.63rem] shrink-0">
+              <b className="self-stretch relative text-[1.31rem] flex items-center shrink-0">
                 7. Plugins und Tools
               </b>
-              <b className="self-stretch relative text-[0.98rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[0.98rem] flex items-center shrink-0">
                 OpenStreetMap
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Wir nutzen den Kartendienst von OpenStreetMap (OSM).
               </div>
-              <div className="self-stretch h-[5.63rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[76.5rem] h-[5.56rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wir binden das Kartenmaterial von OpenStreetMap auf dem
                       Server der OpenStreetMap Foundation, St John’s Innovation
@@ -1093,9 +1067,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.92rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Nutzung von OpenStreetMap erfolgt im Interesse einer
                       ansprechenden Darstellung unserer Online-Angebote und
@@ -1121,17 +1095,17 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[1.05rem] flex items-center h-[1.31rem] shrink-0">
+              <b className="self-stretch relative text-[1.05rem] flex items-center shrink-0">
                 Friendly Captcha
               </b>
-              <div className="self-stretch relative flex items-center h-[1.06rem] shrink-0">
+              <div className="self-stretch relative flex items-center shrink-0">
                 Wir nutzen Friendly Captcha (im Folgenden „Friendly Captcha“)
                 auf dieser Website. Anbieter ist die Friendly Captcha GmbH, Am
                 Anger 3-5, 82237 Woerthsee, Deutschland.
               </div>
-              <div className="self-stretch h-[3.38rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.65rem] h-[3.31rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Mit Friendly Captcha soll überprüft werden, ob die
                       Dateneingabe auf dieser Website (z. B. in einem
@@ -1154,9 +1128,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[4.5rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[77.85rem] h-[4.44rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Die Speicherung und Analyse der Daten erfolgt auf
                       Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der
@@ -1181,12 +1155,12 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <b className="self-stretch relative text-[0.88rem] flex items-center h-[1.06rem] shrink-0">
+              <b className="self-stretch relative text-[0.88rem] flex items-center shrink-0">
                 Auftragsverarbeitung
               </b>
-              <div className="self-stretch h-[2.25rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[78.32rem] h-[2.19rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <p className="m-0">
                       Wir haben einen Vertrag über Auftragsverarbeitung (AVV)
                       zur Nutzung des oben genannten Dienstes geschlossen.
@@ -1201,9 +1175,9 @@ const DSGVO: NextPage = () => {
                   </span>
                 </div>
               </div>
-              <div className="self-stretch h-[1.13rem] flex flex-col items-start justify-start">
-                <div className="relative flex items-center w-[13.31rem] h-[1.06rem] shrink-0">
-                  <span className="[line-break:anywhere] w-full">
+              <div className="self-stretch flex flex-col items-start justify-start">
+                <div className="relative flex items-center shrink-0">
+                  <span className="w-full">
                     <span>{`Quelle: `}</span>
                     <span className="[text-decoration:underline] text-blue">
                       https://www.e-recht24.de
@@ -1215,10 +1189,10 @@ const DSGVO: NextPage = () => {
           </div>
           <Footer/>
         </div>
-        <div className="self-stretch w-[12.5rem] overflow-hidden shrink-0 lg:hidden" />
+        <Sidebar/>
       </div>
     </div>
   );
 };
 
-export default DSGVO;
+export default Dsgvo;
