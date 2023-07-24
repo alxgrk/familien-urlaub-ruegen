@@ -15,18 +15,21 @@ const AccommodationsContainer: NextPage = () => {
   }, [router]);
 
   return (
-    <div className="self-stretch flex flex-col py-[10rem] px-[0rem] items-center justify-center gap-[1rem] text-center text-[3.5rem] text-black font-title-2 md:w-auto md:[align-self:unset] md:py-[3rem] md:px-[1rem] md:box-border">
+    <div className="self-stretch flex flex-col py-[5rem] px-[2rem] items-center justify-center gap-[1rem] text-center text-[3.5rem] text-black font-title-2
+    sm:w-auto sm:[align-self:unset] sm:py-[2rem] sm:px-[1rem] sm:box-border">
       <div className="self-stretch flex flex-col items-center justify-center gap-[1rem] md:w-auto md:[align-self:unset]">
-        <b className="self-stretch relative leading-[125%] md:text-[2.63rem] sm:text-[1.63rem]">
+        <b className="self-stretch relative leading-[125%] md:text-[2.63rem] sm:text-[1.75rem]">
           Unsere Unterkünfte
         </b>
-        <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:font-medium sm:font-title-2 sm:text-[0.75rem]">
+        <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:font-title-2">
           Für alle Familiengrößen
         </div>
       </div>
-      <div className="self-stretch flex flex-row items-center justify-center min-h-[30rem] text-left text-[1rem] text-rectangle-807 lg:flex-row lg:gap-[0rem] lg:items-center lg:justify-start md:flex-col md:gap-[0rem] md:items-center md:justify-start sm:flex-col sm:gap-[0rem] sm:items-center sm:justify-start sm:max-w-[26.25rem]">
-        <div className="flex-1 rounded-xl box-border overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200 lg:flex-row lg:gap-[0rem] lg:items-center lg:justify-start md:flex-[unset] md:flex-row md:gap-[0rem] md:items-center md:justify-start md:min-h-[0rem] md:self-stretch sm:flex-col sm:gap-[0rem] sm:items-center sm:justify-start sm:flex-[unset] sm:self-stretch">
-          <div className="flex-1 h-[30rem] flex flex-col items-center justify-start md:self-stretch md:h-auto sm:h-auto sm:flex-[unset] sm:self-stretch">
+      <div className="w-full flex flex-row items-center justify-center min-h-[30rem] text-left text-[1rem] text-rectangle-807
+      lg:flex-row md:flex-col sm:flex-col sm:max-w-[26.25rem]">
+        <div className="flex-1 rounded-xl box-border overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200
+        lg:flex-row md:flex-row md:min-h-[0rem] sm:flex-col">
+          <div className="flex-1 h-[30rem] flex flex-col items-center justify-start md:h-auto sm:h-auto">
             <img
               className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
               alt=""
@@ -39,7 +42,7 @@ const AccommodationsContainer: NextPage = () => {
             />
           </div>
           <img
-            className="flex-1 relative max-w-full overflow-hidden h-[30rem] object-cover md:self-stretch md:h-auto sm:flex-[unset] sm:self-stretch"
+            className="self-stretch flex-1 relative max-w-full overflow-hidden h-[30rem] object-cover md:h-auto"
             alt=""
             src="/image21@2x.png"
           />
@@ -51,9 +54,10 @@ const AccommodationsContainer: NextPage = () => {
           onFrameContainer11Click={onReserveNowButtonSmallClick}
         />
       </div>
-      <div className="self-stretch flex flex-row items-center justify-center min-h-[30rem] lg:flex-row lg:gap-[0rem] lg:items-center lg:justify-center md:flex-col md:gap-[0rem] md:items-center md:justify-between sm:flex-col">
+      <div className="w-full flex flex-row items-center justify-center min-h-[30rem]
+       lg:flex-row md:flex-col sm:flex-col sm:max-w-[26.25rem]">
         <div className="flex-1 rounded-xl box-border h-[30rem] overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200 md:flex-[unset] md:items-center md:justify-between md:gap-[0rem] md:min-h-[0rem] md:self-stretch sm:h-auto sm:flex-col sm:flex-[unset] sm:self-stretch">
-          <div className="self-stretch flex-1 flex flex-col items-center justify-start sm:flex-[unset] sm:self-stretch">
+          <div className="self-stretch flex-1 flex flex-col items-center justify-start">
             <img
               className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
               alt=""
@@ -66,7 +70,7 @@ const AccommodationsContainer: NextPage = () => {
             />
           </div>
           <img
-            className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover sm:flex-[unset] sm:self-stretch"
+            className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
             alt=""
             src="/image13@2x.png"
           />

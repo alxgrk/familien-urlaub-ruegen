@@ -33,7 +33,7 @@ const ContainerLink: NextPage<ContainerLinkType> = ({
       className="self-stretch flex-1 flex flex-col p-[3rem] items-start justify-start z-[0] text-left text-[1rem] text-rectangle-807 font-title-2 md:flex-[unset] md:self-stretch sm:flex-col sm:flex-[unset] sm:self-stretch"
       style={rightStyle}
     >
-      <div className="self-stretch flex-1 flex flex-col items-start justify-start gap-[1.5rem] md:pb-[1rem] md:box-border">
+      <div className="self-stretch flex-1 flex flex-col items-start justify-start gap-[1.5rem] md:pb-[1rem] md:box-border sm:pb-[1rem] sm:box-border">
         <div className="self-stretch flex-1 flex flex-col items-start justify-start">
           <div className="self-stretch flex-1 relative leading-[125%]">
             {bisZu3Personen}

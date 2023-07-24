@@ -287,8 +287,8 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
         className="self-stretch flex flex-col py-[10rem] px-[0rem] items-center justify-start gap-[4rem] sm:items-center sm:justify-between sm:gap-[0rem] sm:py-[4rem] sm:px-[0rem] sm:box-border">
         <div
             className="flex flex-col items-center justify-start gap-[0.5rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border">
-            <b className="relative leading-[125%]">Unterkünfte</b>
-            <div className="relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
+            <b className="relative leading-[125%] sm:text-[2.25rem]">Unterkünfte</b>
+            <div className="relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:text-[1rem]">
                 Sehen Sie sich die verfügbaren Hütten an
             </div>
         </div>
