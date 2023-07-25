@@ -27,7 +27,7 @@ const Buchung: NextPage = () => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <div className="relative rounded-2xl bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
+      <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
         <SidePageHeader
           sidePageHeaderPosition="unset"
           sidePageHeaderWidth="unset"

@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -297,21 +296,31 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
             <div
                 className="absolute my-0 mx-[!important] top-[7.22rem] left-[calc(50%_-_1182.5px)] box-border w-[147.81rem] h-[0.06rem] z-[0] border-t-[1px] border-solid border-gray-300"/>
             <div
-                className="flex-1 flex flex-row items-center justify-start gap-[1.25rem] cursor-pointer z-[1] lg:flex-row lg:gap-[1.25rem] lg:items-center lg:justify-start md:flex-col md:gap-[1.25rem] md:items-center md:justify-start md:flex-[unset] md:self-stretch sm:flex-col sm:gap-[1.25rem] sm:items-center sm:justify-between sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:flex-[unset] sm:self-stretch"
+                className="flex-1 flex flex-row items-center justify-start gap-[1.25rem] z-[1] lg:flex-row lg:gap-[1.25rem] lg:items-center lg:justify-start md:flex-col md:gap-[1.25rem] md:items-center md:justify-start md:flex-[unset] md:self-stretch sm:flex-col sm:gap-[1.25rem] sm:items-center sm:justify-between sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:flex-[unset] sm:self-stretch"
                 onClick={onItemsContainerClick}
             >
+              <Link
+                  className="cursor-pointer [text-decoration:none] flex-1 rounded-13xl flex flex-col p-[1rem] items-start justify-start text-left text-[1.25rem] text-color-text font-title-2 md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset] sm:items-center sm:justify-between sm:gap-[0rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:min-w-[21.88rem] sm:max-w-[26.25rem]"
+                  href="/unterkuenfte#kleines-haus"
+              >
                 <RoomCard
                     image="/image1@2x.png"
                     title="Kleine Hütte"
                     description="3 Betten"
                     price="25€"
                 />
+              </Link>
+              <Link
+                  className="cursor-pointer [text-decoration:none] flex-1 rounded-13xl flex flex-col p-[1rem] items-start justify-start text-left text-[1.25rem] text-color-text font-title-2 md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset] sm:items-center sm:justify-between sm:gap-[0rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:min-w-[21.88rem] sm:max-w-[26.25rem]"
+                  href="/unterkuenfte#grosses-haus"
+              >
                 <RoomCard
                     image="/image2@2x.png"
                     title="Große Hütte"
                     description="Bis zu 6 Betten"
                     price="45€"
                 />
+              </Link>
             </div>
         </div>
     </div>;

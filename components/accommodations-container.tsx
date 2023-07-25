@@ -25,7 +25,7 @@ const AccommodationsContainer: NextPage = () => {
           Für alle Familiengrößen
         </div>
       </div>
-      <div className="w-full flex flex-row items-center justify-center min-h-[30rem] text-left text-[1rem] text-rectangle-807
+      <div id="kleines-haus" className="w-full flex flex-row items-center justify-center min-h-[30rem] text-left text-[1rem] text-rectangle-807
       lg:flex-row md:flex-col sm:flex-col sm:max-w-[26.25rem]">
         <div className="flex-1 rounded-xl box-border overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200
         lg:flex-row md:flex-row md:min-h-[0rem] sm:flex-col">
@@ -54,7 +54,7 @@ const AccommodationsContainer: NextPage = () => {
           onFrameContainer11Click={onReserveNowButtonSmallClick}
         />
       </div>
-      <div className="w-full flex flex-row items-center justify-center min-h-[30rem]
+      <div id="grosses-haus" className="w-full flex flex-row items-center justify-center min-h-[30rem]
        lg:flex-row md:flex-col sm:flex-col sm:max-w-[26.25rem]">
         <div className="flex-1 rounded-xl box-border h-[30rem] overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200 md:flex-[unset] md:items-center md:justify-between md:gap-[0rem] md:min-h-[0rem] md:self-stretch sm:h-auto sm:flex-col sm:flex-[unset] sm:self-stretch">
           <div className="self-stretch flex-1 flex flex-col items-center justify-start">

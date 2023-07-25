@@ -98,7 +98,7 @@ const Footer: NextPage<FooterType> = (props) => {
   }, [router]);
 
   const onDatenschutzClick = useCallback(() => {
-    router.push("/d-s-g-v-o");
+    router.push("/dsgvo");
   }, [router]);
 
   const onImpressumClick = useCallback(() => {

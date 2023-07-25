@@ -15,10 +15,7 @@ const RoomCard: NextPage<RoomCardType> = ({
   price,
 }) => {
   return (
-    <Link
-      className="cursor-pointer [text-decoration:none] flex-1 rounded-13xl flex flex-col p-[1rem] items-start justify-start text-left text-[1.25rem] text-color-text font-title-2 md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset] sm:items-center sm:justify-between sm:gap-[0rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:min-w-[21.88rem] sm:max-w-[26.25rem]"
-      href="/unterkuenfte"
-    >
+    <div>
       <img
         className="self-stretch rounded-xl max-w-full overflow-hidden h-[25rem] shrink-0 object-cover sm:w-auto sm:[align-self:unset] sm:flex-1 sm:pl-[0rem] sm:pr-[0rem] sm:box-border"
         alt=""
@@ -38,7 +35,7 @@ const RoomCard: NextPage<RoomCardType> = ({
           <div className="relative text-[1rem] leading-[125%]">/ Nacht</div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
