@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
-import { useMemo } from "react";
+import {useCallback, useMemo} from "react";
 import CSS, { Property } from "csstype";
+import {useRouter} from "next/router";
+import Link from "next/link";
 
 type NavbarType = {
   hamburgerMenu?: string;
@@ -22,43 +24,55 @@ type NavbarType = {
   navigationMenuFlex?: Property.Flex;
   navigationMenuBoxSizing?: Property.BoxSizing;
   navigationMenuJustifyContent?: Property.JustifyContent;
-  startFontSize?: Property.FontSize;
-  unterknfteFontSize?: Property.FontSize;
-  buchungFontSize?: Property.FontSize;
-  lageFontSize?: Property.FontSize;
-  impressumFontSize?: Property.FontSize;
   mobileNavigationMenuHeight?: Property.Height;
   hamburgerMenuIconWidth?: Property.Width;
   hamburgerMenuIconHeight?: Property.Height;
 };
 
-const Navbar: NextPage<NavbarType> = ({
-  hamburgerMenu,
-  mobileNavigationMenu,
-  navbarHeight,
-  navbarPadding,
-  navbarAlignSelf,
-  navbarJustifyContent,
-  logoHeight,
-  logoPadding,
-  logoFlex,
-  logoBoxSizing,
-  cayoBeachFontSize,
-  navigationMenuHeight,
-  navigationMenuPadding,
-  navigationMenuGap,
-  navigationMenuFlex,
-  navigationMenuBoxSizing,
-  navigationMenuJustifyContent,
-  startFontSize,
-  unterknfteFontSize,
-  buchungFontSize,
-  lageFontSize,
-  impressumFontSize,
-  mobileNavigationMenuHeight,
-  hamburgerMenuIconWidth,
-  hamburgerMenuIconHeight,
-}) => {
+const defaultProps = {
+  hamburgerMenu: "/notification.svg",
+  mobileNavigationMenu: false,
+  navbarHeight: "5.63rem",
+  navbarPadding: "0.63rem 0rem",
+  navbarAlignSelf: "stretch",
+  navbarJustifyContent: "flex-start",
+  logoHeight: "3.75rem",
+  logoPadding: "0rem 3.13rem",
+  logoFlex: "1",
+  logoBoxSizing: "border-box",
+  cayoBeachFontSize: "2.5rem",
+  navigationMenuFlex: "1",
+  navigationMenuBoxSizing: "border-box",
+  navigationMenuJustifyContent: "flex-end",
+  mobileNavigationMenuHeight: "3.75rem",
+  hamburgerMenuIconWidth: "1.49rem",
+  hamburgerMenuIconHeight: "1.5rem",
+}
+
+const Navbar: NextPage<NavbarType> = (props) => {
+  const {
+    hamburgerMenu,
+    mobileNavigationMenu,
+    navbarHeight,
+    navbarPadding,
+    navbarAlignSelf,
+    navbarJustifyContent,
+    logoHeight,
+    logoPadding,
+    logoFlex,
+    logoBoxSizing,
+    cayoBeachFontSize,
+    navigationMenuHeight,
+    navigationMenuPadding,
+    navigationMenuGap,
+    navigationMenuFlex,
+    navigationMenuBoxSizing,
+    navigationMenuJustifyContent,
+    mobileNavigationMenuHeight,
+    hamburgerMenuIconWidth,
+    hamburgerMenuIconHeight,
+  } = Object.assign({}, defaultProps, props);
+
   const navbarStyle: CSS.Properties = useMemo(() => {
     return {
       position: "unset",
@@ -108,36 +122,6 @@ const Navbar: NextPage<NavbarType> = ({
     navigationMenuJustifyContent,
   ]);
 
-  const startStyle: CSS.Properties = useMemo(() => {
-    return {
-      fontSize: startFontSize,
-    };
-  }, [startFontSize]);
-
-  const unterknfteStyle: CSS.Properties = useMemo(() => {
-    return {
-      fontSize: unterknfteFontSize,
-    };
-  }, [unterknfteFontSize]);
-
-  const buchungStyle: CSS.Properties = useMemo(() => {
-    return {
-      fontSize: buchungFontSize,
-    };
-  }, [buchungFontSize]);
-
-  const lageStyle: CSS.Properties = useMemo(() => {
-    return {
-      fontSize: lageFontSize,
-    };
-  }, [lageFontSize]);
-
-  const impressumStyle: CSS.Properties = useMemo(() => {
-    return {
-      fontSize: impressumFontSize,
-    };
-  }, [impressumFontSize]);
-
   const mobileNavigationMenuStyle: CSS.Properties = useMemo(() => {
     return {
       height: mobileNavigationMenuHeight,
@@ -150,6 +134,32 @@ const Navbar: NextPage<NavbarType> = ({
       height: hamburgerMenuIconHeight,
     };
   }, [hamburgerMenuIconWidth, hamburgerMenuIconHeight]);
+
+  const router = useRouter();
+
+  const onStartClick = useCallback(() => {
+    router.push("/");
+  }, [router]);
+
+  const onUnterknfteClick = useCallback(() => {
+    router.push("/unterkuenfte");
+  }, [router]);
+
+  const onBuchungClick = useCallback(() => {
+    router.push("/buchung");
+  }, [router]);
+
+  const onLageClick = useCallback(() => {
+    router.push("/lage");
+  }, [router]);
+
+  const onDatenschutzClick = useCallback(() => {
+    router.push("/d-s-g-v-o");
+  }, [router]);
+
+  const onImpressumClick = useCallback(() => {
+    router.push("/impressum");
+  }, [router]);
 
   return (
     <div
@@ -168,6 +178,7 @@ const Navbar: NextPage<NavbarType> = ({
           className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-21xl
           leading-[100%] font-belleza text-light-text-color text-left inline-block [backdrop-filter:blur(4px)]"
           style={cayoBeachStyle}
+          onClick={onStartClick}
         >
           Familienurlaub Rügen
         </button>
@@ -177,30 +188,41 @@ const Navbar: NextPage<NavbarType> = ({
         box-border items-center justify-end gap-[10%] md:hidden md:items-end md:justify-center sm:hidden"
         style={navigationMenuStyle}
       >
-        <div className="relative leading-[125%] font-medium" style={startStyle}>
-          Start
-        </div>
-        <div
-          className="relative leading-[125%] font-medium"
-          style={unterknfteStyle}
+        <Link
+            className="cursor-pointer [text-decoration:none] hover:underline visited:text-white relative leading-[125%] font-medium text-[1rem]"
+            href="/unterkuenfte"
+            onClick={onUnterknfteClick}
         >
           Unterkünfte
-        </div>
-        <div
-          className="relative leading-[125%] font-medium"
-          style={buchungStyle}
+        </Link>
+        <Link
+            className="cursor-pointer [text-decoration:none] hover:underline visited:text-white relative leading-[125%] font-medium text-[1rem]"
+            href="/buchung"
+            onClick={onBuchungClick}
         >
           Buchung
-        </div>
-        <div className="relative leading-[125%] font-medium" style={lageStyle}>
+        </Link>
+        <Link
+            className="cursor-pointer [text-decoration:none] hover:underline visited:text-white relative leading-[125%] font-medium text-[1rem]"
+            href="/lage"
+            onClick={onLageClick}
+        >
           Lage
-        </div>
-        <div
-          className="relative leading-[125%] font-medium"
-          style={impressumStyle}
+        </Link>
+        <Link
+            className="cursor-pointer [text-decoration:none] hover:underline visited:text-white relative leading-[125%] font-medium text-[1rem]"
+            href="/dsgvo"
+            onClick={onDatenschutzClick}
+        >
+          Datenschutzerklärung
+        </Link>
+        <Link
+            className="cursor-pointer [text-decoration:none] hover:underline visited:text-white relative leading-[125%] font-medium text-[1rem]"
+            href="/impressum"
+            onClick={onImpressumClick}
         >
           Impressum
-        </div>
+        </Link>
       </div>
       {!mobileNavigationMenu && (
         <div

@@ -19,28 +19,14 @@ const Unterkuenfte: NextPage = () => {
   }, [router]);
 
   return (
-    <div className="relative rounded-2xl bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
+    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
       <SidePageHeader
-        hamburgerMenu="/notification2.svg"
-        mobileNavigationMenu={false}
         sidePageHeaderPosition="unset"
         sidePageHeaderWidth="unset"
         sidePageHeaderHeight="20.81rem"
         sidePageHeaderAlignSelf="stretch"
         sidePageHeaderHeight1="5.63rem"
         sidePageHeaderPadding="0.63rem 1rem"
-        navbarHeight="3.75rem"
-        logoFontSize="2.5rem"
-        cayoBeachHeight="3.75rem"
-        cayoBeachGap="3.31rem"
-        navigationMenuFontSize="1rem"
-        startFontSize="1rem"
-        unterknfteFontSize="1rem"
-        buchungFontSize="1rem"
-        lageFontSize="1rem"
-        impressumHeight="3.75rem"
-        mobileNavigationMenuWidth="1.49rem"
-        mobileNavigationMenuHeight="1.5rem"
       />
       <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
         <Sidebar />
