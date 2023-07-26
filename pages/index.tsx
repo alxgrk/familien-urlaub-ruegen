@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useCallback } from "react";
+import {useCallback, useMemo, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MainPageHeader from "../components/main-page-header";
@@ -7,50 +7,113 @@ import Sidebar from "../components/Sidebar";
 import FlexRow from "../components/flex-row";
 import RoomCard from "../components/room-card";
 import Footer from "../components/footer";
+import {DatePicker} from "@mui/x-date-pickers";
+import {TextField} from "@mui/material";
+import CSS from "csstype";
 
-const BookingStrip: NextPage<{onSearchButtonClick: () => void}> = ({onSearchButtonClick}) => {
+const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date, numErwachsene: number, numKinder: number) => void}> = ({onSearchButtonClick}) => {
+  const [anreiseTag, setAnreiseTag] = useState(new Date());
+  const [abreiseTag, setAbreiseTag] = useState(new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000));
+  const minAbreiseTag = useMemo(() => {
+    const minAbreise = new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const selectedAbreise = abreiseTag;
+    return minAbreise.getTime() < selectedAbreise.getTime() ? selectedAbreise : minAbreise;
+  }, [anreiseTag]);
+
+  const [numErwachsene, setNumErwachsene] = useState(2);
+  const [numKinder, setNumKinder] = useState(0);
+
   return <div className="w-full flex flex-row items-center justify-center gap-[2rem] text-[0.81rem] text-dimgray-200 box-border border-b-[1px] border-solid border-gray-300">
     <div
       className="self-center flex flex-row py-[3rem] items-center justify-start gap-[2rem] text-[0.81rem] text-dimgray-200
       lg:flex-row lg:justify-between
-      md:flex-col md:justify-center
-      sm:flex-col sm:justify-center">
+      md:flex-col md:justify-center md:gap-[0.5rem]
+      sm:flex-col sm:justify-center sm:gap-[0.5rem]">
     <div
-        className="self-stretch flex-1 rounded-81xl flex flex-col py-[1rem] px-[0.5rem] items-center justify-center md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:flex-[unset]">
-      <div className="relative leading-[125%]">Anreisetag</div>
-      <div className="relative text-[1rem] leading-[125%] text-black">
-        10 Juni 2023
-      </div>
+        className="self-stretch flex-1 rounded-81xl flex flex-col py-[1rem] px-[0.5rem] items-center justify-center
+        md:flex-[unset] md:self-stretch
+        sm:w-auto sm:self-stretch sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:flex-[unset]">
+      <DatePicker
+          className="relative text-[1rem] leading-[125%] text-black"
+          label="Anreisetag"
+          value={anreiseTag}
+          onChange={(v: any) => {
+            setAnreiseTag(v)
+          }}
+          slotProps={{
+            textField: {
+              variant: "standard",
+              size: "medium",
+              required: true,
+              color: "primary",
+            },
+          }}
+      />
     </div>
-    <div className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300"/>
+    <div className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300 sm:hidden md:hidden"/>
     <div
         className="self-stretch flex-1 rounded-81xl flex flex-col py-[1rem] px-[0.5rem] items-center justify-center md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
-      <div className="relative leading-[125%]">Abreisetag</div>
-      <div className="relative text-[1rem] leading-[125%] text-black">
-        15 Juni 2023
-      </div>
+      <DatePicker
+          className="relative text-[1rem] leading-[125%] text-black"
+          label="Abreisetag"
+          value={minAbreiseTag}
+          onChange={(v: any) => {
+            setAbreiseTag(v)
+          }}
+          slotProps={{
+            textField: {
+              variant: "standard",
+              size: "medium",
+              required: true,
+              color: "primary",
+            },
+          }}
+      />
     </div>
-    <div
-        className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300 sm:w-[0.06rem]"/>
+    <div className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300 sm:w-[0.06rem]"/>
     <div
         className="self-stretch flex-1 rounded-81xl flex flex-row py-[1rem] px-[0.5rem] items-center justify-center gap-[0.75rem] md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
-      <div className="overflow-hidden flex flex-col items-start justify-center">
+      <div className="flex flex-col items-start justify-center">
         <img
             className="relative w-[1.37rem] h-[1.06rem]"
             alt=""
             src="/vector.svg"
         />
       </div>
-      <div className="flex flex-col items-start justify-center gap-[0.5rem]">
+      <div className="flex flex-col items-start justify-center gap-[0.5rem] sm:flex-col md:flex-col">
         <div className="relative leading-[125%]">Unterkunft für</div>
-        <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-black">
-          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[4.69rem]">
-            <div className="relative leading-[125%]">2</div>
+        <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-black sm:flex-col md:flex-col">
+          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[5rem]
+           sm:self-start sm:min-w-[1rem]
+           md:self-start md:min-w-[1rem]">
+            <TextField
+                type="number"
+                className="self-stretch  relative leading-[125%]"
+                value={numErwachsene}
+                variant="standard"
+                onChange={(v: any) => {
+                  const value = v.target.value;
+                  if (value < 0 ) return;
+                  setNumErwachsene(value)
+                }}
+            />
             <div className="flex-1 relative leading-[125%]">Erw.</div>
           </div>
-          <div className="relative leading-[125%]">-</div>
-          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[4.69rem]">
-            <div className="relative leading-[125%]">0</div>
+          <div className="relative leading-[125%] sm:hidden md:hidden">-</div>
+          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[6rem]
+           sm:self-start sm:min-w-[1rem]
+           md:self-start md:min-w-[1rem]">
+            <TextField
+                type="number"
+                className="self-stretch  relative leading-[125%]"
+                value={numKinder}
+                variant="standard"
+                onChange={(v: any) => {
+                  const value = v.target.value;
+                  if (value < 0 ) return;
+                  setNumKinder(value)
+                }}
+            />
             <div className="flex-1 relative leading-[125%]">
               Kinder
             </div>
@@ -59,11 +122,12 @@ const BookingStrip: NextPage<{onSearchButtonClick: () => void}> = ({onSearchButt
       </div>
     </div>
     <button
-        className="cursor-pointer min-w-[40%] [border:none] py-[1rem] px-[0.5rem] bg-rectangle-805 flex-1 rounded-45xl
+        className="cursor-pointer min-w-[30%] [border:none] py-[1rem] px-[0.5rem] bg-rectangle-805 flex-1 rounded-45xl
         shadow-[0px_138px_39px_rgba(0,_0,_0,_0),_0px_89px_35px_rgba(0,_0,_0,_0.01),_0px_50px_30px_rgba(0,_0,_0,_0.05),_0px_22px_22px_rgba(0,_0,_0,_0.09),_0px_6px_12px_rgba(0,_0,_0,_0.1),_0px_0px_0px_rgba(0,_0,_0,_0.1)]
         flex flex-row items-center justify-center gap-[0.5rem]
-        md:flex-[unset] md:self-stretch sm:self-stretch sm:w-auto sm:pl-[0.5rem] sm:pr-[0.5rem] sm:box-border sm:flex-[unset]"
-        onClick={onSearchButtonClick}
+        md:min-w-[40%] md:flex-[unset] md:self-stretch
+        sm:min-w-[40%] sm:self-stretch sm:w-auto sm:pl-[0.5rem] sm:pr-[0.5rem] sm:box-border sm:flex-[unset]"
+        onClick={() => onSearchButtonClick(anreiseTag, abreiseTag, numErwachsene, numKinder)}
     >
       <img
           className="relative w-[1.5rem] h-[1.5rem] overflow-hidden shrink-0"
@@ -329,8 +393,8 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
 const Homepage: NextPage = () => {
   const router = useRouter();
 
-  const onSearchButtonClick = useCallback(() => {
-    router.push("/buchung");
+  const onSearchButtonClick = useCallback((anreise: Date, abreise: Date, numErwachsene: number, numKinder: number) => {
+    router.push(`/buchung?anreise=${anreise.toISOString()}&abreise=${abreise.toISOString()}&numErwachsene=${numErwachsene}&numKinder=${numKinder}`);
   }, [router]);
 
   const onLinkClick = useCallback(() => {

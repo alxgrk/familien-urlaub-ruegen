@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
 import "./global.css";
 
@@ -28,11 +30,13 @@ export default function MyApp(props: any) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <ThemeProvider theme={muiTheme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <ThemeProvider theme={muiTheme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+      </LocalizationProvider>
     </React.Fragment>
   );
 }

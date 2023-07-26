@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState, useCallback } from "react";
+import {useState, useCallback, useMemo} from "react";
 import {
   TextField,
   FormControl,
@@ -7,26 +7,36 @@ import {
   FormHelperText,
   Select,
 } from "@mui/material";
-import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { DatePicker } from "@mui/x-date-pickers";
 import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
 import Sidebar from "../components/Sidebar";
 
 const Buchung: NextPage = () => {
-  const [
-    birthdayChild1,
-    setBirthdayChild1,
-  ] = useState<string | null>(null);
   const router = useRouter();
 
   const onSendButtonContainerClick = useCallback(() => {
     router.push("/buchung");
   }, [router]);
 
+  const [anreiseTag, setAnreiseTag] = useState(router.query["anreise"] ? new Date(router.query["anreise"] as string) : new Date());
+  const [abreiseTag, setAbreiseTag] = useState(router.query["abreise"] ? new Date(router.query["abreise"] as string) : new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000));
+  const minAbreiseTag = useMemo(() => {
+    const minAbreise = new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const selectedAbreise = abreiseTag;
+    return minAbreise.getTime() < selectedAbreise.getTime() ? selectedAbreise : minAbreise;
+  }, [anreiseTag]);
+
+  const [numErwachsene, setNumErwachsene] = useState(router.query["numErwachsene"] ?? 2);
+  const [numKinder, setNumKinder] = useState(router.query["numKinder"] ?? 0);
+
+  const [
+    birthdayChild1,
+    setBirthdayChild1,
+  ] = useState<string | null>(null);
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
         <SidePageHeader
           sidePageHeaderPosition="unset"
@@ -111,14 +121,19 @@ const Buchung: NextPage = () => {
                         variant="standard"
                         required
                       >
-                        <InputLabel color="primary">
-                          Anzahl Erwachsene
-                        </InputLabel>
-                        <Select
-                          color="primary"
-                          defaultValue="2"
-                          size="medium"
-                          label="Anzahl Erwachsene"
+                        <TextField
+                            type="number"
+                            color="primary"
+                            size="medium"
+                            label="Anzahl Erwachsene"
+                            className="self-stretch relative leading-[125%]"
+                            value={numErwachsene}
+                            variant="standard"
+                            onChange={(v: any) => {
+                              const value = v.target.value;
+                              if (value < 0 ) return;
+                              setNumErwachsene(value)
+                            }}
                         />
                         <FormHelperText />
                       </FormControl>
@@ -129,12 +144,19 @@ const Buchung: NextPage = () => {
                         variant="standard"
                         required
                       >
-                        <InputLabel color="primary">Anzahl Kinder</InputLabel>
-                        <Select
-                          color="primary"
-                          defaultValue="0"
-                          size="medium"
-                          label="Anzahl Kinder"
+                        <TextField
+                            type="number"
+                            color="primary"
+                            size="medium"
+                            label="Anzahl Kinder"
+                            className="self-stretch relative leading-[125%]"
+                            value={numKinder}
+                            variant="standard"
+                            onChange={(v: any) => {
+                              const value = v.target.value;
+                              if (value < 0 ) return;
+                              setNumKinder(value)
+                            }}
                         />
                         <FormHelperText />
                       </FormControl>
@@ -177,7 +199,6 @@ const Buchung: NextPage = () => {
           <Sidebar/>
         </div>
       </div>
-    </LocalizationProvider>
   );
 };
 
