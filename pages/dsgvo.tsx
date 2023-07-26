@@ -77,7 +77,7 @@ const Dsgvo: NextPage = () => {
               </b>
               <div className="self-stretch relative flex items-center shrink-0">
                 Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese
-                mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie
+                mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie
                 in ein Kontaktformular eingeben.
               </div>
               <div className="self-stretch flex flex-col items-start justify-start">
@@ -87,7 +87,7 @@ const Dsgvo: NextPage = () => {
                       Andere Daten werden automatisch oder nach Ihrer
                       Einwilligung beim Besuch der Website durch unsere
                       IT-Systeme erfasst. Das sind vor allem technische Daten
-                      (z. B. Internetbrowser,
+                      (z. B. Internetbrowser,
                     </p>
                     <p className="m-0">
                       Betriebssystem oder Uhrzeit des Seitenaufrufs). Die
@@ -150,16 +150,14 @@ const Dsgvo: NextPage = () => {
                 <div className="relative flex items-center shrink-0">
                   <span className="w-full">
                     <p className="m-0">
-                      Diese Website wird extern gehostet. Die personenbezogenen
-                      Daten, die auf dieser Website erfasst werden, werden auf
-                      den Servern des Hosters / der Hoster gespeichert. Hierbei
-                      kann es sich v. a. um
-                    </p>
-                    <p className="m-0">
-                      IP-Adressen, Kontaktanfragen, Meta- und
-                      Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen,
-                      Websitezugriffe und sonstige Daten, die über eine Website
-                      generiert werden, handeln.
+                      Diese Website wird bei dem externen Dienstleister Netlify (https://www.netlify.com) gehostet (Hoster).
+                      Der Hoster verarbeitet Ihre IP-Adresse und speichert diese in Logfiles.
+                      Personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.
+                      Hierbei kann es sich v.a. um Kontaktanfragen, Meta- und Kommunikationsdaten, Kontaktdaten, Namen, Webseitenzugriffe und sonstige Daten,
+                      die über die Website generiert werden, handeln.
+                      Die Datenverarbeitung findet automatisiert statt und ist nötig für die Bereitstellung und die Sicherheit des Webangebots sowie dessen Verbesserung.
+                      Diese Informationen sind nachzulesen in der Datenschutzerklärung von Netlify (https://www.netlify.com/privacy/),
+                      sowie den DSGVO-Richtlinien von Netlify (https://www.netlify.com/gdpr/).
                     </p>
                   </span>
                 </div>
@@ -186,7 +184,7 @@ const Dsgvo: NextPage = () => {
                       auf Informationen im
                     </p>
                     <p className="m-0">
-                      Endgerät des Nutzers (z. B. Device-Fingerprinting) im
+                      Endgerät des Nutzers (z.B. Device-Fingerprinting) im
                       Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit
                       widerrufbar.
                     </p>
@@ -199,18 +197,6 @@ const Dsgvo: NextPage = () => {
                 erforderlich ist und unsere Weisungen in Bezug auf diese Daten
                 befolgen.
               </div>
-              <div className="self-stretch relative flex items-center shrink-0">
-                Wir setzen folgende(n) Hoster ein:
-              </div>
-              <div className="self-stretch flex flex-col items-start justify-start">
-                <div className="relative flex items-center shrink-0">
-                  <span className="w-full">
-                    <p className="m-0">Musterhosting AG</p>
-                    <p className="m-0">Musterweg 100</p>
-                    <p className="m-0">90210 Musterstadt</p>
-                  </span>
-                </div>
-              </div>
               <b className="self-stretch relative text-[0.88rem] flex items-center shrink-0">
                 Auftragsverarbeitung
               </b>
@@ -221,10 +207,7 @@ const Dsgvo: NextPage = () => {
                       Wir haben einen Vertrag über Auftragsverarbeitung (AVV)
                       zur Nutzung des oben genannten Dienstes geschlossen.
                       Hierbei handelt es sich um einen datenschutzrechtlich
-                      vorgeschriebenen Vertrag,
-                    </p>
-                    <p className="m-0">
-                      der gewährleistet, dass dieser die personenbezogenen Daten
+                      vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten
                       unserer Websitebesucher nur nach unseren Weisungen und
                       unter Einhaltung der DSGVO verarbeitet.
                     </p>
@@ -274,7 +257,7 @@ const Dsgvo: NextPage = () => {
                   <span className="w-full">
                     <p className="m-0">
                       Wir weisen darauf hin, dass die Datenübertragung im
-                      Internet (z. B. bei der Kommunikation per E-Mail)
+                      Internet (z. B. bei der Kommunikation per E-Mail)
                       Sicherheitslücken aufweisen kann. Ein lückenloser Schutz
                       der Daten vor dem Zugriff durch
                     </p>
@@ -292,17 +275,18 @@ const Dsgvo: NextPage = () => {
               <div className="self-stretch flex flex-col items-start justify-start">
                 <div className="relative flex items-center shrink-0">
                   <span className="w-full">
-                    <p className="m-0">Beispielfirma</p>
-                    <p className="m-0">Musterweg 10</p>
-                    <p className="m-0">90210 Musterstadt</p>
+                    <p className="m-0">Rügen Grundstücks GbR</p>
+                    <p className="m-0">c/o Christine Girke</p>
+                    <p className="m-0">Gartenweg 3</p>
+                    <p className="m-0">04463 Großpösna</p>
                   </span>
                 </div>
               </div>
               <div className="self-stretch flex flex-col items-start justify-start">
                 <div className="relative flex items-center shrink-0">
                   <span className="w-full">
-                    <p className="m-0">Telefon: +49 (0) 123 44 55 66</p>
-                    <p className="m-0">E-Mail: info@beispielfirma.de</p>
+                    <p className="m-0">Telefon: +49 151 64681052</p>
+                    <p className="m-0">E-Mail: info@familien-urlaub-ruegen.de</p>
                   </span>
                 </div>
               </div>
@@ -313,9 +297,7 @@ const Dsgvo: NextPage = () => {
                       Verantwortliche Stelle ist die natürliche oder juristische
                       Person, die allein oder gemeinsam mit anderen über die
                       Zwecke und Mittel der Verarbeitung von personenbezogenen
-                      Daten (z. B. Namen,
-                    </p>
-                    <p className="m-0">E-Mail-Adressen o. Ä.) entscheidet.</p>
+                      Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
                   </span>
                 </div>
               </div>
@@ -339,7 +321,7 @@ const Dsgvo: NextPage = () => {
                     </p>
                     <p className="m-0">
                       Gründe für die Speicherung Ihrer personenbezogenen Daten
-                      haben (z. B. steuer- oder handelsrechtliche
+                      haben (z. B. steuer- oder handelsrechtliche
                       Aufbewahrungsfristen); im letztgenannten Fall erfolgt die
                       Löschung nach Fortfall dieser
                     </p>
@@ -370,7 +352,7 @@ const Dsgvo: NextPage = () => {
                       Datenverarbeitung außerdem auf Grundlage von Art. 49 Abs.
                       1 lit. a DSGVO. Sofern Sie in die Speicherung von Cookies
                       oder in den Zugriff auf Informationen in Ihr Endgerät
-                      (z. B. via Device-
+                      (z. B. via Device-
                     </p>
                     <p className="m-0">
                       Fingerprinting) eingewilligt haben, erfolgt die
@@ -771,7 +753,7 @@ const Dsgvo: NextPage = () => {
                       Zweck für die
                     </p>
                     <p className="m-0">
-                      Datenspeicherung entfällt (z. B. nach abgeschlossener
+                      Datenspeicherung entfällt (z. B. nach abgeschlossener
                       Bearbeitung Ihrer Anfrage). Zwingende gesetzliche
                       Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben
                       unberührt.
@@ -831,7 +813,7 @@ const Dsgvo: NextPage = () => {
                       Zweck für die
                     </p>
                     <p className="m-0">
-                      Datenspeicherung entfällt (z. B. nach abgeschlossener
+                      Datenspeicherung entfällt (z. B. nach abgeschlossener
                       Bearbeitung Ihres Anliegens). Zwingende gesetzliche
                       Bestimmungen – insbesondere gesetzliche
                       Aufbewahrungsfristen – bleiben unberührt.
@@ -854,18 +836,18 @@ const Dsgvo: NextPage = () => {
                     <p className="m-0">
                       Mit Hilfe von Matomo sind wir in der Lage Daten über die
                       Nutzung unserer Website durch die Websitebesucher zu
-                      erfassen und zu analysieren. Hierdurch können wir u. a.
+                      erfassen und zu analysieren. Hierdurch können wir u. a.
                       herausfinden, wann
                     </p>
                     <p className="m-0">
                       welche Seitenaufrufe getätigt wurden und aus welcher
                       Region sie kommen. Außerdem erfassen wir verschiedene
-                      Logdateien (z. B. IP-Adresse, Referrer, verwendete Browser
+                      Logdateien (z. B. IP-Adresse, Referrer, verwendete Browser
                       und Betriebssysteme)
                     </p>
                     <p className="m-0">
                       und können messen, ob unsere Websitebesucher bestimmte
-                      Aktionen durchführen (z. B. Klicks, Käufe u. Ä.).
+                      Aktionen durchführen (z. B. Klicks, Käufe u. Ä.).
                     </p>
                   </span>
                 </div>
@@ -888,7 +870,7 @@ const Dsgvo: NextPage = () => {
                     <p className="m-0">
                       und § 25 Abs. 1 TTDSG, soweit die Einwilligung die
                       Speicherung von Cookies oder den Zugriff auf Informationen
-                      im Endgerät des Nutzers (z. B. Device-Fingerprinting) im
+                      im Endgerät des Nutzers (z. B. Device-Fingerprinting) im
                       Sinne des TTDSG
                     </p>
                     <p className="m-0">
@@ -1040,7 +1022,7 @@ const Dsgvo: NextPage = () => {
                     <p className="m-0">
                       entspricht. Bei der Nutzung der OpenStreetMap-Karten wird
                       eine Verbindung zu den Servern der
-                      OpenStreetMap-Foundation hergestellt. Dabei können u. a.
+                      OpenStreetMap-Foundation hergestellt. Dabei können u. a.
                       Ihre IP-Adresse und weitere
                     </p>
                     <p className="m-0">
@@ -1072,7 +1054,7 @@ const Dsgvo: NextPage = () => {
                       von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG,
                       soweit die Einwilligung die Speicherung von Cookies oder
                       den Zugriff auf Informationen im Endgerät des Nutzers
-                      (z. B. Device-
+                      (z. B. Device-
                     </p>
                     <p className="m-0">
                       Fingerprinting) im Sinne des TTDSG umfasst. Die
@@ -1094,7 +1076,7 @@ const Dsgvo: NextPage = () => {
                   <span className="w-full">
                     <p className="m-0">
                       Mit Friendly Captcha soll überprüft werden, ob die
-                      Dateneingabe auf dieser Website (z. B. in einem
+                      Dateneingabe auf dieser Website (z. B. in einem
                       Kontaktformular) durch einen Menschen oder durch ein
                       automatisiertes Programm erfolgt.
                     </p>
@@ -1102,7 +1084,7 @@ const Dsgvo: NextPage = () => {
                       Hierzu analysiert Friendly Captcha das Verhalten des
                       Websitebesuchers anhand verschiedener Merkmale. Zur
                       Analyse wertet Friendly Captcha verschiedene Informationen
-                      aus (z. B. anonymisierte
+                      aus (z. B. anonymisierte
                     </p>
                     <p className="m-0">
                       <span>{`IP-Adresse, Referrer, Besuchszeit etc.). Weitere Informationen hierzu finden Sie unter: `}</span>
@@ -1132,7 +1114,7 @@ const Dsgvo: NextPage = () => {
                     <p className="m-0">
                       DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die
                       Speicherung von Cookies oder den Zugriff auf Informationen
-                      im Endgerät des Nutzers (z. B. Device-Fingerprinting) im
+                      im Endgerät des Nutzers (z. B. Device-Fingerprinting) im
                       Sinne des
                     </p>
                     <p className="m-0">
