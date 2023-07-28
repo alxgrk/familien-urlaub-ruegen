@@ -87,7 +87,7 @@ const Buchung: NextPage = () => {
                   <form data-netlify="true"
                         name="contact-form"
                         method="POST"
-                        // action="buchung/?erfolg=true"
+                        action="/success"
                         className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                       <TextField
