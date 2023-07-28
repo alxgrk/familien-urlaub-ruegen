@@ -260,6 +260,7 @@ const Navbar: NextPage<NavbarType> = (props) => {
               .map(({href, text, onClick}) => (
                 <Link
                     className="cursor-pointer [text-decoration:none] hover:underline visited:text-white relative leading-[125%] font-medium text-[0.9rem]"
+                    key={text}
                     href={href}
                     onClick={onClick}
                 >

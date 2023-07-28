@@ -12,13 +12,19 @@ import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
 import Sidebar from "../components/Sidebar";
+import {BaseRouter} from "next/dist/shared/lib/router/router";
+
+function parseQueryParam(router: BaseRouter, key: string, defaultValue: number) {
+  const rawValue = router.query[key];
+  if (rawValue === undefined) {
+    return defaultValue;
+  }
+  const value = Array.isArray(rawValue) ? rawValue[0] : rawValue;
+  return Number.parseInt(value);
+}
 
 const Buchung: NextPage = () => {
   const router = useRouter();
-
-  const onSendButtonContainerClick = useCallback(() => {
-    router.push("/buchung");
-  }, [router]);
 
   const [anreiseTag, setAnreiseTag] = useState(router.query["anreise"] ? new Date(router.query["anreise"] as string) : new Date());
   const [abreiseTag, setAbreiseTag] = useState(router.query["abreise"] ? new Date(router.query["abreise"] as string) : new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000));
@@ -28,13 +34,15 @@ const Buchung: NextPage = () => {
     return minAbreise.getTime() < selectedAbreise.getTime() ? selectedAbreise : minAbreise;
   }, [anreiseTag]);
 
-  const [numErwachsene, setNumErwachsene] = useState(router.query["numErwachsene"] ?? 2);
-  const [numKinder, setNumKinder] = useState(router.query["numKinder"] ?? 0);
+  const [numErwachsene, setNumErwachsene] = useState(parseQueryParam(router, "numErwachsene", 2));
+  const [numKinder, setNumKinder] = useState(parseQueryParam(router, "numKinder", 0));
+
+  const birthdayBoxes = useMemo(() => Array.from(Array(numKinder).keys()), [numKinder]);
 
   const [
-    birthdayChild1,
-    setBirthdayChild1,
-  ] = useState<string | null>(null);
+    birthdaysChildren,
+    setBirthdaysChildren,
+  ] = useState<Date[]>([]);
 
   return (
       <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
@@ -76,7 +84,11 @@ const Buchung: NextPage = () => {
                 <div className="self-stretch bg-light-text-color overflow-hidden flex flex-col py-[1.5rem] px-[3.13rem] box-border
                 items-center justify-start gap-[2.5rem] min-w-[31.25rem] max-w-[37.5rem] sm:min-w-[10rem] sm:px-[1rem]">
                   <b className="relative leading-[125%]">Kontaktformular</b>
-                  <form className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
+                  <form data-netlify="true"
+                        name="contact-form"
+                        method="POST"
+                        action="buchung/?erfolg=true"
+                        className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                       <TextField
                         className="[border:none] bg-[transparent] self-stretch"
@@ -155,42 +167,49 @@ const Buchung: NextPage = () => {
                             onChange={(v: any) => {
                               const value = v.target.value;
                               if (value < 0 ) return;
-                              setNumKinder(value)
+                              setNumKinder(Number.parseInt(value))
                             }}
                         />
                         <FormHelperText />
                       </FormControl>
                     </div>
-                    <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <DatePicker
-                        className="self-stretch"
-                        label="Geburtstag Kind 1"
-                        value={birthdayChild1}
-                        onChange={(newValue: any) => {
-                          setBirthdayChild1(newValue);
-                        }}
-                        slotProps={{
-                          textField: {
-                            variant: "standard",
-                            size: "medium",
-                            required: true,
-                            color: "primary",
-                          },
-                        }}
-                      />
-                    </div>
+                    {
+                      birthdayBoxes.map(index =>
+                          (<div
+                              className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                            <DatePicker
+                                className="self-stretch"
+                                label={`Geburtstag Kind ${index+1}`}
+                                value={birthdaysChildren[index] ?? new Date()}
+                                onChange={(newValue: any) => {
+                                  const copy = [...birthdaysChildren];
+                                  copy[index] = newValue;
+                                  setBirthdaysChildren(copy);
+                                }}
+                                slotProps={{
+                                  textField: {
+                                    variant: "standard",
+                                    size: "medium",
+                                    required: true,
+                                    color: "primary",
+                                  },
+                                }}
+                            />
+                          </div>))
+                    }
                     <textarea
                       className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
                       placeholder="Buchungswunsch"
                     />
-                  </form>
-                  <div
-                    className="rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer
+                    <button
+                        className="self-center rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer
                     text-left text-[1.13rem] text-light-text-color"
-                    onClick={onSendButtonContainerClick}
-                  >
-                    <b className="relative leading-[1.5rem]">Abschicken</b>
-                  </div>
+                        type="submit"
+                    >
+                      <b className="relative leading-[1.5rem]">Abschicken</b>
+                    </button>
+                  </form>
+                  <input type="hidden" name="form-name" value="contact-form" />
                 </div>
               </div>
             </div>
