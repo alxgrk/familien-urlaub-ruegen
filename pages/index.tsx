@@ -25,7 +25,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
 
   return <div className="w-full flex flex-row items-center justify-center gap-[2rem] text-[0.81rem] text-dimgray-200 box-border border-b-[1px] border-solid border-gray-300">
     <div
-      className="self-center flex flex-row py-[3rem] items-center justify-start gap-[2rem] text-[0.81rem] text-dimgray-200
+      className="self-center flex flex-row px-[1.5rem] py-[3rem] items-center justify-start gap-[2rem] text-[0.81rem] text-dimgray-200
       lg:flex-row lg:justify-between
       md:flex-col md:justify-center md:gap-[0.5rem]
       sm:flex-col sm:justify-center sm:gap-[0.5rem]">
@@ -80,7 +80,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
             src="/vector.svg"
         />
       </div>
-      <div className="flex flex-col items-start justify-center gap-[0.5rem] sm:flex-col md:flex-col">
+      <div className="flex flex-col items-start justify-center sm:flex-col md:flex-col">
         <div className="relative leading-[125%]">Unterkunft für</div>
         <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-black sm:flex-col md:flex-col">
           <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[5rem]
