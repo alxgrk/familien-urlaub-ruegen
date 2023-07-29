@@ -13,6 +13,7 @@ import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
 import Sidebar from "../components/Sidebar";
 import {BaseRouter} from "next/dist/shared/lib/router/router";
+import Link from "next/link";
 
 function parseQueryParam(router: BaseRouter, key: string, defaultValue: number) {
   const rawValue = router.query[key];
@@ -25,6 +26,8 @@ function parseQueryParam(router: BaseRouter, key: string, defaultValue: number) 
 
 const Buchung: NextPage = () => {
   const router = useRouter();
+
+  const formSubmittedSuccessfully = router.query["erfolg"] == true;
 
   const [anreiseTag, setAnreiseTag] = useState(router.query["anreise"] ? new Date(router.query["anreise"] as string) : new Date());
   const [abreiseTag, setAbreiseTag] = useState(router.query["abreise"] ? new Date(router.query["abreise"] as string) : new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000));
@@ -84,145 +87,152 @@ const Buchung: NextPage = () => {
                 <div className="self-stretch bg-light-text-color overflow-hidden flex flex-col py-[1.5rem] px-[3.13rem] box-border
                 items-center justify-start gap-[2.5rem] min-w-[31.25rem] max-w-[37.5rem] sm:min-w-[10rem] sm:px-[1rem]">
                   <b className="relative leading-[125%]">Kontaktformular</b>
-                  <form data-netlify="true"
-                        data-netlify-honeypot="bot-field"
-                        name="contact-form"
-                        method="POST"
-                        action="/success"
-                        className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
-                    <input type="hidden" name="form-name" value="contact-form" />
-                    <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <TextField
-                        className="[border:none] bg-[transparent] self-stretch"
-                        color="primary"
-                        variant="standard"
-                        type="text"
-                        label="Name"
-                        placeholder="Vor- und Nachname"
-                        size="medium"
-                        margin="none"
-                        required
-                        inputProps={{name: "name"}}
-                      />
-                    </div>
-                    <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <TextField
-                        className="[border:none] bg-[transparent] self-stretch"
-                        color="primary"
-                        variant="standard"
-                        type="email"
-                        label="Email-Adresse"
-                        placeholder="example@web.de"
-                        size="medium"
-                        margin="none"
-                        required
-                        inputProps={{name: "email"}}
-                      />
-                    </div>
-                    <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <TextField
-                        className="[border:none] bg-[transparent] self-stretch"
-                        color="primary"
-                        variant="standard"
-                        type="tel"
-                        label="Telefonnummer"
-                        placeholder="0171 12345678"
-                        size="medium"
-                        margin="none"
-                        inputProps={{name: "telefon"}}
-                      />
-                    </div>
-                    <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <FormControl
-                        className="self-stretch"
-                        variant="standard"
-                        required
-                      >
-                        <TextField
-                            type="number"
+                  { formSubmittedSuccessfully
+                      ? <form data-netlify="true"
+                          data-netlify-honeypot="bot-field"
+                          name="contact-form"
+                          method="POST"
+                          action="/buchung?erfolg=true"
+                          className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
+                        <input type="hidden" name="form-name" value="contact-form" />
+                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                          <TextField
+                            className="[border:none] bg-[transparent] self-stretch"
                             color="primary"
-                            size="medium"
-                            label="Anzahl Erwachsene"
-                            className="self-stretch relative leading-[125%]"
-                            value={numErwachsene}
                             variant="standard"
-                            onChange={(v: any) => {
-                              const value = v.target.value;
-                              if (value < 0 ) return;
-                              setNumErwachsene(value)
-                            }}
-                            inputProps={{name: "anzahlErwachsene"}}
-                        />
-                        <FormHelperText />
-                      </FormControl>
-                    </div>
-                    <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                      <FormControl
-                        className="self-stretch"
-                        variant="standard"
-                        required
-                      >
-                        <TextField
-                            type="number"
+                            type="text"
+                            label="Name"
+                            placeholder="Vor- und Nachname"
+                            size="medium"
+                            margin="none"
+                            required
+                            inputProps={{name: "name"}}
+                          />
+                        </div>
+                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                          <TextField
+                            className="[border:none] bg-[transparent] self-stretch"
                             color="primary"
-                            size="medium"
-                            label="Anzahl Kinder"
-                            className="self-stretch relative leading-[125%]"
-                            value={numKinder}
                             variant="standard"
-                            onChange={(v: any) => {
-                              const value = v.target.value;
-                              if (value < 0 ) return;
-                              setNumKinder(Number.parseInt(value))
-                            }}
-                            inputProps={{name: "anzahlKinder"}}
-                        />
-                        <FormHelperText />
-                      </FormControl>
-                    </div>
-                    {
-                      birthdayBoxes.map(index =>
-                          (<div
-                              className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                            <DatePicker
-                                className="self-stretch"
-                                label={`Geburtstag Kind ${index+1}`}
-                                value={birthdaysChildren[index] ?? new Date()}
-                                onChange={(newValue: any) => {
-                                  const copy = [...birthdaysChildren];
-                                  copy[index] = newValue;
-                                  setBirthdaysChildren(copy);
+                            type="email"
+                            label="Email-Adresse"
+                            placeholder="example@web.de"
+                            size="medium"
+                            margin="none"
+                            required
+                            inputProps={{name: "email"}}
+                          />
+                        </div>
+                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                          <TextField
+                            className="[border:none] bg-[transparent] self-stretch"
+                            color="primary"
+                            variant="standard"
+                            type="tel"
+                            label="Telefonnummer"
+                            placeholder="0171 12345678"
+                            size="medium"
+                            margin="none"
+                            inputProps={{name: "telefon"}}
+                          />
+                        </div>
+                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                          <FormControl
+                            className="self-stretch"
+                            variant="standard"
+                            required
+                          >
+                            <TextField
+                                type="number"
+                                color="primary"
+                                size="medium"
+                                label="Anzahl Erwachsene"
+                                className="self-stretch relative leading-[125%]"
+                                value={numErwachsene}
+                                variant="standard"
+                                onChange={(v: any) => {
+                                  const value = v.target.value;
+                                  if (value < 0 ) return;
+                                  setNumErwachsene(value)
                                 }}
-                                slotProps={{
-                                  textField: {
-                                    name: `geburtstagKind${index+1}`,
-                                    variant: "standard",
-                                    size: "medium",
-                                    required: true,
-                                    color: "primary",
-                                  },
-                                }}
+                                inputProps={{name: "anzahlErwachsene"}}
                             />
-                          </div>))
-                    }
-                    <textarea
-                      name="buchungswunsch"
-                      className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
-                      placeholder="Buchungswunsch"
-                    />
-                    <p className="hidden">
-                      <label>
-                        Don’t fill this out if you’re human: <input name="bot-field"/>
-                      </label>
-                    </p>
-                    <button
-                        className="self-center rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer
-                    text-left text-[1.13rem] text-light-text-color"
-                        type="submit"
-                    >
-                      <b className="relative leading-[1.5rem]">Abschicken</b>
-                    </button>
-                  </form>
+                            <FormHelperText />
+                          </FormControl>
+                        </div>
+                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                          <FormControl
+                            className="self-stretch"
+                            variant="standard"
+                            required
+                          >
+                            <TextField
+                                type="number"
+                                color="primary"
+                                size="medium"
+                                label="Anzahl Kinder"
+                                className="self-stretch relative leading-[125%]"
+                                value={numKinder}
+                                variant="standard"
+                                onChange={(v: any) => {
+                                  const value = v.target.value;
+                                  if (value < 0 ) return;
+                                  setNumKinder(Number.parseInt(value))
+                                }}
+                                inputProps={{name: "anzahlKinder"}}
+                            />
+                            <FormHelperText />
+                          </FormControl>
+                        </div>
+                        {
+                          birthdayBoxes.map(index =>
+                              (<div
+                                  className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                                <DatePicker
+                                    className="self-stretch"
+                                    label={`Geburtstag Kind ${index+1}`}
+                                    value={birthdaysChildren[index] ?? new Date()}
+                                    onChange={(newValue: any) => {
+                                      const copy = [...birthdaysChildren];
+                                      copy[index] = newValue;
+                                      setBirthdaysChildren(copy);
+                                    }}
+                                    slotProps={{
+                                      textField: {
+                                        name: `geburtstagKind${index+1}`,
+                                        variant: "standard",
+                                        size: "medium",
+                                        required: true,
+                                        color: "primary",
+                                      },
+                                    }}
+                                />
+                              </div>))
+                        }
+                        <textarea
+                          name="buchungswunsch"
+                          className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
+                          placeholder="Buchungswunsch"
+                        />
+                        <p className="hidden">
+                          <label>
+                            Don’t fill this out if you’re human: <input name="bot-field"/>
+                          </label>
+                        </p>
+                        <button
+                            className="self-center rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer
+                        text-left text-[1.13rem] text-light-text-color"
+                            type="submit"
+                        >
+                          <b className="relative leading-[1.5rem]">Abschicken</b>
+                        </button>
+                      </form>
+                    : <div>
+                        <h1>Anfrage erhalten!</h1>
+                        <p>Vielen Dank für Ihre Anfrage! Wir melden uns schnellstmöglichst bei Ihnen.</p>
+                        <p><Link href="/">Zurück zur Startseite</Link></p>
+                      </div>
+                  }
                 </div>
               </div>
             </div>
