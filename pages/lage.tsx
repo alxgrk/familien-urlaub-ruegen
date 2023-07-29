@@ -34,6 +34,13 @@ const Lage: NextPage = () => {
                 alt=""
                 src="/calendar-1@2x.png"
               />
+              <a
+                  className="[text-decoration:none] rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer z-[1] text-[1.13rem] text-light-text-color"
+                  href="https://www.google.de/maps/place/Drewoldke+18,+18556+Altenkirchen/@54.6312338,13.3724427,18.46z/data=!4m17!1m10!3m9!1s0x47ab51a7907f7223:0xecbbd7f9ed9a2841!2sCampingplatz+Drewoldke!5m2!4m1!1i2!8m2!3d54.634331!4d13.37358!16s%2Fg%2F1tkrkv9v!3m5!1s0x47ab51a7944a4c8d:0x7716f1cb0cc4cbef!8m2!3d54.6312159!4d13.3737595!16s%2Fg%2F11c4tc17b7?entry=ttu"
+                  target="_blank"
+              >
+                <b className="relative leading-[1.5rem]">Ansehen auf Google Maps</b>
+              </a>
             </div>
             <div className="self-center flex flex-row py-[3rem] items-center justify-center gap-[1.63rem] text-[1.75rem] text-dimgray-100
             lg:flex-row md:flex-col sm:flex-col">
