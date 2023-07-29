@@ -85,10 +85,12 @@ const Buchung: NextPage = () => {
                 items-center justify-start gap-[2.5rem] min-w-[31.25rem] max-w-[37.5rem] sm:min-w-[10rem] sm:px-[1rem]">
                   <b className="relative leading-[125%]">Kontaktformular</b>
                   <form data-netlify="true"
+                        data-netlify-honeypot="bot-field"
                         name="contact-form"
                         method="POST"
                         action="/success"
                         className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
+                    <input type="hidden" name="form-name" value="contact-form" />
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                       <TextField
                         className="[border:none] bg-[transparent] self-stretch"
@@ -208,6 +210,11 @@ const Buchung: NextPage = () => {
                       className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
                       placeholder="Buchungswunsch"
                     />
+                    <p className="hidden">
+                      <label>
+                        Don’t fill this out if you’re human: <input name="bot-field"/>
+                      </label>
+                    </p>
                     <button
                         className="self-center rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer
                     text-left text-[1.13rem] text-light-text-color"
@@ -216,7 +223,6 @@ const Buchung: NextPage = () => {
                       <b className="relative leading-[1.5rem]">Abschicken</b>
                     </button>
                   </form>
-                  <input type="hidden" name="form-name" value="contact-form" />
                 </div>
               </div>
             </div>
