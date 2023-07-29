@@ -192,8 +192,8 @@ const Buchung: NextPage = () => {
                                   setBirthdaysChildren(copy);
                                 }}
                                 slotProps={{
-                                  name: `geburtstagKind${index+1}`,
                                   textField: {
+                                    name: `geburtstagKind${index+1}`,
                                     variant: "standard",
                                     size: "medium",
                                     required: true,
