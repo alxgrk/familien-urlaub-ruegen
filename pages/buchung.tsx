@@ -27,7 +27,7 @@ function parseQueryParam(router: BaseRouter, key: string, defaultValue: number) 
 const Buchung: NextPage = () => {
   const router = useRouter();
 
-  const formSubmittedSuccessfully = router.query["erfolg"] == true;
+  const formSubmittedSuccessfully = router.query["erfolg"] !== undefined && Boolean(router.query["erfolg"]) === true;
 
   const [anreiseTag, setAnreiseTag] = useState(router.query["anreise"] ? new Date(router.query["anreise"] as string) : new Date());
   const [abreiseTag, setAbreiseTag] = useState(router.query["abreise"] ? new Date(router.query["abreise"] as string) : new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000));
@@ -87,7 +87,7 @@ const Buchung: NextPage = () => {
                 <div className="self-stretch bg-light-text-color overflow-hidden flex flex-col py-[1.5rem] px-[3.13rem] box-border
                 items-center justify-start gap-[2.5rem] min-w-[31.25rem] max-w-[37.5rem] sm:min-w-[10rem] sm:px-[1rem]">
                   <b className="relative leading-[125%]">Kontaktformular</b>
-                  { formSubmittedSuccessfully
+                  { !formSubmittedSuccessfully
                       ? <form data-netlify="true"
                           data-netlify-honeypot="bot-field"
                           name="contact-form"
