@@ -100,6 +100,7 @@ const Buchung: NextPage = () => {
                         size="medium"
                         margin="none"
                         required
+                        inputProps={{name: "name"}}
                       />
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
@@ -113,6 +114,7 @@ const Buchung: NextPage = () => {
                         size="medium"
                         margin="none"
                         required
+                        inputProps={{name: "email"}}
                       />
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
@@ -125,6 +127,7 @@ const Buchung: NextPage = () => {
                         placeholder="0171 12345678"
                         size="medium"
                         margin="none"
+                        inputProps={{name: "telefon"}}
                       />
                     </div>
                     <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
@@ -146,6 +149,7 @@ const Buchung: NextPage = () => {
                               if (value < 0 ) return;
                               setNumErwachsene(value)
                             }}
+                            inputProps={{name: "anzahlErwachsene"}}
                         />
                         <FormHelperText />
                       </FormControl>
@@ -169,6 +173,7 @@ const Buchung: NextPage = () => {
                               if (value < 0 ) return;
                               setNumKinder(Number.parseInt(value))
                             }}
+                            inputProps={{name: "anzahlKinder"}}
                         />
                         <FormHelperText />
                       </FormControl>
@@ -187,6 +192,7 @@ const Buchung: NextPage = () => {
                                   setBirthdaysChildren(copy);
                                 }}
                                 slotProps={{
+                                  name: `geburtstagKind${index+1}`,
                                   textField: {
                                     variant: "standard",
                                     size: "medium",
@@ -198,6 +204,7 @@ const Buchung: NextPage = () => {
                           </div>))
                     }
                     <textarea
+                      name="buchungswunsch"
                       className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
                       placeholder="Buchungswunsch"
                     />
