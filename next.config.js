@@ -4,6 +4,7 @@
     typescript: {
       ignoreBuildErrors: true,
     },
+    transpilePackages: ['vis-timeline'],
   }
 
   module.exports = nextConfig

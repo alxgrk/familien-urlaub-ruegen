@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import {useState, useCallback, useMemo} from "react";
+import {useState, useCallback, useMemo, useEffect} from "react";
 import {
   TextField,
   FormControl,
@@ -14,6 +14,7 @@ import Footer from "../components/footer";
 import Sidebar from "../components/Sidebar";
 import {BaseRouter} from "next/dist/shared/lib/router/router";
 import Link from "next/link";
+import Timeline, {FixedRange} from "../components/timeline";
 
 function parseQueryParam(router: BaseRouter, key: string, defaultValue: number) {
   const rawValue = router.query[key];
@@ -47,6 +48,9 @@ const Buchung: NextPage = () => {
     setBirthdaysChildren,
   ] = useState<Date[]>([]);
 
+  const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<FixedRange | undefined>(undefined);
+  const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<FixedRange | undefined>(undefined);
+
   return (
       <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
         <SidePageHeader
@@ -61,7 +65,7 @@ const Buchung: NextPage = () => {
           <Sidebar/>
           <div className="flex-1 flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col items-center justify-start">
-              <div className="self-stretch flex flex-col py-[6rem] px-[0.5rem] items-center justify-start gap-[0.5rem]">
+              <div className="self-stretch flex flex-col pt-[6rem] px-[0.5rem] items-center justify-start gap-[0.5rem]">
                 <b className="self-center relative leading-[125%] sm:text-[2rem]">
                   Unsere Verfügbarkeiten
                 </b>
@@ -69,11 +73,10 @@ const Buchung: NextPage = () => {
                   Klicken Sie auf die An- und Abreisedaten in der jeweiligen
                   Kategorie.
                 </div>
-                <img
-                  className="self-stretch relative max-w-full overflow-hidden h-[43.75rem] shrink-0 object-cover"
-                  alt=""
-                  src="/calendar-11@2x.png"
-                />
+                <Timeline onSelect={({small, big}) => {
+                  setSelectedTimeRangeSmall(small)
+                  setSelectedTimeRangeBig(big)
+                }}/>
               </div>
               <div className="self-center flex flex-row items-center justify-center text-[2rem] text-darkslategray
               border-[1px] border-solid border-slate-200
@@ -214,6 +217,10 @@ const Buchung: NextPage = () => {
                           className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
                           placeholder="Buchungswunsch"
                         />
+                        { selectedTimeRangeSmall
+                            && <input className="hidden" name="kleinesHausZeitraum" value={`Anreise: ${selectedTimeRangeSmall?.start?.toLocaleDateString()} - Abreise: ${selectedTimeRangeSmall.end?.toLocaleDateString()}`} />}
+                        { selectedTimeRangeBig
+                            && <input className="hidden" name="großesHausZeitraum" value={`Anreise: ${selectedTimeRangeBig?.start?.toLocaleDateString()} - Abreise: ${selectedTimeRangeBig.end?.toLocaleDateString()}`} />}
                         <p className="hidden">
                           <label>
                             Don’t fill this out if you’re human: <input name="bot-field"/>
