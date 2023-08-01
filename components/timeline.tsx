@@ -23,23 +23,22 @@ function getMoveHint(): 'Scrollen oder Klicken & Ziehen' | 'Wischen' {
     return 'Scrollen oder Klicken & Ziehen';
 }
 
-export type PotentialRange = { start?: Date, end?: Date };
-export type FixedRange = { start: Date, end: Date };
+export type Range = { start: Date, end: Date };
 export type TimelineType = {
     onSelect: (selection: {
-        small?: FixedRange,
-        big?: FixedRange
+        small?: Range,
+        big?: Range
     }) => void;
 };
 
 const Timeline: NextPage<TimelineType> = ({onSelect}) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const timelineRef = useRef<Vis | null>(null);
-    const rangeByIdRef = useRef<Map<number, FixedRange>>(new Map());
+    const rangeByIdRef = useRef<Map<number, Range>>(new Map());
 
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-    const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<PotentialRange>({});
-    const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<PotentialRange>({});
+    // const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<PotentialRange>({});
+    // const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<PotentialRange>({});
 
     const initTimeline = () => {
         if (!containerRef.current) return;
@@ -179,13 +178,11 @@ const Timeline: NextPage<TimelineType> = ({onSelect}) => {
             start: bigHouseRanges.length ? min(bigHouseRanges.map((i: any) => i.start)) : undefined,
             end: bigHouseRanges.length ? max(bigHouseRanges.map((i: any) => i.end)) : undefined,
         };
-        setSelectedTimeRangeSmall(smallHouseRange)
-        setSelectedTimeRangeBig(bigHouseRange)
-        console.log(JSON.stringify(smallHouseRange))
-        console.log(JSON.stringify(bigHouseRange))
+        // setSelectedTimeRangeSmall(smallHouseRange)
+        // setSelectedTimeRangeBig(bigHouseRange)
         onSelect({
-            small: smallHouseRange.start ? smallHouseRange as FixedRange : undefined,
-            big: bigHouseRange.start ? bigHouseRange as FixedRange : undefined,
+            small: smallHouseRange.start ? smallHouseRange as Range : undefined,
+            big: bigHouseRange.start ? bigHouseRange as Range : undefined,
         });
     };
 
@@ -216,22 +213,22 @@ const Timeline: NextPage<TimelineType> = ({onSelect}) => {
         </select>
         <div className="self-stretch py-[1rem] " ref={containerRef}/>
         <p className="text-[0.7rem]">{moveHint} zum Verschieben, {multiSelectHint} um mehrere Wochen zu selektieren</p>
-        {
-            selectedTimeRangeSmall?.start
-            && <p className="text-[1.7rem] m-[1rem]">
-                <span className="text-[1.25rem] font-medium">Kleines Haus: </span>
-                <span
-                    className="text-[1.25rem]">{`vom ${selectedTimeRangeSmall.start?.toLocaleDateString()} bis ${selectedTimeRangeSmall.end?.toLocaleDateString()}`}</span>
-            </p>
-        }
-        {
-            selectedTimeRangeBig?.start
-            && <p className="text-[1.7rem] m-[1rem]">
-                <span className="text-[1.25rem] font-medium">Großes Haus: </span>
-                <span
-                    className="text-[1.25rem]">{`vom ${selectedTimeRangeBig.start?.toLocaleDateString()} bis ${selectedTimeRangeBig.end?.toLocaleDateString()}`}</span>
-            </p>
-        }
+        {/*{*/}
+        {/*    selectedTimeRangeSmall?.start*/}
+        {/*    && <p className="text-[1.7rem] m-[1rem]">*/}
+        {/*        <span className="text-[1.25rem] font-medium">Kleines Haus: </span>*/}
+        {/*        <span*/}
+        {/*            className="text-[1.25rem]">{`vom ${selectedTimeRangeSmall.start?.toLocaleDateString()} bis ${selectedTimeRangeSmall.end?.toLocaleDateString()}`}</span>*/}
+        {/*    </p>*/}
+        {/*}*/}
+        {/*{*/}
+        {/*    selectedTimeRangeBig?.start*/}
+        {/*    && <p className="text-[1.7rem] m-[1rem]">*/}
+        {/*        <span className="text-[1.25rem] font-medium">Großes Haus: </span>*/}
+        {/*        <span*/}
+        {/*            className="text-[1.25rem]">{`vom ${selectedTimeRangeBig.start?.toLocaleDateString()} bis ${selectedTimeRangeBig.end?.toLocaleDateString()}`}</span>*/}
+        {/*    </p>*/}
+        {/*}*/}
     </div>;
 };
 

@@ -14,7 +14,7 @@ import Footer from "../components/footer";
 import Sidebar from "../components/Sidebar";
 import {BaseRouter} from "next/dist/shared/lib/router/router";
 import Link from "next/link";
-import Timeline, {FixedRange} from "../components/timeline";
+import Timeline, {Range} from "../components/timeline";
 
 function parseQueryParam(router: BaseRouter, key: string, defaultValue: number) {
   const rawValue = router.query[key];
@@ -48,8 +48,8 @@ const Buchung: NextPage = () => {
     setBirthdaysChildren,
   ] = useState<Date[]>([]);
 
-  const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<FixedRange | undefined>(undefined);
-  const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<FixedRange | undefined>(undefined);
+  const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<Range | undefined>(undefined);
+  const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<Range | undefined>(undefined);
 
   return (
       <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
@@ -98,7 +98,41 @@ const Buchung: NextPage = () => {
                           action="/buchung?erfolg=true"
                           className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
                         <input type="hidden" name="form-name" value="contact-form" />
-                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                        { selectedTimeRangeSmall
+                            && <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                              <TextField
+                                  className="[border:none] bg-[transparent] self-stretch"
+                                  color="primary"
+                                  disabled={true}
+                                  variant="standard"
+                                  type="text"
+                                  label="Zeitraum Kleines Haus"
+                                  size="medium"
+                                  margin="none"
+                                  required
+                                  value={`Anreise: ${selectedTimeRangeSmall.start.toLocaleDateString()} - Abreise: ${selectedTimeRangeSmall.end.toLocaleDateString()}`}
+                                  inputProps={{className: "sm:text-[0.8rem]", name: "kleinesHausZeitraum"}}
+                              />
+                            </div>
+                        }
+                        { selectedTimeRangeBig
+                            && <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                              <TextField
+                                  className="[border:none] bg-[transparent] self-stretch"
+                                  color="primary"
+                                  disabled={true}
+                                  variant="standard"
+                                  type="text"
+                                  label="Zeitraum Großes Haus"
+                                  size="medium"
+                                  margin="none"
+                                  required
+                                  value={`Anreise: ${selectedTimeRangeBig.start.toLocaleDateString()} - Abreise: ${selectedTimeRangeBig.end.toLocaleDateString()}`}
+                                  inputProps={{className: "sm:text-[0.8rem]", name: "großesHausZeitraum"}}
+                              />
+                            </div>
+                        }
+                        <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                           <TextField
                             className="[border:none] bg-[transparent] self-stretch"
                             color="primary"
@@ -112,7 +146,7 @@ const Buchung: NextPage = () => {
                             inputProps={{name: "name"}}
                           />
                         </div>
-                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                        <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                           <TextField
                             className="[border:none] bg-[transparent] self-stretch"
                             color="primary"
@@ -126,7 +160,7 @@ const Buchung: NextPage = () => {
                             inputProps={{name: "email"}}
                           />
                         </div>
-                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                        <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                           <TextField
                             className="[border:none] bg-[transparent] self-stretch"
                             color="primary"
@@ -139,7 +173,7 @@ const Buchung: NextPage = () => {
                             inputProps={{name: "telefon"}}
                           />
                         </div>
-                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                        <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                           <FormControl
                             className="self-stretch"
                             variant="standard"
@@ -163,7 +197,7 @@ const Buchung: NextPage = () => {
                             <FormHelperText />
                           </FormControl>
                         </div>
-                        <div className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                        <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                           <FormControl
                             className="self-stretch"
                             variant="standard"
@@ -190,7 +224,7 @@ const Buchung: NextPage = () => {
                         {
                           birthdayBoxes.map(index =>
                               (<div
-                                  className="self-stretch h-[5.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                                  className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                                 <DatePicker
                                     className="self-stretch"
                                     label={`Geburtstag Kind ${index+1}`}
@@ -217,10 +251,6 @@ const Buchung: NextPage = () => {
                           className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
                           placeholder="Buchungswunsch"
                         />
-                        { selectedTimeRangeSmall
-                            && <input className="hidden" name="kleinesHausZeitraum" value={`Anreise: ${selectedTimeRangeSmall?.start?.toLocaleDateString()} - Abreise: ${selectedTimeRangeSmall.end?.toLocaleDateString()}`} />}
-                        { selectedTimeRangeBig
-                            && <input className="hidden" name="großesHausZeitraum" value={`Anreise: ${selectedTimeRangeBig?.start?.toLocaleDateString()} - Abreise: ${selectedTimeRangeBig.end?.toLocaleDateString()}`} />}
                         <p className="hidden">
                           <label>
                             Don’t fill this out if you’re human: <input name="bot-field"/>
