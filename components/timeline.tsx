@@ -25,13 +25,14 @@ function getMoveHint(): 'Scrollen oder Klicken & Ziehen' | 'Wischen' {
 
 export type Range = { start: Date, end: Date };
 export type TimelineType = {
+    initialSelection?: Range,
     onSelect: (selection: {
         small?: Range,
         big?: Range
     }) => void;
 };
 
-const Timeline: NextPage<TimelineType> = ({onSelect}) => {
+const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const timelineRef = useRef<Vis | null>(null);
     const rangeByIdRef = useRef<Map<number, Range>>(new Map());
@@ -160,6 +161,11 @@ const Timeline: NextPage<TimelineType> = ({onSelect}) => {
         );
         const timeline = timelineRef.current;
         timeline.on("select", onChange);
+        timeline.moveTo(new Date())
+        // if (initialSelection) {
+        //     rangeByIdRef.current
+        //     timeline.setSelection()
+        // }
     };
 
     const onChange = (event: any) => {

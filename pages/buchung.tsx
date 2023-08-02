@@ -30,14 +30,6 @@ const Buchung: NextPage = () => {
 
   const formSubmittedSuccessfully = router.query["erfolg"] !== undefined && Boolean(router.query["erfolg"]) === true;
 
-  const [anreiseTag, setAnreiseTag] = useState(router.query["anreise"] ? new Date(router.query["anreise"] as string) : new Date());
-  const [abreiseTag, setAbreiseTag] = useState(router.query["abreise"] ? new Date(router.query["abreise"] as string) : new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000));
-  const minAbreiseTag = useMemo(() => {
-    const minAbreise = new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000);
-    const selectedAbreise = abreiseTag;
-    return minAbreise.getTime() < selectedAbreise.getTime() ? selectedAbreise : minAbreise;
-  }, [anreiseTag]);
-
   const [numErwachsene, setNumErwachsene] = useState(parseQueryParam(router, "numErwachsene", 2));
   const [numKinder, setNumKinder] = useState(parseQueryParam(router, "numKinder", 0));
 
@@ -48,7 +40,12 @@ const Buchung: NextPage = () => {
     setBirthdaysChildren,
   ] = useState<Date[]>([]);
 
-  const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<Range | undefined>(undefined);
+  const anreiseTag = router.query["anreise"] ? new Date(router.query["anreise"] as string) : undefined;
+  const abreiseTag = anreiseTag
+      ? (router.query["abreise"] ? new Date(router.query["abreise"] as string) : new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000))
+      : undefined;
+  const initialRange = anreiseTag ? {start: anreiseTag!, end: abreiseTag!} : undefined;
+  const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<Range | undefined>(initialRange);
   const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<Range | undefined>(undefined);
 
   return (
@@ -73,7 +70,7 @@ const Buchung: NextPage = () => {
                   Klicken Sie auf die An- und Abreisedaten in der jeweiligen
                   Kategorie.
                 </div>
-                <Timeline onSelect={({small, big}) => {
+                <Timeline initialSelection={initialRange} onSelect={({small, big}) => {
                   setSelectedTimeRangeSmall(small)
                   setSelectedTimeRangeBig(big)
                 }}/>
