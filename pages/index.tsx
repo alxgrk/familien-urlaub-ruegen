@@ -28,7 +28,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
       className="self-center flex flex-row px-[1.5rem] py-[3rem] items-center justify-start gap-[2rem] text-[0.81rem] text-dimgray-200
       lg:flex-row lg:justify-between
       md:flex-col md:justify-center md:gap-[0.5rem]
-      sm:flex-col sm:justify-center sm:gap-[0.5rem]">
+      sm:flex-col sm:justify-center sm:gap-[0.2rem]">
     <div
         className="self-stretch flex-1 rounded-81xl flex flex-col py-[1rem] px-[0.5rem] items-center justify-center
         md:flex-[unset] md:self-stretch
@@ -70,7 +70,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
           }}
       />
     </div>
-    <div className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300 sm:w-[0.06rem]"/>
+    <div className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300 sm:w-[0.06rem] sm:h-[1rem]"/>
     <div
         className="self-stretch flex-1 rounded-81xl flex flex-row py-[1rem] px-[0.5rem] items-center justify-center gap-[0.75rem] md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
       <div className="flex flex-col items-start justify-center">

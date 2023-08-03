@@ -32,12 +32,19 @@ export type TimelineType = {
     }) => void;
 };
 
+const getIdsByRange = (map: Map<number, Range>, range: Range, type: 'small' | 'big') => {
+    return Array.from(map.entries())
+        .filter(([k]) => type === 'small' ? k < 100 : k >= 100)
+        .filter(([_, v]) => max([v.start, range.start]) < min([v.end, range.end]))
+        .map(([k]) => k);
+}
+
 const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const timelineRef = useRef<Vis | null>(null);
     const rangeByIdRef = useRef<Map<number, Range>>(new Map());
 
-    const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+    const [selectedYear, setSelectedYear] = useState(initialSelection?.start.getFullYear() ?? new Date().getFullYear());
     // const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<PotentialRange>({});
     // const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<PotentialRange>({});
 
@@ -161,11 +168,13 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
         );
         const timeline = timelineRef.current;
         timeline.on("select", onChange);
-        timeline.moveTo(new Date())
-        // if (initialSelection) {
-        //     rangeByIdRef.current
-        //     timeline.setSelection()
-        // }
+        if (initialSelection) {
+            const ids = getIdsByRange(rangeByIdRef.current, initialSelection, "small")
+            timeline.setSelection(ids)
+            timeline.moveTo(initialSelection.start.getTime())
+        } else {
+            timeline.moveTo(new Date())
+        }
     };
 
     const onChange = (event: any) => {
@@ -213,6 +222,7 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
             setSelectedYear(Number.parseInt(event.currentTarget.value));
             timelineRef.current?.destroy()
             timelineRef.current = null
+            rangeByIdRef.current?.clear()
         }}>
             <option value={currentYear}>{currentYear}</option>
             <option value={nextYear}>{nextYear}</option>
