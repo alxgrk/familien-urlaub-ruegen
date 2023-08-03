@@ -52,8 +52,10 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
         if (!containerRef.current) return;
 
         const currentYear = selectedYear;
-        const initialStart = moment(`${currentYear}-06-01T00:00:00.000`)
+        const lastSaturday = moment().locale("de").subtract(1, 'week').weekday(6);
+        const actualSeasonStart = moment(`${currentYear}-06-01T00:00:00.000`)
             .locale("de");
+        const initialStart = lastSaturday.isBefore(actualSeasonStart) ? actualSeasonStart : lastSaturday;
         const end = moment(`${currentYear}-10-31T23:59:59.999`)
             .locale("de");
         const weeks = end.diff(initialStart, "week");
@@ -171,9 +173,9 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
         if (initialSelection) {
             const ids = getIdsByRange(rangeByIdRef.current, initialSelection, "small")
             timeline.setSelection(ids)
-            timeline.moveTo(initialSelection.start.getTime())
+            timeline.moveTo(initialSelection.start)
         } else {
-            timeline.moveTo(new Date())
+            timeline.moveTo(initialStart.toDate())
         }
     };
 

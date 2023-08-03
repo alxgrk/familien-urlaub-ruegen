@@ -95,40 +95,37 @@ const Buchung: NextPage = () => {
                           action="/buchung?erfolg=true"
                           className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
                         <input type="hidden" name="form-name" value="contact-form" />
-                        { selectedTimeRangeSmall
-                            && <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                              <TextField
-                                  className="[border:none] bg-[transparent] self-stretch"
-                                  color="primary"
-                                  disabled={true}
-                                  variant="standard"
-                                  type="text"
-                                  label="Zeitraum Kleines Haus"
-                                  size="medium"
-                                  margin="none"
-                                  required
-                                  value={`Anreise: ${selectedTimeRangeSmall.start.toLocaleDateString()} - Abreise: ${selectedTimeRangeSmall.end.toLocaleDateString()}`}
-                                  inputProps={{className: "sm:text-[0.8rem]", name: "kleinesHausZeitraum"}}
-                              />
-                            </div>
-                        }
-                        { selectedTimeRangeBig
-                            && <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
-                              <TextField
-                                  className="[border:none] bg-[transparent] self-stretch"
-                                  color="primary"
-                                  disabled={true}
-                                  variant="standard"
-                                  type="text"
-                                  label="Zeitraum Großes Haus"
-                                  size="medium"
-                                  margin="none"
-                                  required
-                                  value={`Anreise: ${selectedTimeRangeBig.start.toLocaleDateString()} - Abreise: ${selectedTimeRangeBig.end.toLocaleDateString()}`}
-                                  inputProps={{className: "sm:text-[0.8rem]", name: "großesHausZeitraum"}}
-                              />
-                            </div>
-                        }
+                        <div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem] ${!selectedTimeRangeSmall ? 'hidden' : ''}`}>
+                          <TextField
+                              className="[border:none] bg-[transparent] self-stretch"
+                              color="primary"
+                              disabled={true}
+                              hidden={selectedTimeRangeSmall === undefined}
+                              variant="standard"
+                              type="text"
+                              label="Zeitraum Kleines Haus"
+                              size="medium"
+                              margin="none"
+                              required
+                              value={`Anreise: ${selectedTimeRangeSmall?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeSmall?.end.toLocaleDateString() ?? '-'}`}
+                              inputProps={{className: "sm:text-[0.8rem]", name: "kleinesHausZeitraum"}}
+                          />
+                        </div>
+                        <div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem] ${!selectedTimeRangeBig ? 'hidden' : ''}`}>
+                          <TextField
+                              className="[border:none] bg-[transparent] self-stretch"
+                              color="primary"
+                              disabled={true}
+                              variant="standard"
+                              type="text"
+                              label="Zeitraum Großes Haus"
+                              size="medium"
+                              margin="none"
+                              required
+                              value={`Anreise: ${selectedTimeRangeBig?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeBig?.end.toLocaleDateString() ?? '-'}`}
+                              inputProps={{className: "sm:text-[0.8rem]", name: "großesHausZeitraum"}}
+                          />
+                        </div>
                         <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                           <TextField
                             className="[border:none] bg-[transparent] self-stretch"
