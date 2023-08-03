@@ -220,7 +220,7 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
     }, [])
 
     return <div className="flex flex-col text-sm sm:text-[0.75rem] self-stretch py-[1rem]">
-        <select id="year" defaultValue={currentYear} className="p-2 self-center" onChange={(event) => {
+        <select id="year" defaultValue={selectedYear} className="p-2 self-center" onChange={(event) => {
             setSelectedYear(Number.parseInt(event.currentTarget.value));
             timelineRef.current?.destroy()
             timelineRef.current = null
