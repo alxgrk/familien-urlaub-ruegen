@@ -127,7 +127,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
         flex flex-row items-center justify-center gap-[0.5rem]
         md:min-w-[40%] md:flex-[unset] md:self-stretch
         sm:min-w-[40%] sm:self-stretch sm:w-auto sm:pl-[0.5rem] sm:pr-[0.5rem] sm:box-border sm:flex-[unset]"
-        onClick={() => onSearchButtonClick(anreiseTag, abreiseTag, numErwachsene, numKinder)}
+        onClick={() => onSearchButtonClick(anreiseTag, minAbreiseTag, numErwachsene, numKinder)}
     >
       <img
           className="relative w-[1.5rem] h-[1.5rem] overflow-hidden shrink-0"
