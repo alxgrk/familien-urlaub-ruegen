@@ -99,7 +99,6 @@ const Buchung: NextPage = () => {
                           <TextField
                               className="[border:none] bg-[transparent] self-stretch"
                               color="primary"
-                              disabled={true}
                               hidden={selectedTimeRangeSmall === undefined}
                               variant="standard"
                               type="text"
@@ -108,14 +107,13 @@ const Buchung: NextPage = () => {
                               margin="none"
                               required
                               value={`Anreise: ${selectedTimeRangeSmall?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeSmall?.end.toLocaleDateString() ?? '-'}`}
-                              inputProps={{className: "sm:text-[0.8rem]", name: "kleinesHausZeitraum"}}
+                              inputProps={{readOnly: true, className: "sm:text-[0.8rem]", name: "kleinesHausZeitraum"}}
                           />
                         </div>
                         <div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem] ${!selectedTimeRangeBig ? 'hidden' : ''}`}>
                           <TextField
                               className="[border:none] bg-[transparent] self-stretch"
                               color="primary"
-                              disabled={true}
                               variant="standard"
                               type="text"
                               label="Zeitraum Großes Haus"
@@ -123,7 +121,7 @@ const Buchung: NextPage = () => {
                               margin="none"
                               required
                               value={`Anreise: ${selectedTimeRangeBig?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeBig?.end.toLocaleDateString() ?? '-'}`}
-                              inputProps={{className: "sm:text-[0.8rem]", name: "großesHausZeitraum"}}
+                              inputProps={{readOnly: true, className: "sm:text-[0.8rem]", name: "großesHausZeitraum"}}
                           />
                         </div>
                         <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
@@ -240,6 +238,10 @@ const Buchung: NextPage = () => {
                                 />
                               </div>))
                         }
+                        <p className="hidden">
+                          <input type="text" name="Geburtstage der Kinder" readOnly={true}
+                                 value={birthdaysChildren.map(b => b.toLocaleDateString('de')).join()} />
+                        </p>
                         <textarea
                           name="buchungswunsch"
                           className="[border:none] bg-[transparent] font-semibold font-link text-[0.88rem] self-stretch flex flex-col items-start justify-start"
