@@ -1,6 +1,6 @@
 import type {NextPage} from "next";
 import {DataSet, Timeline as Vis,} from "vis-timeline/standalone";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import moment from "moment";
 import UAParser from "ua-parser-js";
 import {max, min} from 'date-fns';
@@ -44,14 +44,13 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
     const timelineRef = useRef<Vis | null>(null);
     const rangeByIdRef = useRef<Map<number, Range>>(new Map());
 
-    const [selectedYear, setSelectedYear] = useState(initialSelection?.start.getFullYear() ?? new Date().getFullYear());
+    const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
     // const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<PotentialRange>({});
     // const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<PotentialRange>({});
 
-    const initTimeline = () => {
+    const initTimeline = (currentYear: number) => {
         if (!containerRef.current) return;
 
-        const currentYear = selectedYear;
         const lastSaturday = moment().locale("de").subtract(1, 'week').weekday(6);
         const actualSeasonStart = moment(`${currentYear}-06-01T00:00:00.000`)
             .locale("de");
@@ -170,13 +169,7 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
         );
         const timeline = timelineRef.current;
         timeline.on("select", onChange);
-        if (initialSelection) {
-            const ids = getIdsByRange(rangeByIdRef.current, initialSelection, "small")
-            timeline.setSelection(ids)
-            timeline.moveTo(initialSelection.start)
-        } else {
-            timeline.moveTo(initialStart.toDate())
-        }
+        timeline.moveTo(initialStart.toDate())
     };
 
     const onChange = (event: any) => {
@@ -204,8 +197,23 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
     };
 
     useEffect(() => {
-        if (!timelineRef.current) initTimeline();
-    }, [containerRef, selectedYear]);
+        if (!timelineRef.current) initTimeline(selectedYear);
+    }, [containerRef]);
+
+    useEffect(() => {
+        if (initialSelection) {
+            const newYear = initialSelection.start.getFullYear();
+            setSelectedYear(newYear)
+
+            timelineRef.current?.destroy()
+            initTimeline(newYear);
+
+            const ids = getIdsByRange(rangeByIdRef.current, initialSelection, "small")
+            timelineRef.current!.setSelection(ids)
+            timelineRef.current!.focus(ids)
+            // timelineRef.current!.moveTo(initialSelection.start)
+        }
+    }, [initialSelection, selectedYear]);
 
     const currentYear = new Date().getFullYear();
     const nextYear = currentYear + 1;
@@ -220,7 +228,7 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
     }, [])
 
     return <div className="flex flex-col text-sm sm:text-[0.75rem] self-stretch py-[1rem]">
-        <select id="year" defaultValue={selectedYear} className="p-2 self-center" onChange={(event) => {
+        <select id="year" value={selectedYear} className="p-2 self-center" onChange={(event) => {
             setSelectedYear(Number.parseInt(event.currentTarget.value));
             timelineRef.current?.destroy()
             timelineRef.current = null
