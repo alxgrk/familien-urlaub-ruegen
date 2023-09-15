@@ -210,7 +210,7 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
 
             const ids = getIdsByRange(rangeByIdRef.current, initialSelection, "small")
             timelineRef.current!.setSelection(ids)
-            timelineRef.current!.focus(ids)
+            timelineRef.current!.focus(ids, {animation: false})
             // timelineRef.current!.moveTo(initialSelection.start)
         }
     }, [initialSelection, selectedYear]);

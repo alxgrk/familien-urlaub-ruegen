@@ -371,7 +371,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
                     image="/image1@2x.png"
                     title="Kleine Hütte"
                     description="3 Betten"
-                    price="25€"
+                    price="ab 40€"
                 />
               </Link>
               <Link
@@ -382,7 +382,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
                     image="/image2@2x.png"
                     title="Große Hütte"
                     description="Bis zu 6 Betten"
-                    price="45€"
+                    price="ab 52€"
                 />
               </Link>
             </div>
