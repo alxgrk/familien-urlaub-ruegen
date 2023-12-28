@@ -30,6 +30,9 @@ const Buchung: NextPage = () => {
 
   const formSubmittedSuccessfully = router.query["erfolg"] !== undefined && Boolean(router.query["erfolg"]) === true;
 
+  const [numGrosseHuette, setNumGrosseHuette] = useState(0);
+  const [numKleineHuette, setNumKleineHuette] = useState(0);
+
   const [numErwachsene, setNumErwachsene] = useState(parseQueryParam(router, "numErwachsene", 2));
   const [numKinder, setNumKinder] = useState(parseQueryParam(router, "numKinder", 0));
 
@@ -45,8 +48,9 @@ const Buchung: NextPage = () => {
       ? (router.query["abreise"] ? new Date(router.query["abreise"] as string) : new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000))
       : undefined;
   const initialRange = anreiseTag ? {start: anreiseTag!, end: abreiseTag!} : undefined;
-  const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<Range | undefined>(initialRange);
-  const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<Range | undefined>(undefined);
+  const [selectedTimeRange, setSelectedTimeRange] = useState<Range | undefined>(initialRange);
+  // const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<Range | undefined>(initialRange);
+  // const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<Range | undefined>(undefined);
 
   return (
       <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
@@ -63,18 +67,21 @@ const Buchung: NextPage = () => {
           <div className="flex-1 flex flex-col items-center justify-start">
             { !formSubmittedSuccessfully
                 ? <div className="self-stretch flex flex-col items-center justify-start">
-                    <div className="self-stretch flex flex-col pt-[6rem] px-[0.5rem] items-center justify-start gap-[0.5rem]">
+                    <div className="self-stretch flex flex-col pt-[6rem] pb-[6rem] px-[0.5rem] items-center justify-start gap-[0.5rem]">
                       <b className="self-center relative leading-[125%] sm:text-[2rem]">
                         Unsere Verfügbarkeiten
                       </b>
                       <div className="self-center relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:text-[1rem]">
-                        Klicken Sie auf die An- und Abreisedaten in der jeweiligen
-                        Kategorie.
+                        Eine Buchung ist nur wochenweise möglich, bitte wählen Sie ausschließlich Zeiträume von Samstag bis Samstag.
                       </div>
-                      <Timeline initialSelection={initialRange} onSelect={({small, big}) => {
-                        setSelectedTimeRangeSmall(small)
-                        setSelectedTimeRangeBig(big)
-                      }}/>
+                      {/*<div className="self-center relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:text-[1rem]">*/}
+                      {/*  Klicken Sie auf die An- und Abreisedaten in der jeweiligen*/}
+                      {/*  Kategorie.*/}
+                      {/*</div>*/}
+                      {/*<Timeline initialSelection={initialRange} onSelect={({small, big}) => {*/}
+                      {/*  setSelectedTimeRangeSmall(small)*/}
+                      {/*  setSelectedTimeRangeBig(big)*/}
+                      {/*}}/>*/}
                     </div>
                     <div className="self-center flex flex-row items-center justify-center text-[2rem] text-darkslategray
                     border-[1px] border-solid border-slate-200
@@ -95,34 +102,129 @@ const Buchung: NextPage = () => {
                                 action="/buchung?erfolg=true"
                                 className="self-stretch rounded-[1px] bg-light-text-color overflow-hidden flex flex-col items-start justify-start gap-[0.63rem]">
                               <input type="hidden" name="form-name" value="contact-form" />
-                              <div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem] ${!selectedTimeRangeSmall ? 'hidden' : ''}`}>
-                                <TextField
-                                    className="[border:none] bg-[transparent] self-stretch"
-                                    color="primary"
-                                    hidden={selectedTimeRangeSmall === undefined}
-                                    variant="standard"
-                                    type="text"
-                                    label="Zeitraum Kleines Haus"
-                                    size="medium"
-                                    margin="none"
-                                    required
-                                    value={`Anreise: ${selectedTimeRangeSmall?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeSmall?.end.toLocaleDateString() ?? '-'}`}
-                                    inputProps={{readOnly: true, className: "sm:text-[0.8rem]", name: "kleinesHausZeitraum"}}
+                              <div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]`}>
+                                <DatePicker
+                                    className="self-stretch"
+                                    label={`Anreise`}
+                                    value={selectedTimeRange?.start ?? new Date()}
+                                    onChange={(newValue: any) => {
+                                      const newStart = new Date(newValue);
+                                      setSelectedTimeRange({
+                                        start: newStart,
+                                        end: (selectedTimeRange && selectedTimeRange.end > newStart)
+                                            ? selectedTimeRange.end
+                                            : new Date(newStart.getTime() + 7 * 24 * 60 * 60 * 1000)
+                                      });
+                                    }}
+                                    slotProps={{
+                                      textField: {
+                                        name: `anreise`,
+                                        variant: "standard",
+                                        size: "medium",
+                                        required: true,
+                                        color: "primary",
+                                      },
+                                    }}
                                 />
                               </div>
-                              <div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem] ${!selectedTimeRangeBig ? 'hidden' : ''}`}>
-                                <TextField
-                                    className="[border:none] bg-[transparent] self-stretch"
-                                    color="primary"
-                                    variant="standard"
-                                    type="text"
-                                    label="Zeitraum Großes Haus"
-                                    size="medium"
-                                    margin="none"
-                                    required
-                                    value={`Anreise: ${selectedTimeRangeBig?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeBig?.end.toLocaleDateString() ?? '-'}`}
-                                    inputProps={{readOnly: true, className: "sm:text-[0.8rem]", name: "großesHausZeitraum"}}
+                              <div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]`}>
+                                <DatePicker
+                                    className="self-stretch"
+                                    label={`Abreise`}
+                                    value={selectedTimeRange?.end ?? new Date()}
+                                    onChange={(newValue: any) => {
+                                      const newEnd = new Date(newValue);
+                                      setSelectedTimeRange({
+                                        start: (selectedTimeRange && selectedTimeRange.start < newEnd)
+                                            ? selectedTimeRange.start
+                                            : new Date(newEnd.getTime() - 7 * 24 * 60 * 60 * 1000),
+                                        end: newEnd
+                                      });
+                                    }}
+                                    slotProps={{
+                                      textField: {
+                                        name: `abreise`,
+                                        variant: "standard",
+                                        size: "medium",
+                                        required: true,
+                                        color: "primary",
+                                      },
+                                    }}
                                 />
+                              </div>
+                              {/*<div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem] ${!selectedTimeRangeSmall ? 'hidden' : ''}`}>*/}
+                              {/*<TextField*/}
+                              {/*    className="[border:none] bg-[transparent] self-stretch"*/}
+                              {/*    color="primary"*/}
+                              {/*    variant="standard"*/}
+                              {/*    type="text"*/}
+                              {/*    label="Zeitraum Kleines Haus"*/}
+                              {/*    size="medium"*/}
+                              {/*    margin="none"*/}
+                              {/*    required*/}
+                              {/*    value={`Anreise: ${selectedTimeRangeSmall?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeSmall?.end.toLocaleDateString() ?? '-'}`}*/}
+                              {/*    inputProps={{readOnly: true, className: "sm:text-[0.8rem]", name: "kleinesHausZeitraum"}}*/}
+                              {/*/>*/}
+                              {/*</div>*/}
+                              {/*<div className={`self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem] ${!selectedTimeRangeBig ? 'hidden' : ''}`}>*/}
+                              {/*  <TextField*/}
+                              {/*      className="[border:none] bg-[transparent] self-stretch"*/}
+                              {/*      color="primary"*/}
+                              {/*      variant="standard"*/}
+                              {/*      type="text"*/}
+                              {/*      label="Zeitraum Großes Haus"*/}
+                              {/*      size="medium"*/}
+                              {/*      margin="none"*/}
+                              {/*      required*/}
+                              {/*      value={`Anreise: ${selectedTimeRangeBig?.start.toLocaleDateString() ?? '-'} - Abreise: ${selectedTimeRangeBig?.end.toLocaleDateString() ?? '-'}`}*/}
+                              {/*      inputProps={{readOnly: true, className: "sm:text-[0.8rem]", name: "großesHausZeitraum"}}*/}
+                              {/*  />*/}
+                              {/*</div>*/}
+                              <div className="self-stretch h-[4.25rem] flex flex-row items-start justify-start gap-[0.63rem]">
+                                <FormControl
+                                    className="self-stretch"
+                                    variant="standard"
+                                    required
+                                >
+                                  <TextField
+                                      type="number"
+                                      color="primary"
+                                      size="medium"
+                                      label="Große Hütten"
+                                      className="self-stretch relative leading-[125%]"
+                                      value={numGrosseHuette}
+                                      variant="standard"
+                                      onChange={(v: any) => {
+                                        const value = v.target.value;
+                                        if (value < 0 ) return;
+                                        setNumGrosseHuette(value)
+                                      }}
+                                      inputProps={{name: "anzahlGrosseHuette"}}
+                                  />
+                                  <FormHelperText />
+                                </FormControl>
+                                <FormControl
+                                    className="self-stretch"
+                                    variant="standard"
+                                    required
+                                >
+                                  <TextField
+                                      type="number"
+                                      color="primary"
+                                      size="medium"
+                                      label="Kleine Hütten"
+                                      className="self-stretch relative leading-[125%]"
+                                      value={numKleineHuette}
+                                      variant="standard"
+                                      onChange={(v: any) => {
+                                        const value = v.target.value;
+                                        if (value < 0 ) return;
+                                        setNumKleineHuette(value)
+                                      }}
+                                      inputProps={{name: "anzahlKleineHuette"}}
+                                  />
+                                  <FormHelperText />
+                                </FormControl>
                               </div>
                               <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                                 <TextField
@@ -165,7 +267,7 @@ const Buchung: NextPage = () => {
                                   inputProps={{name: "telefon"}}
                                 />
                               </div>
-                              <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
+                              <div className="self-stretch h-[4.25rem] flex flex-row items-start justify-start gap-[0.63rem]">
                                 <FormControl
                                   className="self-stretch"
                                   variant="standard"
@@ -188,8 +290,6 @@ const Buchung: NextPage = () => {
                                   />
                                   <FormHelperText />
                                 </FormControl>
-                              </div>
-                              <div className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                                 <FormControl
                                   className="self-stretch"
                                   variant="standard"
