@@ -24,7 +24,7 @@ export default function MyApp(props: any) {
   return (
     <React.Fragment>
       <Head>
-        <title>Test</title>
+        <title>Familiencamp Rügen</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
