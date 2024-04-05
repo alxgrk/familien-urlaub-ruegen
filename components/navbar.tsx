@@ -56,11 +56,12 @@ const defaultProps = {
     hamburgerMenuIconHeight: "1.5rem",
 }
 
-const links = (onUnterknfteClick: () => void, onBuchungClick: () => void, onLageClick: () => void, onDatenschutzClick: () => void, onImpressumClick: () => void) => {
+const links = (onUnterknfteClick: () => void, onBuchungClick: () => void, onLageClick: () => void, onAGBClick: () => void, onDatenschutzClick: () => void, onImpressumClick: () => void) => {
     return [
         {href: "/unterkuenfte", text: "Unterkünfte", onClick: onUnterknfteClick},
         {href: "/buchung", text: "Buchung", onClick: onBuchungClick},
         {href: "/lage", text: "Lage", onClick: onLageClick},
+        {href: "/agb", text: "AGB", onClick: onAGBClick},
         {href: "/dsgvo", text: "Datenschutzerklärung", onClick: onDatenschutzClick},
         {href: "/impressum", text: "Impressum", onClick: onImpressumClick},
     ];
@@ -170,6 +171,10 @@ const Navbar: NextPage<NavbarType> = (props) => {
         router.push("/lage");
     }, [router]);
 
+    const onAgbClick = useCallback(() => {
+        router.push("/agb");
+    }, [router]);
+
     const onDatenschutzClick = useCallback(() => {
         router.push("/dsgvo");
     }, [router]);
@@ -203,7 +208,7 @@ const Navbar: NextPage<NavbarType> = (props) => {
         >
             <List>
                 {
-                    links(onUnterknfteClick, onBuchungClick, onLageClick, onDatenschutzClick, onImpressumClick)
+                    links(onUnterknfteClick, onBuchungClick, onLageClick, onAgbClick, onDatenschutzClick, onImpressumClick)
                         .map(({text, onClick}) => (
                             <ListItem key={text} disablePadding onClick={onClick}>
                                 <ListItemButton>
@@ -256,7 +261,7 @@ const Navbar: NextPage<NavbarType> = (props) => {
                 style={navigationMenuStyle}
             >
                 {
-                    links(onUnterknfteClick, onBuchungClick, onLageClick, onDatenschutzClick, onImpressumClick)
+                    links(onUnterknfteClick, onBuchungClick, onLageClick, onAgbClick, onDatenschutzClick, onImpressumClick)
                         .map(({href, text, onClick}) => (
                             <Link
                                 className="cursor-pointer [text-decoration:none] text-white hover:underline visited:text-white relative leading-[125%] font-medium text-[0.9rem]"

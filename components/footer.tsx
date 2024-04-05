@@ -97,6 +97,10 @@ const Footer: NextPage<FooterType> = (props) => {
     router.push("/lage");
   }, [router]);
 
+  const onAgbClick = useCallback(() => {
+    router.push("/agb");
+  }, [router]);
+
   const onDatenschutzClick = useCallback(() => {
     router.push("/dsgvo");
   }, [router]);
@@ -276,6 +280,14 @@ const Footer: NextPage<FooterType> = (props) => {
             style={lage1Style}
           >
             Lage
+          </Link>
+          <Link
+              className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
+              href="/agb"
+              onClick={onAgbClick}
+              style={datenschutzStyle}
+          >
+            AGB & Hausordnung
           </Link>
           <Link
             className="cursor-pointer [text-decoration:none] relative leading-[125%] text-[inherit]"
