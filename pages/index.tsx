@@ -184,7 +184,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           </div>
           <Link
               className="cursor-pointer [text-decoration:none] relative tracking-[0.2px] leading-[1.5rem] font-semibold text-rectangle-805"
-              href="/unterkuenfte"
+              href="/lage"
               onClick={onLinkClick}
           >
             Mehr
@@ -260,9 +260,6 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           </div>
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
             - Parkplatz
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Ladestation für Elektroautos
           </div>
           <Link
               className="cursor-pointer [text-decoration:none] relative tracking-[0.2px] leading-[1.5rem] font-semibold text-rectangle-805"
