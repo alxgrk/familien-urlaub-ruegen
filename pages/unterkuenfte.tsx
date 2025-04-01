@@ -68,7 +68,7 @@ const Unterkuenfte: NextPage = () => {
                   Unser Gemeinschaftshaus im unteren Teil des Familiencamps
                   bietet alles für ein gemütliches Beisammensein. Eine geräumige
                   Küche, große Tische und eine große Anzahl von Stühlen bieten
-                  jedem Gast Platz um beispielsweise das Fernsehprogramm auf dem
+                  jedem Gast Platz, um beispielsweise das Fernsehprogramm auf dem
                   riesigen Flatscreen zu verfolgen, oder einfach einen
                   geselligen Abend mit Freunden zu verbringen.
                 </div>
