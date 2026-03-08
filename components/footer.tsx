@@ -246,12 +246,12 @@ const Footer: NextPage<FooterType> = (props) => {
           style={seasonsStyle}
         >
           <div className="relative leading-[125%]" style={hauptsaison0106Style}>
-            Hauptsaison: 01.06. - 31.08
+            Hauptsaison: 20.06. - 05.09.26
           </div>
           <div
             className="relative leading-[125%]"
             style={nebensaison0103Style}
-          >{`Nebensaison:   01.03. - 31.05. & 01.09. - 31.10.`}</div>
+          >{`Voraison:   06.06. - 20.06.26`}</div>
         </div>
         <div
           className="flex-1 flex flex-col items-end justify-center gap-[8px] sm:items-start sm:justify-center sm:flex-[unset] sm:self-stretch"
