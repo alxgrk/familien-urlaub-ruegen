@@ -315,7 +315,7 @@ const Footer: NextPage<FooterType> = (props) => {
           className="relative leading-[125%]"
           style={rgenGrundstcksGbR1Style}
         >
-          © Rügen Grundstücks GbR 2023. Alle Rechte vorbehalten.
+          © Rügen Grundstücks eGbR 2023. Alle Rechte vorbehalten.
         </div>
       </div>
     </div>
