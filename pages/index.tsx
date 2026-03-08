@@ -250,10 +250,10 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
         <div
             className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-start justify-start gap-[0.31rem] text-[0.88rem] text-dimgray-200 border-[1px] border-solid border-lightskyblue">
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Gemeinschaftshütte
+            - Spiel- & Fernsehhaus
           </div>
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Gemeinschaftsküche
+            - Gemeinschaftsküche (outdoor)
           </div>
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
             - Duschkabinen
@@ -349,7 +349,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
             className="flex flex-col items-center justify-start gap-[0.5rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border">
             <b className="relative leading-[125%] sm:text-[2.25rem]">Unterkünfte</b>
             <div className="relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:text-[1rem]">
-                Sehen Sie sich die verfügbaren Hütten an
+                Sehen Sie sich die verfügbaren Bungalows an
             </div>
         </div>
         <div
@@ -366,7 +366,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
               >
                 <RoomCard
                     image="/image1@2x.png"
-                    title="Kleine Hütte"
+                    title="Kleiner Bungalow"
                     description="3 Betten"
                     price="ab 40€"
                 />
@@ -377,7 +377,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
               >
                 <RoomCard
                     image="/image2@2x.png"
-                    title="Große Hütte"
+                    title="Großer Bungalow"
                     description="Bis zu 6 Betten"
                     price="ab 52€"
                 />
