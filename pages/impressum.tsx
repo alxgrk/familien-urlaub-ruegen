@@ -33,7 +33,7 @@ const Impressum: NextPage = () => {
               <div className="self-stretch flex flex-col items-start justify-start">
                 <div className="relative flex items-center shrink-0">
                   <span className="w-full">
-                    <p className="m-0">Rügen Grundstücks GbR</p>
+                    <p className="m-0">Rügen Grundstücks eGbR</p>
                     <p className="m-0">c/o Christine Girke</p>
                     <p className="m-0">Gartenweg 3</p>
                     <p className="m-0">04463 Großpösna</p>
