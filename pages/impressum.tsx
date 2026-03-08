@@ -46,7 +46,7 @@ const Impressum: NextPage = () => {
                     <p className="m-0">
                       <b>Vertreten durch:</b>
                     </p>
-                    <p className="m-0">Dieter Scheibner</p>
+                    <p className="m-0">Julia Gommola Vukov</p>
                   </span>
                 </div>
               </div>
@@ -54,7 +54,7 @@ const Impressum: NextPage = () => {
               <div className="self-stretch flex flex-col items-start justify-start">
                 <div className="relative flex items-center shrink-0">
                   <span className="w-full">
-                    <p className="m-0">Telefon: +49 151 64681052</p>
+                    <p className="m-0">Telefon: +49 155 67184861</p>
                     <p className="m-0">
                       E-Mail: info@familien-urlaub-ruegen.de
                     </p>
