@@ -232,7 +232,7 @@ const Footer: NextPage<FooterType> = (props) => {
             className="relative text-sm leading-[125%] inline-block w-80"
             style={rgenGrundstcksGbRStyle}
           >
-            Rügen Grundstücks GbR
+            Rügen Grundstücks eGbR
           </div>
           <div
             className="relative text-lg leading-[125%] inline-block w-80"
