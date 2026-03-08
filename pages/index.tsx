@@ -272,7 +272,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           </div>
           <Link
               className="cursor-pointer [text-decoration:none] relative tracking-[0.2px] leading-[1.5rem] font-semibold text-rectangle-805"
-              href="/agb"
+              href="/unterkuenfte"
               onClick={onLinkClick}
           >
             Mehr
