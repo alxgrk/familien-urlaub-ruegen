@@ -250,16 +250,25 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
         <div
             className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-start justify-start gap-[0.31rem] text-[0.88rem] text-dimgray-200 border-[1px] border-solid border-lightskyblue">
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Spiel- & Fernsehhaus
+            - Spiel- und Fernsehhaus
           </div>
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
             - Gemeinschaftsküche (outdoor)
           </div>
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Duschkabinen
+            - Sanitärtrakt mit Duschen
           </div>
           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Parkplatz
+            - Parkmöglichkeiten
+          </div>
+           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
+            - Waschmaschinen
+          </div>
+           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
+            - Tischtennisplatten
+          </div>
+           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
+            - Volleyballplatz
           </div>
           <Link
               className="cursor-pointer [text-decoration:none] relative tracking-[0.2px] leading-[1.5rem] font-semibold text-rectangle-805"
