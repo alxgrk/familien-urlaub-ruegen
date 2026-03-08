@@ -251,7 +251,7 @@ const Footer: NextPage<FooterType> = (props) => {
           <div
             className="relative leading-[125%]"
             style={nebensaison0103Style}
-          >{`Voraison:   06.06. - 20.06.26`}</div>
+          >{`Vorsaison:   06.06. - 20.06.26`}</div>
         </div>
         <div
           className="flex-1 flex flex-col items-end justify-center gap-[8px] sm:items-start sm:justify-center sm:flex-[unset] sm:self-stretch"
