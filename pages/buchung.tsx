@@ -316,6 +316,7 @@ const Buchung: NextPage = () => {
                               {
                                 birthdayBoxes.map(index =>
                                     (<div
+                                        key={index}
                                         className="self-stretch h-[4.25rem] flex flex-col items-start justify-start gap-[0.63rem]">
                                       <DatePicker
                                           className="self-stretch"
