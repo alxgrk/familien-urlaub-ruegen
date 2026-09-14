@@ -28,10 +28,11 @@ module.exports = {
         "rectangle-807": "#1a759f",
       },
       fontFamily: {
-        "title-2": "'DM Sans'",
-        belleza: "Belleza",
-        link: "Montserrat",
-        inter: "Inter",
+        "title-2": "'Lora', serif",
+        belleza: "'Lora', serif",
+        link: "'Lora', serif",
+        inter: "'Lora', serif",
+        lora: "'Lora', serif",
       },
       borderRadius: {
         "13xl": "32px",

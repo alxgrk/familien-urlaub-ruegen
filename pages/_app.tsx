@@ -19,7 +19,11 @@ export default function MyApp(props: any) {
     }
   }, []);
 
-  const muiTheme = createTheme();
+  const muiTheme = createTheme({
+    typography: {
+      fontFamily: "'Lora', serif",
+    },
+  });
 
   return (
     <React.Fragment>
