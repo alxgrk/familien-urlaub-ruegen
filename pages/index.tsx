@@ -368,7 +368,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
         <div
             className="self-stretch flex flex-row items-center justify-center relative gap-[1.5rem] md:flex-col md:gap-[1.5rem] md:items-center md:justify-center sm:flex-col sm:items-center sm:justify-between sm:gap-[0rem] sm:px-[1.5rem] sm:box-border">
             <div
-                className="flex-1 flex flex-row items-center justify-start gap-[1.25rem] z-[1] lg:flex-row lg:gap-[1.25rem] lg:items-center lg:justify-start md:flex-col md:gap-[1.25rem] md:items-center md:justify-start md:flex-[unset] md:self-stretch sm:flex-col sm:gap-[1.25rem] sm:items-center sm:justify-between sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:flex-[unset] sm:self-stretch"
+                className="flex-1 flex flex-row items-center justify-center gap-[1.25rem] z-[1] lg:flex-row lg:gap-[1.25rem] lg:items-center lg:justify-center md:flex-col md:gap-[1.25rem] md:items-center md:justify-center md:flex-[unset] md:self-stretch sm:flex-col sm:gap-[1.25rem] sm:items-center sm:justify-between sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:flex-[unset] sm:self-stretch"
                 onClick={onItemsContainerClick}
             >
               <Link
