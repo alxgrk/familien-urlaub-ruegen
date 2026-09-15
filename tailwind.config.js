@@ -19,7 +19,7 @@ module.exports = {
         },
         black: "#000",
         "color-text": "#262729",
-        lightskyblue: "#a9d6ff",
+        lightskyblue: "rgb(217, 243, 255)",
         blue: "#0000ee",
         lavender: "#d9edff",
         "light-text-color": "#fff",

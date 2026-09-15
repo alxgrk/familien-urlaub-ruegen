@@ -23,9 +23,9 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
   const [numErwachsene, setNumErwachsene] = useState(2);
   const [numKinder, setNumKinder] = useState(0);
 
-  return <div className="w-full flex flex-row items-center justify-center gap-[1.5rem] text-base text-dimgray-200 box-border border-b-[1px] border-solid border-gray-300">
+  return <div className="w-full max-w-[65rem] flex flex-row self-center items-center justify-center gap-[1.5rem] text-base text-dimgray-200">
     <div
-      className="self-center flex flex-row px-[1.5rem] py-[3rem] items-center justify-start gap-[1.5rem] text-dimgray-200
+      className="self-center flex flex-row px-[1.5rem] py-[1rem] items-center justify-start gap-[1.5rem] text-dimgray-200
       lg:flex-row lg:justify-between
       md:flex-col md:justify-center md:gap-[0.5rem]
       sm:flex-col sm:justify-center sm:gap-[0.2rem]">
@@ -34,7 +34,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
         md:flex-[unset] md:self-stretch
         sm:w-auto sm:self-stretch sm:pl-[0rem] sm:pr-[0rem] sm:box-border sm:flex-[unset]">
       <DatePicker
-          className="relative text-[1rem] leading-[125%] text-black"
+          className="relative text-[1rem] leading-[125%] text-dimgray-200"
           label="Anreisetag"
           value={anreiseTag}
           onChange={(v: any) => {
@@ -54,7 +54,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
     <div
         className="self-stretch flex-1 rounded-81xl flex flex-col py-[1rem] px-[0.5rem] items-center justify-center md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
       <DatePicker
-          className="relative text-[1rem] leading-[125%] text-black"
+          className="relative text-[1rem] leading-[125%] text-dimgray-200"
           label="Abreisetag"
           value={minAbreiseTag}
           onChange={(v: any) => {
@@ -82,7 +82,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
       </div>
       <div className="flex flex-col items-start justify-center sm:flex-col md:flex-col">
         <div className="relative leading-[125%]">Unterkunft für</div>
-        <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-black sm:flex-col md:flex-col">
+        <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-dimgray-200 sm:flex-col md:flex-col">
           <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[5rem]
            sm:self-start sm:min-w-[1rem]
            md:self-start md:min-w-[1rem]">
@@ -431,7 +431,9 @@ const Homepage: NextPage = () => {
         <div
             className="[background:linear-gradient(180deg,_#fff5eb,_#fff_48.44%,_#fff5eb)] w-full flex flex-col items-stretch justify-start lg:box-border sm:[align-self:unset]">
             <div className="flex flex-col items-stretch justify-start w-full">
+               <div className="w-full flex flex-row self-center items-center justify-center bg-lightskyblue">
                 <BookingStrip onSearchButtonClick={onSearchButtonClick}/>
+                 </div>
                 <HighlightsSection onLinkClick={onLinkClick} onButtonClick={onButtonClick}/>
                 <CTASection onCTAButtonClick={onCTAButtonClick}/>
                 <RoomsSection onItemsContainerClick={onItemsContainerClick} />

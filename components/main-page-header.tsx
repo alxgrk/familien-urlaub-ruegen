@@ -3,7 +3,7 @@ import Navbar from "./navbar";
 
 const MainPageHeader: NextPage = () => {
   return (
-    <div className="self-stretch h-[52.5rem] md:h-[44rem] sm:h-[38rem]
+    <div className="self-stretch h-[43rem] md:h-[44rem] sm:h-[38rem]
         flex flex-col box-border items-start justify-start
         gap-[6.25rem] bg-[url(/mainpage-header@3x.png)] bg-cover bg-no-repeat bg-[top]
         text-center text-[3.5rem] text-light-text-color font-title-2 lg:self-stretch">

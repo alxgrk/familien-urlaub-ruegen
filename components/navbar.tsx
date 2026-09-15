@@ -242,7 +242,7 @@ const Navbar: NextPage<NavbarType> = (props) => {
                 </Drawer>
             </Fragment>
             <div
-                className="flex-1 flex flex-row py-0 pl-[0.1rem]
+                className="flex-1 flex flex-row py-0 pl-[1rem]
           box-border items-center justify-start md:flex-1 md:items-center md:justify-start"
                 style={logoStyle}
             >
