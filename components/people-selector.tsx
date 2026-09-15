@@ -54,7 +54,7 @@ const StepperField: NextPage<StepperFieldProps> = ({value, label, onChange}) => 
 
 const PeopleSelector: NextPage<PeopleSelectorProps> = ({numErwachsene, numKinder, onErwachseneChange, onKinderChange}) => {
   return (
-    <div className="min-w-[2rem] flex flex-row items-center justify-center gap-[0.5rem] text-[1rem] text-dimgray-200">
+    <div className="min-w-[17rem] flex flex-row items-center justify-center gap-[0.5rem] text-[1rem] text-dimgray-200">
       <StepperField value={numErwachsene} label="Erw." onChange={onErwachseneChange}/>
       <div className="relative leading-[125%]">-</div>
       <StepperField value={numKinder} label="Kinder" onChange={onKinderChange}/>
