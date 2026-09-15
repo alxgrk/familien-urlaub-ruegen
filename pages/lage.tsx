@@ -5,11 +5,10 @@ import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import FlexRow from "../components/flex-row";
 import Footer from "../components/footer";
-import Sidebar from "../components/Sidebar";
 
 const Lage: NextPage = () => {
   return (
-    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
+    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-base text-black font-title-2">
       <SidePageHeader
         sidePageHeaderPosition="unset"
         sidePageHeaderWidth="unset"
@@ -18,12 +17,11 @@ const Lage: NextPage = () => {
         sidePageHeaderHeight1="5.63rem"
         sidePageHeaderPadding="0.63rem 1rem"
       />
-      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
-        <Sidebar/>
-        <div className="flex-1 flex flex-col items-center justify-start">
+      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] w-full flex flex-col items-stretch justify-start">
+        <div className="w-full max-w-[80rem] mx-auto flex flex-col items-stretch justify-start">
           <div className="self-stretch flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col py-[4.5rem] items-center justify-start gap-[0.5rem]">
-              <b className="self-center relative leading-[125%] md:text-[2.63rem] sm:text-[1.75rem]">
+              <b className="self-center relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
                 Unser Grundstück
               </b>
               <div className="self-center relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
@@ -102,7 +100,6 @@ const Lage: NextPage = () => {
           </div>
           <Footer/>
         </div>
-        <Sidebar/>
       </div>
     </div>
   );

@@ -4,12 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
-import Sidebar from "../components/Sidebar";
 import PdfViewer from "../components/PdfViewer";
 
 const Agb: NextPage = () => {
   return (
-    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
+    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-base text-black font-title-2">
       <SidePageHeader
         sidePageHeaderPosition="unset"
         sidePageHeaderWidth="unset"
@@ -18,12 +17,11 @@ const Agb: NextPage = () => {
         sidePageHeaderHeight1="5.63rem"
         sidePageHeaderPadding="0.63rem 1rem"
       />
-      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
-        <Sidebar/>
-        <div className="flex-1 flex flex-col items-center justify-start">
+      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] w-full flex flex-col items-stretch justify-start">
+        <div className="w-full max-w-[80rem] mx-auto flex flex-col items-stretch justify-start">
           <div className="self-stretch flex flex-col items-center justify-start">
             <div className="self-stretch flex flex-col pt-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem] sm:items-center sm:justify-center">
-              <b className="self-stretch relative leading-[125%] sm:text-center sm:flex-1 md:text-[2.63rem] sm:text-[1.75rem]">
+              <b className="self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
                 Unsere AGB
               </b>
             </div>
@@ -34,7 +32,7 @@ const Agb: NextPage = () => {
             </div>
             <div className="self-stretch flex flex-col items-center justify-start">
               <div className="self-stretch flex flex-col pt-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem] sm:items-center sm:justify-center">
-                <b className="self-stretch relative leading-[125%] sm:text-center sm:flex-1 md:text-[2.63rem] sm:text-[1.75rem]">
+                <b className="self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
                   Unsere Hausordnung
                 </b>
               </div>
@@ -47,7 +45,6 @@ const Agb: NextPage = () => {
           </div>
           <Footer/>
         </div>
-        <Sidebar/>
       </div>
     </div>
   );

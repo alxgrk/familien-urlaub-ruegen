@@ -435,7 +435,9 @@ const Homepage: NextPage = () => {
                 <HighlightsSection onLinkClick={onLinkClick} onButtonClick={onButtonClick}/>
                 <CTASection onCTAButtonClick={onCTAButtonClick}/>
                 <RoomsSection onItemsContainerClick={onItemsContainerClick} />
-                <Footer/>
+                <div className="w-full max-w-[80rem] mx-auto">
+                    <Footer/>
+                </div>
             </div>
         </div>
     </div>

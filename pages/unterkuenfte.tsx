@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import SidePageHeader from "../components/side-page-header";
 import AccommodationsContainer from "../components/accommodations-container";
 import Footer from "../components/footer";
-import Sidebar from "../components/Sidebar";
 
 const Unterkuenfte: NextPage = () => {
   const router = useRouter();
@@ -19,7 +18,7 @@ const Unterkuenfte: NextPage = () => {
   }, [router]);
 
   return (
-    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
+    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-base text-black font-title-2">
       <SidePageHeader
         sidePageHeaderPosition="unset"
         sidePageHeaderWidth="unset"
@@ -28,13 +27,12 @@ const Unterkuenfte: NextPage = () => {
         sidePageHeaderHeight1="5.63rem"
         sidePageHeaderPadding="0.63rem 1rem"
       />
-      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
-        <Sidebar />
-        <div className="flex-1 flex flex-col items-center justify-start lg:pl-[0rem] lg:box-border">
+      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] w-full flex flex-col items-stretch justify-start">
+        <div className="w-full max-w-[80rem] mx-auto flex flex-col items-stretch justify-start">
           <div className="self-stretch flex flex-col items-center justify-start">
             <AccommodationsContainer />
             <div className="self-stretch flex flex-col py-[0rem] px-[2rem] sm:px-[1rem] items-center justify-start gap-[1rem]">
-              <b className="self-stretch relative leading-[125%] md:text-[2.63rem] sm:text-[1.75rem]">
+              <b className="self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
                 Das Gemeinschaftshaus
               </b>
               <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
@@ -77,7 +75,6 @@ const Unterkuenfte: NextPage = () => {
           </div>
           <Footer/>
         </div>
-        <Sidebar />
       </div>
     </div>
   );

@@ -15,10 +15,10 @@ const AccommodationsContainer: NextPage = () => {
   }, [router]);
 
   return (
-    <div className="self-stretch flex flex-col py-[5rem] px-[2rem] items-center justify-center gap-[1rem] text-center text-[3.5rem] text-black font-title-2
+    <div className="self-stretch flex flex-col py-[5rem] px-[2rem] items-center justify-center gap-[1rem] text-center text-base text-black font-title-2
     sm:w-auto sm:[align-self:unset] sm:py-[2rem] sm:px-[1rem] sm:box-border">
       <div className="self-stretch flex flex-col items-center justify-center gap-[1rem] md:w-auto md:[align-self:unset]">
-        <b className="self-stretch relative leading-[125%] md:text-[2.63rem] sm:text-[1.75rem]">
+        <b className="self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
           Unsere Unterkünfte
         </b>
         <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:font-title-2">

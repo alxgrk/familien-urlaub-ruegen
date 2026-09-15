@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
 import SidePageHeader from "../components/side-page-header";
 import Footer from "../components/footer";
-import Sidebar from "../components/Sidebar";
 
 const Dsgvo: NextPage = () => {
   return (
-    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-[3.5rem] text-black font-title-2">
+    <div className="relative bg-light-text-color w-full overflow-hidden flex flex-col items-center justify-start text-center text-base text-black font-title-2">
       <SidePageHeader
         sidePageHeaderPosition="unset"
         sidePageHeaderWidth="unset"
@@ -14,13 +13,12 @@ const Dsgvo: NextPage = () => {
         sidePageHeaderHeight1="5.63rem"
         sidePageHeaderPadding="0.63rem 1rem"
       />
-      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] flex flex-row items-center justify-start">
-        <Sidebar/>
-        <div className="flex-1 flex flex-col items-center justify-start">
+      <div className="self-stretch [background:linear-gradient(180deg,_#fff5eb,_#fff_50.52%,_#fff5eb)] w-full flex flex-col items-stretch justify-start">
+        <div className="w-full max-w-[80rem] mx-auto flex flex-col items-stretch justify-start">
           <div className="self-stretch flex flex-col items-center justify-start md:w-auto md:[align-self:unset] sm:w-auto sm:[align-self:unset]">
             <div className="self-stretch flex flex-col pt-[4.5rem] px-[0.5rem] items-center justify-start gap-[0.5rem]
             md:w-auto md:[align-self:unset] sm:w-auto sm:[align-self:unset] sm:pl-[0.5rem] sm:box-border">
-              <b className="self-stretch relative leading-[125%] md:text-[2.63rem] sm:text-[1.75rem]">
+              <b className="self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
                 Unsere Datenschutzerklärung
               </b>
               <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium">
@@ -1157,7 +1155,6 @@ const Dsgvo: NextPage = () => {
           </div>
           <Footer/>
         </div>
-        <Sidebar/>
       </div>
     </div>
   );
