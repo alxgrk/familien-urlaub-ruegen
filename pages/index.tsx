@@ -72,7 +72,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
     </div>
     <div className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300 sm:hidden md:hidden"/>
     <div
-        className="self-stretch flex-1 rounded-81xl flex flex-row py-[1rem] px-[0.5rem] items-center justify-center gap-[0.75rem] md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
+        className="max-w-[20rem] self-stretch flex-1 rounded-81xl flex flex-row py-[1rem] px-[1rem] items-center justify-center gap-[0.75rem] md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
       <div className="flex flex-col items-start justify-center">
         <img
             className="relative w-[1.37rem] h-[1.06rem]"
@@ -82,10 +82,8 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
       </div>
       <div className="flex flex-col items-start justify-center sm:flex-col md:flex-col">
         <div className="relative leading-[125%]">Unterkunft für</div>
-        <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-dimgray-200 sm:flex-col md:flex-col">
-          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[5rem]
-           sm:self-start sm:min-w-[1rem]
-           md:self-start md:min-w-[1rem]">
+        <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-dimgray-200">
+          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[5rem]">
             <TextField
                 type="number"
                 className="self-stretch  relative leading-[125%]"
@@ -99,10 +97,8 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
             />
             <div className="flex-1 relative leading-[125%]">Erw.</div>
           </div>
-          <div className="relative leading-[125%] sm:hidden md:hidden">-</div>
-          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[6rem]
-           sm:self-start sm:min-w-[1rem]
-           md:self-start md:min-w-[1rem]">
+          <div className="relative leading-[125%]">-</div>
+          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[6rem]">
             <TextField
                 type="number"
                 className="self-stretch  relative leading-[125%]"
