@@ -28,7 +28,7 @@ How to produce the static site and publish it to Netlify.
    This creates/updates the `build/` directory.
 4. **Important caveat:** the build does **not** catch TypeScript errors (`typescript.ignoreBuildErrors: true` is set on purpose). If you want a type check, run `npx tsc --noEmit` manually.
 5. Publish `build/` to Netlify:
-   - If Netlify is wired directly to the GitHub repository (`alxgrk/familien-urlaub-ruegen`), the build is defined in `netlify.toml` (build command `npm run export`, publish directory `build/`, Node 24, `NEXT_PUBLIC_IMAGE_CDN=true`) — just push to `main`. Any linked branch builds work the same way.
+   - If Netlify is wired directly to the GitHub repository (`alxgrk/familien-urlaub-ruegen`), the build is defined in `netlify.toml` (build command `npm run export`, publish directory `build/`, Node 24, `NEXT_PUBLIC_IMAGE_CDN=true`, `NETLIFY_NEXT_PLUGIN_SKIP=true` — Netlify's auto-installed Next.js runtime only supports SSR builds and must be skipped for this static export) — just push to `main`. Any linked branch builds work the same way.
    - Alternatively, drag-and-drop: log in to the Netlify dashboard, open the site, and drop the `build/` folder onto the file upload area (this publish-simply workflow also creates a new "deploy"). Note: an export built locally contains plain image paths (not Netlify Image CDN URLs) — it works, but images are served unoptimized. Prefer CI builds.
 
 ## Verifying a deploy

@@ -34,7 +34,7 @@ The site advertises two rental units ("Kleines Ferienhaus", "Großes Ferienhaus"
 - The only deployable artifact is the **static export** in `build/` (used by Netlify). Do not add API routes, middleware, `getServerSideProps`, rewrites, or other server-only features — they will not work in the exported site.
 - `next.config.js` also chunks `vis-timeline` via `transpilePackages` and adds a `raw-loader` rule for `.node` files — leave both in place.
 - **Images are optimized via Netlify Image CDN**, not Next's own optimizer: `next.config.js` sets `images.loaderFile: "./lib/image-loader.ts"`, which emits `/.netlify/images?url=...&w=...&q=...` URLs when `NEXT_PUBLIC_IMAGE_CDN=true` (set in `netlify.toml`) and plain paths otherwise (local dev/builds). This is required because `next export` has no `/_next/image` server — do **not** simply remove `images.loaderFile` or set `unoptimized: true` on a whim. Hero/CTA backgrounds (`main-page-header.tsx`, `side-page-header.tsx`, `CTASection` in `index.tsx`) use `next/image` with `fill` inside `relative isolate` containers, not CSS `bg-[url(...)]`.
-- `netlify.toml` defines the deploy (build command `npm run export`, publish `build/`, Node 24, `NEXT_PUBLIC_IMAGE_CDN=true`). Changing build settings there overrides the Netlify UI.
+- `netlify.toml` defines the deploy (build command `npm run export`, publish `build/`, Node 24, `NEXT_PUBLIC_IMAGE_CDN=true`, `NETLIFY_NEXT_PLUGIN_SKIP=true`). The skip flag is required because Netlify auto-installs `@netlify/plugin-nextjs`, which expects an SSR `.next` build and fails on static exports; with it, Netlify serves `build/` directly (Image CDN and Forms are unaffected). Changing build settings there overrides the Netlify UI.
 
 ## Repository layout
 
