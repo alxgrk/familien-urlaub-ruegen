@@ -30,20 +30,18 @@ type SidePageHeaderType = {
 };
 
 const SidePageHeader: NextPage<SidePageHeaderType> = ({
-  sidePageHeaderPosition,
   sidePageHeaderWidth,
   sidePageHeaderHeight,
   sidePageHeaderAlignSelf,
 }) => {
   const sidePageHeaderStyle: CSS.Properties = useMemo(() => {
     return {
-      position: sidePageHeaderPosition,
+      position: "relative",
       width: sidePageHeaderWidth,
       height: sidePageHeaderHeight,
       alignSelf: sidePageHeaderAlignSelf,
     };
   }, [
-    sidePageHeaderPosition,
     sidePageHeaderWidth,
     sidePageHeaderHeight,
     sidePageHeaderAlignSelf,
