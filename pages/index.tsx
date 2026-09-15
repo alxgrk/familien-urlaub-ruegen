@@ -7,8 +7,8 @@ import MainPageHeader from "../components/main-page-header";
 import FlexRow from "../components/flex-row";
 import RoomCard from "../components/room-card";
 import Footer from "../components/footer";
+import PeopleSelector from "../components/people-selector";
 import {DatePicker} from "@mui/x-date-pickers";
-import {TextField} from "@mui/material";
 import CSS from "csstype";
 
 const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date, numErwachsene: number, numKinder: number) => void}> = ({onSearchButtonClick}) => {
@@ -23,7 +23,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
   const [numErwachsene, setNumErwachsene] = useState(2);
   const [numKinder, setNumKinder] = useState(0);
 
-  return <div className="w-full max-w-[65rem] flex flex-row self-center items-center justify-center gap-[1.5rem] text-base text-dimgray-200">
+  return <div className="w-full max-w-[68rem] flex flex-row self-center items-center justify-center gap-[1.5rem] text-base text-dimgray-200">
     <div
       className="self-center flex flex-row px-[1.5rem] py-[1rem] items-center justify-start gap-[1.5rem] text-dimgray-200
       lg:flex-row lg:justify-between
@@ -72,7 +72,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
     </div>
     <div className="relative box-border w-[0.06rem] h-[2.56rem] border-r-[1px] border-solid border-gray-300 sm:hidden md:hidden"/>
     <div
-        className="max-w-[20rem] self-stretch flex-1 rounded-81xl flex flex-row py-[1rem] px-[1rem] items-center justify-center gap-[0.75rem] md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
+        className="max-w-[22rem] self-stretch flex-1 rounded-81xl flex flex-row py-[1rem] px-[0.1rem] items-center justify-center gap-[0.75rem] md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
       <div className="flex flex-col items-start justify-center">
         <img
             className="relative w-[1.37rem] h-[1.06rem]"
@@ -82,39 +82,12 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
       </div>
       <div className="flex flex-col items-start justify-center sm:flex-col md:flex-col">
         <div className="relative leading-[125%]">Unterkunft für</div>
-        <div className="flex flex-row items-center justify-start gap-[0.5rem] text-[1rem] text-dimgray-200">
-          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[5rem]">
-            <TextField
-                type="number"
-                className="self-stretch  relative leading-[125%]"
-                value={numErwachsene}
-                variant="standard"
-                onChange={(v: any) => {
-                  const value = v.target.value;
-                  if (value < 0 ) return;
-                  setNumErwachsene(value)
-                }}
-            />
-            <div className="flex-1 relative leading-[125%]">Erw.</div>
-          </div>
-          <div className="relative leading-[125%]">-</div>
-          <div className="flex flex-row items-center justify-start gap-[0.5rem] min-w-[6rem]">
-            <TextField
-                type="number"
-                className="self-stretch  relative leading-[125%]"
-                value={numKinder}
-                variant="standard"
-                onChange={(v: any) => {
-                  const value = v.target.value;
-                  if (value < 0 ) return;
-                  setNumKinder(value)
-                }}
-            />
-            <div className="flex-1 relative leading-[125%]">
-              Kinder
-            </div>
-          </div>
-        </div>
+        <PeopleSelector
+            numErwachsene={numErwachsene}
+            numKinder={numKinder}
+            onErwachseneChange={(value) => setNumErwachsene(value)}
+            onKinderChange={(value) => setNumKinder(value)}
+        />
       </div>
     </div>
     <button
