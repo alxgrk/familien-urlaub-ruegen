@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useMemo } from "react";
 import CSS, { Property } from "csstype";
 
@@ -13,7 +14,7 @@ type FlexRowType = {
 };
 
 const FlexRow: NextPage<FlexRowType> = ({
-  icnCircleCircleMd,
+  icnCircleCircleMd = "/icncircle-circlemd.svg",
   h5,
   propBorderRadius,
   propFlex,
@@ -37,10 +38,12 @@ const FlexRow: NextPage<FlexRowType> = ({
       className="self-stretch rounded-2xs bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem] text-left text-[1.38rem] text-light-text-color font-link"
       style={flexRowStyle}
     >
-      <img
+      <Image
         className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
         alt=""
         src={icnCircleCircleMd}
+        width={72}
+        height={72}
       />
       <div
         className="flex-1 flex flex-row items-start justify-start"

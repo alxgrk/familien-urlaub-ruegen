@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import {useCallback, useMemo, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -18,7 +19,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
     const minAbreise = new Date(anreiseTag.getTime() + 7 * 24 * 60 * 60 * 1000);
     const selectedAbreise = abreiseTag;
     return minAbreise.getTime() < selectedAbreise.getTime() ? selectedAbreise : minAbreise;
-  }, [anreiseTag]);
+  }, [anreiseTag, abreiseTag]);
 
   const [numErwachsene, setNumErwachsene] = useState(2);
   const [numKinder, setNumKinder] = useState(0);
@@ -74,10 +75,12 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
     <div
         className="max-w-[22rem] self-stretch flex-1 rounded-81xl flex flex-row py-[1rem] px-[0.1rem] items-center justify-center gap-[0.75rem] md:flex-[unset] md:self-stretch sm:w-auto sm:self-stretch sm:flex-[unset]">
       <div className="flex flex-col items-start justify-center">
-        <img
+        <Image
             className="relative w-[1.37rem] h-[1.06rem]"
             alt=""
             src="/vector.svg"
+            width={22}
+            height={17}
         />
       </div>
       <div className="flex flex-col items-start justify-center sm:flex-col md:flex-col">
@@ -98,10 +101,12 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
         sm:min-w-[40%] sm:self-stretch sm:w-auto sm:pl-[0.5rem] sm:pr-[0.5rem] sm:box-border sm:flex-[unset]"
         onClick={() => onSearchButtonClick(anreiseTag, minAbreiseTag, numErwachsene, numKinder)}
     >
-      <img
+      <Image
           className="relative w-[1.5rem] h-[1.5rem] overflow-hidden shrink-0"
           alt=""
           src="/magnifier--24--outline.svg"
+          width={24}
+          height={24}
       />
       <b className="relative text-[1.13rem] leading-[1.5rem] font-title-2 text-light-text-color text-left">
         Verfügbarkeit prüfen
@@ -164,10 +169,12 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           className="self-stretch flex-1 rounded-3xs overflow-hidden flex flex-col items-center justify-start sm:flex-[unset] sm:self-stretch">
         <div
             className="self-stretch rounded-2xs bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem]">
-          <img
+          <Image
               className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
               alt=""
               src="/icncircle-circlemd1.svg"
+              width={72}
+              height={72}
           />
           <div className="flex flex-row items-start justify-start">
             <b className="relative tracking-[0.1px] leading-[1.5rem]">
@@ -205,10 +212,12 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           className="self-stretch flex-1 rounded-3xs overflow-hidden flex flex-col items-center justify-start sm:flex-[unset] sm:self-stretch">
         <div
             className="self-stretch rounded-2xs bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem]">
-          <img
+          <Image
               className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
               alt=""
               src="/icncircle-circlemd2.svg"
+              width={72}
+              height={72}
           />
           <div className="flex flex-row items-start justify-start">
             <b className="relative tracking-[0.1px] leading-[1.5rem]">
@@ -255,10 +264,12 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
          sm:flex-col sm:items-center sm:justify-between sm:gap-[0rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border">
       <div
           className="self-stretch flex-1 flex flex-col items-start justify-center z-[1] md:flex-[unset] md:self-stretch sm:items-center sm:justify-center sm:px-[1.5rem] sm:box-border sm:flex-[unset] sm:self-stretch">
-        <img
+        <Image
             className="self-stretch flex-1 relative rounded-xl max-w-full overflow-hidden max-h-full object-cover sm:w-full sm:max-w-full"
             alt=""
             src="/image@2x.png"
+            width={1504}
+            height={872}
         />
       </div>
       <div

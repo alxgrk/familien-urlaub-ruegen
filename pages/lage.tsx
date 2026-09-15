@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -27,11 +28,13 @@ const Lage: NextPage = () => {
               <div className="self-center relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
                 100m bis zum Strand
               </div>
-              <img
+<Image
                 className="self-center flex-1 relative max-w-full overflow-hidden max-h-full object-cover sm:max-h-[15rem]"
                 alt=""
                 src="/calendar-1@2x.png"
-              />
+                width={3008}
+                height={2388}
+            />
               <a
                   className="[text-decoration:none] rounded-45xl bg-rectangle-805 h-[2.75rem] flex flex-row py-[0rem] px-[1.25rem] box-border items-center justify-start cursor-pointer z-[1] text-[1.13rem] text-light-text-color"
                   href="https://www.google.de/maps/place/Drewoldke+18,+18556+Altenkirchen/@54.6312338,13.3724427,18.46z/data=!4m17!1m10!3m9!1s0x47ab51a7907f7223:0xecbbd7f9ed9a2841!2sCampingplatz+Drewoldke!5m2!4m1!1i2!8m2!3d54.634331!4d13.37358!16s%2Fg%2F1tkrkv9v!3m5!1s0x47ab51a7944a4c8d:0x7716f1cb0cc4cbef!8m2!3d54.6312159!4d13.3737595!16s%2Fg%2F11c4tc17b7?entry=ttu"
@@ -65,10 +68,12 @@ const Lage: NextPage = () => {
                   </div>
                 </div>
                 <div className="self-stretch bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem] text-left text-[1.38rem] text-light-text-color font-link">
-                  <img
+                  <Image
                     className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
                     alt=""
                     src="/icncircle-circlemd4.svg"
+                    width={72}
+                    height={72}
                   />
                   <div className="w-[9rem] flex flex-row items-start justify-start">
                     <b className="flex-1 relative tracking-[0.1px] leading-[1.5rem]">
@@ -84,10 +89,12 @@ const Lage: NextPage = () => {
                   </div>
                 </div>
                 <div className="self-stretch bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem] text-left text-[1.38rem] text-light-text-color font-link">
-                  <img
+                  <Image
                     className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
                     alt=""
                     src="/icncircle-circlemd5.svg"
+                    width={72}
+                    height={72}
                   />
                   <div className="w-[9rem] flex flex-row items-start justify-start">
                     <b className="flex-1 relative tracking-[0.1px] leading-[1.5rem]">

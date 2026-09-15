@@ -1,6 +1,6 @@
 import type {NextPage} from "next";
 import {DataSet, Timeline as Vis,} from "vis-timeline/standalone";
-import {useEffect, useMemo, useRef, useState} from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import moment from "moment";
 import UAParser from "ua-parser-js";
 import {max, min} from 'date-fns';
@@ -48,7 +48,31 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
     // const [selectedTimeRangeSmall, setSelectedTimeRangeSmall] = useState<PotentialRange>({});
     // const [selectedTimeRangeBig, setSelectedTimeRangeBig] = useState<PotentialRange>({});
 
-    const initTimeline = (currentYear: number) => {
+    const onChange = useCallback((event: any) => {
+        // console.log(JSON.stringify(event))
+        const [smallHouseRanges, bigHouseRanges] = event.items.map((i: number) => ({id: i, range: rangeByIdRef.current.get(i)}))
+            .filter((o: any) => o.range).reduce((result: any, element: any) => {
+                    result[element.id < 100 ? 0 : 1].push(element.range); // Determine and push to small/large arr
+                    return result;
+                },
+                [[], []])
+        const smallHouseRange = {
+            start: smallHouseRanges.length ? min(smallHouseRanges.map((i: any) => i.start)) : undefined,
+            end: smallHouseRanges.length ? max(smallHouseRanges.map((i: any) => i.end)) : undefined,
+        };
+        const bigHouseRange = {
+            start: bigHouseRanges.length ? min(bigHouseRanges.map((i: any) => i.start)) : undefined,
+            end: bigHouseRanges.length ? max(bigHouseRanges.map((i: any) => i.end)) : undefined,
+        };
+        // setSelectedTimeRangeSmall(smallHouseRange)
+        // setSelectedTimeRangeBig(bigHouseRange)
+        onSelect({
+            small: smallHouseRange.start ? smallHouseRange as Range : undefined,
+            big: bigHouseRange.start ? bigHouseRange as Range : undefined,
+        });
+    }, [onSelect]);
+
+    const initTimeline = useCallback((currentYear: number) => {
         if (!containerRef.current) return;
 
         const lastSaturday = moment().locale("de").subtract(1, 'week').weekday(6);
@@ -170,35 +194,11 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
         const timeline = timelineRef.current;
         timeline.on("select", onChange);
         timeline.moveTo(initialStart.toDate())
-    };
-
-    const onChange = (event: any) => {
-        // console.log(JSON.stringify(event))
-        const [smallHouseRanges, bigHouseRanges] = event.items.map((i: number) => ({id: i, range: rangeByIdRef.current.get(i)}))
-            .filter((o: any) => o.range).reduce((result: any, element: any) => {
-                    result[element.id < 100 ? 0 : 1].push(element.range); // Determine and push to small/large arr
-                    return result;
-                },
-                [[], []])
-        const smallHouseRange = {
-            start: smallHouseRanges.length ? min(smallHouseRanges.map((i: any) => i.start)) : undefined,
-            end: smallHouseRanges.length ? max(smallHouseRanges.map((i: any) => i.end)) : undefined,
-        };
-        const bigHouseRange = {
-            start: bigHouseRanges.length ? min(bigHouseRanges.map((i: any) => i.start)) : undefined,
-            end: bigHouseRanges.length ? max(bigHouseRanges.map((i: any) => i.end)) : undefined,
-        };
-        // setSelectedTimeRangeSmall(smallHouseRange)
-        // setSelectedTimeRangeBig(bigHouseRange)
-        onSelect({
-            small: smallHouseRange.start ? smallHouseRange as Range : undefined,
-            big: bigHouseRange.start ? bigHouseRange as Range : undefined,
-        });
-    };
+    }, [onChange]);
 
     useEffect(() => {
         if (!timelineRef.current) initTimeline(selectedYear);
-    }, [containerRef]);
+    }, [containerRef, initTimeline, selectedYear]);
 
     useEffect(() => {
         if (initialSelection) {
@@ -213,7 +213,7 @@ const Timeline: NextPage<TimelineType> = ({initialSelection, onSelect}) => {
             timelineRef.current!.focus(ids, {animation: false})
             // timelineRef.current!.moveTo(initialSelection.start)
         }
-    }, [initialSelection, selectedYear]);
+    }, [initTimeline, initialSelection, selectedYear]);
 
     const currentYear = new Date().getFullYear();
     const nextYear = currentYear + 1;

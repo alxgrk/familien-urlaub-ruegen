@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 import ContainerLink from "./container-link";
@@ -30,21 +31,27 @@ const AccommodationsContainer: NextPage = () => {
         <div className="flex-1 rounded-xl box-border overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200
         lg:flex-row md:flex-row md:min-h-[0rem] sm:flex-col">
           <div className="flex-1 h-[30rem] flex flex-col items-center justify-start md:h-auto sm:h-auto">
-            <img
+            <Image
               className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
               alt=""
               src="/image11@2x.png"
+              width={760}
+              height={480}
             />
-            <img
+            <Image
               className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
               alt=""
               src="/image3@2x.png"
+              width={760}
+              height={480}
             />
           </div>
-          <img
+          <Image
             className="self-stretch flex-1 relative max-w-full overflow-hidden h-[30rem] object-cover md:h-auto"
             alt=""
             src="/image21@2x.png"
+            width={760}
+            height={960}
           />
         </div>
         <ContainerLink
@@ -58,21 +65,27 @@ const AccommodationsContainer: NextPage = () => {
        lg:flex-row md:flex-col sm:flex-col sm:max-w-[26.25rem]">
         <div className="flex-1 rounded-xl box-border h-[30rem] overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200 md:flex-[unset] md:items-center md:justify-between md:gap-[0rem] md:min-h-[0rem] md:self-stretch sm:h-auto sm:flex-col sm:flex-[unset] sm:self-stretch">
           <div className="self-stretch flex-1 flex flex-col items-center justify-start">
-            <img
+            <Image
               className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
               alt=""
               src="/image12@2x.png"
+              width={760}
+              height={480}
             />
-            <img
+            <Image
               className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
               alt=""
               src="/image31@2x.png"
+              width={760}
+              height={480}
             />
           </div>
-          <img
+          <Image
             className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
             alt=""
             src="/image13@2x.png"
+            width={760}
+            height={960}
           />
         </div>
         <ContainerLink

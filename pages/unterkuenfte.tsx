@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -41,21 +42,27 @@ const Unterkuenfte: NextPage = () => {
               <div className="self-stretch rounded-xl overflow-hidden flex flex-row items-center justify-between border-[1px] border-solid border-dimgray-200
                sm:flex-col sm:gap-[0rem] sm:items-center sm:justify-start">
                 <div className="flex-1 h-[50rem] flex flex-col items-center justify-between min-h-[30rem]">
-                  <img
+                  <Image
                     className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover min-h-[25rem]"
                     alt=""
                     src="/image14@2x.png"
+                    width={1328}
+                    height={800}
                   />
-                  <img
+                  <Image
                     className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
                     alt=""
                     src="/image32@2x.png"
+                    width={1328}
+                    height={800}
                   />
                 </div>
-                <img
+                <Image
                   className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover min-h-[30rem]"
                   alt=""
                   src="/image22@2x.png"
+                  width={1328}
+                  height={1600}
                 />
               </div>
               <div className="self-stretch flex flex-col py-[0rem] px-[6rem] sm:px-[3rem] items-center justify-start gap-[1.5rem] text-left text-[1rem] text-rectangle-807">

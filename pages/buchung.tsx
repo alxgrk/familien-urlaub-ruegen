@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import {useState, useCallback, useMemo, useEffect} from "react";
 import {
   TextField,
@@ -84,12 +85,14 @@ const Buchung: NextPage = () => {
                     <div className="self-center flex flex-row items-center justify-center text-[2rem] text-darkslategray
                     border-[1px] border-solid border-slate-200
                     md:flex-col sm:flex-col sm:py-[0.5rem]">
-                      <img
+<Image
                         className="self-stretch relative max-w-[21.88rem] overflow-hidden shrink-0 object-cover
                         md:hidden sm:hidden"
                         alt=""
                         src="/cover@2x.png"
-                      />
+                        width={700}
+                        height={1720}
+                    />
                       <div className="self-stretch bg-light-text-color overflow-hidden flex flex-col py-[1.5rem] px-[3.13rem] box-border
                       items-center justify-start gap-[2.5rem] min-w-[31.25rem] max-w-[37.5rem] sm:min-w-[10rem] sm:px-[1rem]">
                         <b className="relative leading-[125%]">Kontaktformular</b>

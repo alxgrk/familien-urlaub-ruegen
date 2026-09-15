@@ -1,4 +1,5 @@
 import type {NextPage} from "next";
+import Image from "next/image";
 import {Fragment, useCallback, useMemo, useState} from "react";
 import CSS, {Property} from "csstype";
 import {useRouter} from "next/router";
@@ -279,11 +280,13 @@ const Navbar: NextPage<NavbarType> = (props) => {
                     className="flex-1 pr-[1rem] hidden flex-col items-end justify-center md:flex md:flex-1 sm:flex sm:flex-1"
                     style={mobileNavigationMenuStyle}
                 >
-                    <img
+                    <Image
                         className="w-[23.82px] h-6 overflow-hidden shrink-0 md:flex sm:flex"
                         alt=""
                         src={hamburgerMenu}
                         style={hamburgerMenuIconStyle}
+                        width={24}
+                        height={24}
                         onClick={toggleDrawer(true)}
                     />
                 </div>
