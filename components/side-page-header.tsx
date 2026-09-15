@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useMemo } from "react";
 import CSS, { Property } from "csstype";
 import Navbar from "./navbar";
@@ -50,9 +51,17 @@ const SidePageHeader: NextPage<SidePageHeaderType> = ({
 
   return (
     <div
-      className="relative w-[1920px] h-[333px] flex flex-col items-center justify-start bg-[url(/sidepage-header@3x.png)] bg-cover bg-no-repeat bg-[top] lg:w-[1200px] lg:max-w-[1200px] md:w-[960px] md:max-w-[960px]"
+      className="relative isolate w-[1920px] h-[333px] flex flex-col items-center justify-start lg:w-[1200px] lg:max-w-[1200px] md:w-[960px] md:max-w-[960px]"
       style={sidePageHeaderStyle}
     >
+      <Image
+        src="/sidepage-header@3x.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-10 object-cover object-top"
+      />
       <Navbar/>
     </div>
   );

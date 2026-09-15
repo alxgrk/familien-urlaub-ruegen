@@ -316,7 +316,14 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
 
 const CTASection: NextPage<{ onCTAButtonClick: () => void }> = ({onCTAButtonClick}) => {
     return <div
-        className="self-stretch w-full flex flex-col py-[5rem] px-[0rem] box-border items-center justify-start bg-[url(/cta@3x.png)] bg-cover bg-no-repeat bg-[top]">
+        className="self-stretch w-full flex flex-col py-[5rem] px-[0rem] box-border items-center justify-start relative isolate">
+        <Image
+            src="/cta@3x.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="-z-10 object-cover object-top"
+        />
         <div
             className="w-full max-w-[80rem] mx-auto flex flex-col items-center justify-start gap-[1.5rem] text-[2.5rem] text-light-text-color">
             <div className="relative leading-[125%] text-[2.25rem] sm:text-[1.75rem]">

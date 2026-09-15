@@ -1,0 +1,7 @@
+[build]
+  command = "npm run export"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "24"
+  NEXT_PUBLIC_IMAGE_CDN = "true"

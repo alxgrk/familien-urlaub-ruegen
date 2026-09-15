@@ -28,8 +28,8 @@ How to produce the static site and publish it to Netlify.
    This creates/updates the `build/` directory.
 4. **Important caveat:** the build does **not** catch TypeScript errors (`typescript.ignoreBuildErrors: true` is set on purpose). If you want a type check, run `npx tsc --noEmit` manually.
 5. Publish `build/` to Netlify:
-   - If Netlify is wired directly to the GitHub repository (`alxgrk/familien-urlaub-ruegen`), the standard option is a **Deploy Settings / CI** build command `npm run export` with **Publish directory** `build/`, then push to `main`. Any linked branch builds work the same way.
-   - Alternatively, drag-and-drop: log in to the Netlify dashboard, open the site, and drop the `build/` folder onto the file upload area (this publish-simply workflow also creates a new "deploy").
+   - If Netlify is wired directly to the GitHub repository (`alxgrk/familien-urlaub-ruegen`), the build is defined in `netlify.toml` (build command `npm run export`, publish directory `build/`, Node 24, `NEXT_PUBLIC_IMAGE_CDN=true`) — just push to `main`. Any linked branch builds work the same way.
+   - Alternatively, drag-and-drop: log in to the Netlify dashboard, open the site, and drop the `build/` folder onto the file upload area (this publish-simply workflow also creates a new "deploy"). Note: an export built locally contains plain image paths (not Netlify Image CDN URLs) — it works, but images are served unoptimized. Prefer CI builds.
 
 ## Verifying a deploy
 
@@ -42,5 +42,6 @@ How to produce the static site and publish it to Netlify.
 ## Netlify-specific notes
 
 - **Forms:** the booking form is detected by Netlify via the `data-netlify="true"` + `data-netlify-honeypot="bot-field"` attributes and the hidden `form-name` input (see [booking-flow.md](booking-flow.md)). Submissions show up under **Forms → contact-form** and can be configured to email the owners from the Netlify admin; none of that lives in the code.
+- **Image optimization:** images are transformed on the fly by the **Netlify Image CDN** (`/.netlify/images?url=...`), driven by the custom loader in `lib/image-loader.ts` (`next.config.js` → `images.loaderFile`). The flag `NEXT_PUBLIC_IMAGE_CDN=true` in `netlify.toml` activates it on Netlify builds; locally the loader falls back to plain paths (no CDN there). SVGs pass through the CDN unchanged.
 - **Static content only:** do not add server features (API routes, middleware, `getServerSideProps`) — the exported site has no Node server.
 - **`public/transfer/`:** the large ~233 MB gallery of yet-unused JPGs is **not** committed and therefore not deployed; files only reach the live site when moved/added under `public/` and committed. This is intentional — do not deploy the whole folder.

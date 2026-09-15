@@ -33,6 +33,8 @@ The site advertises two rental units ("Kleines Ferienhaus", "Großes Ferienhaus"
 - `next.config.js` has `typescript.ignoreBuildErrors: true` and there is **no typecheck script**. `next build` / `next lint` will **not** fail on TypeScript errors. Run `npx tsc --noEmit` yourself if you need a type check.
 - The only deployable artifact is the **static export** in `build/` (used by Netlify). Do not add API routes, middleware, `getServerSideProps`, rewrites, or other server-only features — they will not work in the exported site.
 - `next.config.js` also chunks `vis-timeline` via `transpilePackages` and adds a `raw-loader` rule for `.node` files — leave both in place.
+- **Images are optimized via Netlify Image CDN**, not Next's own optimizer: `next.config.js` sets `images.loaderFile: "./lib/image-loader.ts"`, which emits `/.netlify/images?url=...&w=...&q=...` URLs when `NEXT_PUBLIC_IMAGE_CDN=true` (set in `netlify.toml`) and plain paths otherwise (local dev/builds). This is required because `next export` has no `/_next/image` server — do **not** simply remove `images.loaderFile` or set `unoptimized: true` on a whim. Hero/CTA backgrounds (`main-page-header.tsx`, `side-page-header.tsx`, `CTASection` in `index.tsx`) use `next/image` with `fill` inside `relative isolate` containers, not CSS `bg-[url(...)]`.
+- `netlify.toml` defines the deploy (build command `npm run export`, publish `build/`, Node 24, `NEXT_PUBLIC_IMAGE_CDN=true`). Changing build settings there overrides the Netlify UI.
 
 ## Repository layout
 
@@ -60,6 +62,9 @@ components/                 # Named loosely; most are presentational and Locofy-
   accommodations-container.tsx  # Two full accommodation sections (anchors #kleines-haus, #grosses-haus)
   timeline.tsx              # vis-timeline week selector — DEAD CODE (render commented out in buchung.tsx)
   PdfViewer.tsx             # Client-side PDF renderer (unpkg worker), "use client"
+
+lib/
+  image-loader.ts           # Custom next/image loader → Netlify Image CDN URLs (see build caveats)
 ```
 
 ## UI / styling conventions
@@ -92,7 +97,7 @@ components/                 # Named loosely; most are presentational and Locofy-
 
 - **`public/transfer/` (45 JPGs, ≈233 MB) is untracked** and must stay that way for now — the owners intend to use some of these photos on the site later. Never commit them, and don't delete files there. `public/sonnenuntergang.png` is also untracked/in-use.
 - **Stray file `1` at the repo root** contains shell-error text ("zsh: permission denied: /dev/null") — an accidental redirect. Leave it; it is not referenced by anything.
-- **`public/transfer/` images are full-resolution JPGs** (several MB each) — they are **not** optimized by `next/image`. If they get wired into pages, either add them outside `transfer/`, optimize them, or accept the payload.
+- **`public/transfer/` images are full-resolution JPGs** (several MB each). Anything served via `next/image` gets resized/re-encoded on the fly by Netlify Image CDN, so delivery is fine — but the source files still bloat the deploy. Keep them out of the repo until actually used.
 - **Footer season dates are hardcoded** (`footer.tsx`: `Hauptsaison: 20.06. - 05.09.26`, `Vorsaison: 06.06. - 20.06.26`). These must be updated annually.
 - **Accommodation prices** live in `index.tsx` (`RoomCard` "ab 40€" / "ab 52€") and descriptive text lives in `components/accommodations-container.tsx` / `container-link.tsx`.
 - **Timeline component is dead code**: `components/timeline.tsx` is fully implemented (vis-timeline week selector, Sat–Sat weeks, season 01.06–31.10 of the selected year) but its render block is commented out in `buchung.tsx`. Only `Range` type is still imported there. Do not assume it renders on the live site.

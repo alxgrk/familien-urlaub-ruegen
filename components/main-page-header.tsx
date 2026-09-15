@@ -1,12 +1,21 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import Navbar from "./navbar";
 
 const MainPageHeader: NextPage = () => {
   return (
     <div className="self-stretch h-[43rem] md:h-[44rem] sm:h-[38rem]
-        flex flex-col box-border items-start justify-start
-        gap-[6.25rem] bg-[url(/mainpage-header@3x.png)] bg-cover bg-no-repeat bg-[top]
+        flex flex-col box-border items-start justify-start relative isolate
+        gap-[6.25rem]
         text-center text-[3.5rem] text-light-text-color font-title-2 lg:self-stretch">
+      <Image
+        src="/mainpage-header@3x.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-10 object-cover object-top"
+      />
       <Navbar/>
       <div className="flex flex-col px-[6.25rem] lg:px-[4rem] sm:px-[1.5rem] box-border items-start justify-center">
         <b className="self-stretch relative leading-[125%] font-belleza
