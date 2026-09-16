@@ -15,7 +15,20 @@ type StepperFieldProps = {
 };
 
 const stepperButtonClassName =
-  "w-[1.5rem] h-[1.5rem] shrink-0 rounded-full box-border border-[1px] border-solid border-rectangle-805 bg-light-text-color text-rectangle-805 text-base font-bold leading-none flex items-center justify-center cursor-pointer select-none";
+  "w-[1.5rem] h-[1.5rem] shrink-0 rounded-full box-border border-[1px] border-solid border-rectangle-805 bg-light-text-color text-rectangle-805 flex items-center justify-center cursor-pointer select-none";
+
+const MinusIcon = () => (
+  <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none">
+    <path d="M5 12H19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+  </svg>
+);
+
+const PlusIcon = () => (
+  <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none">
+    <path d="M12 5V19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    <path d="M5 12H19" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+  </svg>
+);
 
 const StepperField: NextPage<StepperFieldProps> = ({value, label, onChange}) => {
   return (
@@ -26,10 +39,10 @@ const StepperField: NextPage<StepperFieldProps> = ({value, label, onChange}) => 
         aria-label={`${label} verringern`}
         onClick={() => onChange(Math.max(0, value - 1))}
       >
-        -
+        <MinusIcon />
       </button>
       <TextField
-          className="min-w-[0.7rem] relative leading-[125%]"
+          className="w-[0.7rem] relative leading-[125%]"
           style={{ textAlign: 'end' }}
           value={value}
           variant="standard"
@@ -45,7 +58,7 @@ const StepperField: NextPage<StepperFieldProps> = ({value, label, onChange}) => 
         aria-label={`${label} erhöhen`}
         onClick={() => onChange(value + 1)}
       >
-        +
+        <PlusIcon />
       </button>
       <div className="relative leading-[125%]">{label}</div>
     </div>
