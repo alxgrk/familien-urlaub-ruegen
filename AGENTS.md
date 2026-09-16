@@ -69,7 +69,7 @@ lib/
 
 ## UI / styling conventions
 
-- Styling mixes **inline Tailwind arbitrary-value classes** (e.g. `gap-[2rem]`, `rounded-45xl`, `bg-rectangle-805`) with a custom theme. All colors/fonts/screens are defined in `tailwind.config.js` (e.g. `rectangle-805` teal `#34a0a4`, fonts `DM Sans`, `Belleza`, `Montserrat`, `Inter`).
+- Styling mixes **inline Tailwind arbitrary-value classes** (e.g. `gap-[2rem]`, `rounded-45xl`, `bg-rectangle-805`) with a custom theme. All colors/fonts/screens are defined in `tailwind.config.js` (e.g. `rectangle-805` teal `#34a0a4`, fonts `DM Sans`, `Belleza`, `Montserrat`, `Inter`). Slash opacity modifiers (`bg-black/45`) only accept values from Tailwind's default opacity scale (0, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 100) — off-scale values like `/45` or `/85` are **silently dropped** from the compiled CSS; use an in-scale value or arbitrary syntax (`/45` → `/[.45]`).
 - Some components use the **Locofy pattern**: `CSS.Properties` style objects built with `useMemo`, `defaultProps`, and overridable `Property.*` style props (see `navbar.tsx`, `footer.tsx`).
 - Tailwind `corePlugins.preflight: false` — base CSS resets come from MUI `CssBaseline` (wired in `_app.tsx`). Don't re-enable preflight.
 - UI copy is **German**. Fonts load from Google Fonts in `pages/global.css`.
@@ -101,6 +101,6 @@ lib/
 - **Footer season dates are hardcoded** (`footer.tsx`: `Hauptsaison: 20.06. - 05.09.26`, `Vorsaison: 06.06. - 20.06.26`). These must be updated annually.
 - **Accommodation prices** live in `index.tsx` (`RoomCard` "ab 40€" / "ab 52€") and descriptive text lives in `components/accommodations-container.tsx` / `container-link.tsx`.
 - **Timeline component is dead code**: `components/timeline.tsx` is fully implemented (vis-timeline week selector, Sat–Sat weeks, season 01.06–31.10 of the selected year) but its render block is commented out in `buchung.tsx`. Only `Range` type is still imported there. Do not assume it renders on the live site.
-- **No tests** and no CI configuration exist. Verify with `npm run build` (caveat: doesn't typecheck) or manual `npm run dev` testing.
+- **No tests** and no CI configuration exist. Verify with `npm run build` (caveat: doesn't typecheck) or manual `npm run dev` testing. Builds are intermittently flaky on this stack (Next 13.2 + Node 24): `Cannot find module for page` / ENOENT during "Collecting page data" or "Exporting" appears at random. Fix: `rm -rf .next` and re-run; if it fails twice in a row, investigate for real.
 - `nationalprops`: `PdfViewer.tsx` and the styled assets rely on `public/` paths; the PDF worker is fetched from `https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js` (runtime internet dependency).
 - MUI component props (`DatePicker`, `TextField`) are typed loosely as `any` in this codebase — follow suit rather than fighting the types, unless a task specifically asks for typing improvements.

@@ -265,7 +265,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
       <div
           className="self-stretch flex-1 flex flex-col items-start justify-center z-[1] md:flex-[unset] md:self-stretch sm:items-center sm:justify-center sm:px-[1.5rem] sm:box-border sm:flex-[unset] sm:self-stretch">
         <Image
-            className="self-stretch flex-1 relative rounded-xl max-w-full overflow-hidden max-h-full object-cover sm:w-full sm:max-w-full"
+            className="self-stretch flex-1 relative rounded-m max-w-full overflow-hidden max-h-full object-cover sm:w-full sm:max-w-full"
             alt=""
             src="/image@2x.png"
             width={1504}

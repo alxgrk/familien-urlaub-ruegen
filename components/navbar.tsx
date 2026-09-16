@@ -225,6 +225,7 @@ const Navbar: NextPage<NavbarType> = (props) => {
     return (
         <div
             className="relative h-[90px] flex flex-row py-2.5 px-0 box-border items-center justify-start
+            bg-gradient-to-b from-black/80 via-black/50 to-black-40
         text-left text-base text-light-text-color font-title-2
         lg:flex-row lg:items-center lg:justify-center md:w-auto md:[align-self:unset] md:flex-row md:gap-[0px] md:items-center md:justify-center md:pl-2.5 md:pr-2.5 md:box-border
         sm:flex-row sm:gap-[0px] sm:items-center sm:justify-center"
