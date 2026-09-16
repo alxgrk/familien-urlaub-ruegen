@@ -1,6 +1,9 @@
 import type { ImageLoader } from "next/image";
 
 const netlifyImageLoader: ImageLoader = ({ src, width, quality }) => {
+  if (process.env.NODE_ENV === "development") {
+    return `${src}?w=${width}&q=${quality ?? 75}`;
+  }
   if (process.env.NEXT_PUBLIC_IMAGE_CDN !== "true") {
     return src;
   }
