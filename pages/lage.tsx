@@ -45,8 +45,8 @@ const Lage: NextPage = () => {
             </div>
             <div className="self-center flex flex-row py-[3rem] items-center justify-center gap-[1.63rem] text-[1.75rem] text-dimgray-100
             lg:flex-row md:flex-col sm:flex-col">
-              <div className="rounded-3xs bg-lavender w-[18rem] h-[21.69rem] overflow-hidden shrink-0 flex flex-col items-center justify-center">
-                <div className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-center justify-start border-[1px] border-solid border-lightskyblue">
+              <div className="bg-lavender w-[18rem] h-[21.69rem] overflow-hidden shrink-0 flex flex-col items-center justify-center">
+                <div className="self-stretch flex-1 bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-center justify-start border-[1px] border-solid border-lightskyblue">
                   <div className="relative leading-[200%] font-medium">
                     <p className="m-0">Zittkower Weg 18</p>
                     <p className="m-0">18556 Altenkirchen/Rügen​</p>
@@ -56,52 +56,35 @@ const Lage: NextPage = () => {
                 <FlexRow
                   icnCircleCircleMd="/icncircle-circlemd3.svg"
                   h5="Adresse"
-                  propBorderRadius="unset"
                   propFlex="unset"
                   propWidth="9rem"
                 />
               </div>
-              <div className="rounded-3xs bg-lavender w-[18rem] h-[21.69rem] overflow-hidden shrink-0 flex flex-col items-center justify-start">
-                <div className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-center justify-center border-[1px] border-solid border-lightskyblue">
+              <div className="bg-lavender w-[18rem] h-[21.69rem] overflow-hidden shrink-0 flex flex-col items-center justify-start">
+                <div className="self-stretch flex-1 bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-center justify-center border-[1px] border-solid border-lightskyblue">
                   <div className="relative leading-[200%] font-medium">
                     +49 151 64681052
                   </div>
                 </div>
-                <div className="self-stretch bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem] text-left text-[1.38rem] text-light-text-color font-link">
-                  <Image
-                    className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
-                    alt=""
-                    src="/icncircle-circlemd4.svg"
-                    width={72}
-                    height={72}
-                  />
-                  <div className="w-[9rem] flex flex-row items-start justify-start">
-                    <b className="flex-1 relative tracking-[0.1px] leading-[1.5rem]">
-                      Telefon
-                    </b>
-                  </div>
-                </div>
+                <FlexRow
+                    icnCircleCircleMd="/icncircle-circlemd4.svg"
+                    h5="Telefon"
+                    propFlex="unset"
+                    propWidth="9rem"
+                />
               </div>
-              <div className="rounded-3xs bg-lavender w-[18rem] h-[21.69rem] overflow-hidden shrink-0 flex flex-col items-center justify-start text-[1.25rem]">
-                <div className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-center justify-center border-[1px] border-solid border-lightskyblue">
+              <div className="bg-lavender w-[18rem] h-[21.69rem] overflow-hidden shrink-0 flex flex-col items-center justify-start text-[1.25rem]">
+                <div className="self-stretch flex-1 bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-center justify-center border-[1px] border-solid border-lightskyblue">
                   <div className="relative leading-[200%] font-medium">
                     buchung@familien-urlaub-ruegen.de
                   </div>
                 </div>
-                <div className="self-stretch bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem] text-left text-[1.38rem] text-light-text-color font-link">
-                  <Image
-                    className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
-                    alt=""
-                    src="/icncircle-circlemd5.svg"
-                    width={72}
-                    height={72}
-                  />
-                  <div className="w-[9rem] flex flex-row items-start justify-start">
-                    <b className="flex-1 relative tracking-[0.1px] leading-[1.5rem]">
-                      Email
-                    </b>
-                  </div>
-                </div>
+                <FlexRow
+                    icnCircleCircleMd="/icncircle-circlemd5.svg"
+                    h5="Email"
+                    propFlex="unset"
+                    propWidth="9rem"
+                />
               </div>
             </div>
           </div>

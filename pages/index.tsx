@@ -116,11 +116,79 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
   </div>;
 }
 
+const lageItems = [
+    "Naturbelassener Strand",
+    "Meer in 150m Entfernung",
+    "Ruhiges Areal im Wald",
+    "Campingplatz-Markt",
+    "Fahrradtouren über die Insel",
+];
+
+const ausstattungItems = [
+    "Kühlschrank",
+    "Kaffeemaschine",
+    "Wasserkocher",
+    "Mikrowelle/Grill",
+    "Staubsauger",
+    "Etagenbetten"
+];
+
+const gemeinschaftItems = [
+    "Spiel- & TV-Hütte",
+    "Outdoor-Küche",
+    "Sanitärtrakt",
+    "Waschmaschinen",
+    "Tischtennisplatten",
+    "Volleyballplatz",
+];
+
+const highlightChipClassName =
+  "rounded-full bg-lightskyblue text-rectangle-805 text-base font-medium leading-none py-[0.3rem] px-[0.9rem]";
+
+type HighlightCardProps = {
+  icon: string;
+  title: string;
+  items: string[];
+  href: string;
+  onLinkClick: () => void;
+};
+
+const HighlightCard: NextPage<HighlightCardProps> = ({icon, title, items, href, onLinkClick}) => {
+  return (
+    <div
+        className="self-stretch max-w-[25rem] min-h-[25rem] flex-1 overflow-hidden flex flex-col items-center justify-start sm:flex-[unset] sm:self-stretch">
+      <FlexRow
+          icnCircleCircleMd={icon}
+          h5={title}
+      />
+      <div
+          className="self-stretch flex-1 bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-start justify-start gap-[0.75rem] border-[1px] border-solid border-rectangle-805">
+        <div className="flex flex-wrap gap-[0.4rem] items-start">
+          {items.map((item) => (
+            <div key={item} className={highlightChipClassName}>
+              {item}
+            </div>
+          ))}
+        </div>
+        <div className="mt-auto w-full flex flex-row items-center justify-end">
+          <Link
+              className="cursor-pointer [text-decoration:none] border-[1px] border-solid border-rectangle-805 text-rectangle-805 font-semibold text-base px-[1.25rem] py-[0.5rem]"
+              href={href}
+              onClick={onLinkClick}
+          >
+            Mehr
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () => void }> = ({onLinkClick, onButtonClick}) => {
   return <div
       className="self-stretch w-full flex flex-col items-center justify-start">
     <div
-        className="w-full max-w-[80rem] mx-auto flex flex-col py-[5rem] px-[0rem] box-border items-center justify-start gap-[2.5rem]">
+        className="w-full max-w-[80rem] mx-auto flex flex-col py-[5rem] px-[4rem] box-border items-center justify-start gap-[2.5rem]">
     <div className="flex flex-col py-[0.5rem] px-[0rem] items-center justify-start gap-[0.5rem]">
       <b className="relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
         Unsere Highlights
@@ -131,132 +199,31 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
     </div>
     <div
         className="self-center flex-1 flex flex-row py-[2rem] gap-[1rem] items-center justify-start text-[1.25rem] text-light-text-color
-        xl:gap-[3rem]
+        xl:gap-[1rem]
         lg:flex-row lg:items-start lg:justify-between
         md:h-auto md:flex-col md:items-start md:justify-start
         sm:h-auto sm:flex-col sm:items-start sm:justify-between sm:pt-[2rem] sm:box-border">
-      <div
-          className="self-stretch flex-1 rounded-3xs overflow-hidden flex flex-col items-center justify-start text-base text-dimgray-200 sm:flex-[unset] sm:self-stretch">
-        <FlexRow
-            icnCircleCircleMd="/icncircle-circlemd.svg"
-            h5="Lage"
-        />
-        <div
-            className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-start justify-start gap-[0.31rem] border-[1px] border-solid border-lightskyblue">
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold whitespace-pre-wrap">
-            <p className="m-0">{`- Naturbelassener Strand `}</p>
-            <p className="m-0"> in 150m Entfernung</p>
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Ruhiges Areal im Wald
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Campingplatz-Markt fußläufig
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Insel erkunden mit dem Fahrrad
-          </div>
-          <Link
-              className="cursor-pointer [text-decoration:none] relative tracking-[0.2px] leading-[1.5rem] font-semibold text-rectangle-805"
-              href="/lage"
-              onClick={onLinkClick}
-          >
-            Mehr
-          </Link>
-        </div>
-      </div>
-      <div
-          className="self-stretch flex-1 rounded-3xs overflow-hidden flex flex-col items-center justify-start sm:flex-[unset] sm:self-stretch">
-        <div
-            className="self-stretch rounded-2xs bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem]">
-          <Image
-              className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
-              alt=""
-              src="/icncircle-circlemd1.svg"
-              width={72}
-              height={72}
-          />
-          <div className="flex flex-row items-start justify-start">
-            <b className="relative tracking-[0.1px] leading-[1.5rem]">
-              Ausstattung
-            </b>
-          </div>
-        </div>
-        <div
-            className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-start justify-start gap-[0.31rem] text-base text-dimgray-200 border-[1px] border-solid border-lightskyblue">
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Kaffeemaschine
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Kühlschrank
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Wasserkocher
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Mikrowelle/Grill
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Staubsauger
-          </div>
-          <Link
-              className="cursor-pointer [text-decoration:none] relative tracking-[0.2px] leading-[1.5rem] font-semibold text-rectangle-805"
-              href="/unterkuenfte"
-              onClick={onLinkClick}
-          >
-            Mehr
-          </Link>
-        </div>
-      </div>
-      <div
-          className="self-stretch flex-1 rounded-3xs overflow-hidden flex flex-col items-center justify-start sm:flex-[unset] sm:self-stretch">
-        <div
-            className="self-stretch rounded-2xs bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem]">
-          <Image
-              className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
-              alt=""
-              src="/icncircle-circlemd2.svg"
-              width={72}
-              height={72}
-          />
-          <div className="flex flex-row items-start justify-start">
-            <b className="relative tracking-[0.1px] leading-[1.5rem]">
-              Gemeinschaft
-            </b>
-          </div>
-        </div>
-        <div
-            className="self-stretch flex-1 rounded-2xs bg-light-text-color overflow-hidden flex flex-col py-[1.88rem] px-[3.13rem] items-start justify-start gap-[0.31rem] text-base text-dimgray-200 border-[1px] border-solid border-lightskyblue">
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Spiel- und Fernsehhaus
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Gemeinschaftsküche (outdoor)
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Sanitärtrakt mit Duschen
-          </div>
-          <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Parkmöglichkeiten
-          </div>
-           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Waschmaschinen
-          </div>
-           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Tischtennisplatten
-          </div>
-           <div className="relative tracking-[0.2px] leading-[1.5rem] font-semibold">
-            - Volleyballplatz
-          </div>
-          <Link
-              className="cursor-pointer [text-decoration:none] relative tracking-[0.2px] leading-[1.5rem] font-semibold text-rectangle-805"
-              href="/unterkuenfte"
-              onClick={onLinkClick}
-          >
-            Mehr
-          </Link>
-        </div>
-      </div>
+      <HighlightCard
+          icon="/icncircle-circlemd.svg"
+          title="Lage"
+          items={lageItems}
+          href="/lage"
+          onLinkClick={onLinkClick}
+      />
+      <HighlightCard
+          icon="/icncircle-circlemd1.svg"
+          title="Ausstattung"
+          items={ausstattungItems}
+          href="/unterkuenfte"
+          onLinkClick={onLinkClick}
+      />
+      <HighlightCard
+          icon="/icncircle-circlemd2.svg"
+          title="Gemeinschaft"
+          items={gemeinschaftItems}
+          href="/unterkuenfte"
+          onLinkClick={onLinkClick}
+      />
     </div>
     <div
         className="self-stretch flex flex-row py-[0rem] px-[2rem] items-start justify-center text-[1rem] text-rectangle-807

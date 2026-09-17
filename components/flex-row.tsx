@@ -16,16 +16,9 @@ type FlexRowType = {
 const FlexRow: NextPage<FlexRowType> = ({
   icnCircleCircleMd = "/icncircle-circlemd.svg",
   h5,
-  propBorderRadius,
   propFlex,
   propWidth,
 }) => {
-  const flexRowStyle: CSS.Properties = useMemo(() => {
-    return {
-      borderRadius: propBorderRadius,
-    };
-  }, [propBorderRadius]);
-
   const divStyle: CSS.Properties = useMemo(() => {
     return {
       flex: propFlex,
@@ -35,8 +28,7 @@ const FlexRow: NextPage<FlexRowType> = ({
 
   return (
     <div
-      className="self-stretch rounded-2xs bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem] text-left text-[1.38rem] text-light-text-color font-link"
-      style={flexRowStyle}
+      className="self-stretch bg-rectangle-805 overflow-hidden flex flex-row py-[1.88rem] px-[3.13rem] items-center justify-start gap-[0.94rem] text-left text-[1.38rem] text-light-text-color font-link"
     >
       <Image
         className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
