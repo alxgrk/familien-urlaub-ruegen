@@ -5,6 +5,8 @@ import { ThemeProvider, createTheme} from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { deDE } from "@mui/x-date-pickers/locales";
+import { de as deDateFns } from "date-fns/locale";
 
 import "./global.css";
 
@@ -34,7 +36,7 @@ export default function MyApp(props: any) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <LocalizationProvider dateAdapter={AdapterDateFns} localeText={deDE.components.MuiLocalizationProvider.defaultProps.localeText} adapterLocale={deDateFns}>
           <ThemeProvider theme={muiTheme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
