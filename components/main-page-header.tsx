@@ -9,7 +9,7 @@ const MainPageHeader: NextPage = () => {
         gap-[6.25rem]
         text-center text-[3.5rem] text-light-text-color font-title-2 lg:self-stretch">
       <Image
-        src="/mainpage-header@3x.png"
+        src="/dronensicht-main-page-header.webp"
         alt=""
         fill
         priority

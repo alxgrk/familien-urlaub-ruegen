@@ -53,7 +53,7 @@ const SidePageHeader: NextPage<SidePageHeaderType> = ({
       style={sidePageHeaderStyle}
     >
       <Image
-        src="/sidepage-header@3x.png"
+        src="/dronensicht-side-page-header.webp"
         alt=""
         fill
         priority

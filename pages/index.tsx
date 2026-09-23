@@ -188,7 +188,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
   return <div
       className="self-stretch w-full flex flex-col items-center justify-start">
     <div
-        className="w-full max-w-[80rem] mx-auto flex flex-col py-[5rem] px-[4rem] box-border items-center justify-start gap-[2.5rem]">
+        className="w-full max-w-[80rem] mx-auto flex flex-col py-[5rem] px-[4rem] sm:px-[1rem] box-border items-center justify-start gap-[2.5rem]">
     <div className="flex flex-col py-[0.5rem] px-[0rem] items-center justify-start gap-[0.5rem]">
       <b className="relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
         Unsere Highlights
@@ -202,7 +202,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
         xl:gap-[1rem]
         lg:flex-row lg:items-start lg:justify-between
         md:h-auto md:flex-col md:items-start md:justify-start
-        sm:h-auto sm:flex-col sm:items-start sm:justify-between sm:pt-[2rem] sm:box-border">
+        sm:h-auto sm:flex-col sm:items-start sm:justify-between sm:px-[1rem] sm:pt-[2rem] sm:box-border">
       <HighlightCard
           icon="/icncircle-circlemd.svg"
           title="Lage"
@@ -225,6 +225,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           onLinkClick={onLinkClick}
       />
     </div>
+    <div className="relative mb-[2rem] box-border w-[80%] h-[0.06rem] border-t-[1px] border-solid border-gray-300"/>
     <div
         className="self-stretch flex flex-row py-[0rem] px-[2rem] items-start justify-center text-[1rem] text-rectangle-807
          md:flex-1 md:flex-col md:gap-[0rem] md:items-center md:justify-between md:pt-[0rem] md:box-border
@@ -232,9 +233,9 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
       <div
           className="self-stretch flex-1 flex flex-col items-start justify-center z-[1] md:flex-[unset] md:self-stretch sm:items-center sm:justify-center sm:px-[1.5rem] sm:box-border sm:flex-[unset] sm:self-stretch">
         <Image
-            className="self-stretch flex-1 relative rounded-m max-w-full overflow-hidden max-h-full object-cover sm:w-full sm:max-w-full"
+            className="self-stretch rounded-13xl flex-1 relative rounded-m max-w-full overflow-hidden max-h-full object-cover sm:w-full sm:max-w-full"
             alt=""
-            src="/image@2x.png"
+            src="/ausflugsziele.webp"
             width={1504}
             height={872}
         />
@@ -283,24 +284,24 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
 
 const CTASection: NextPage<{ onCTAButtonClick: () => void }> = ({onCTAButtonClick}) => {
     return <div
-        className="self-stretch w-full flex flex-col py-[5rem] px-[0rem] box-border items-center justify-start relative isolate">
+        className="self-stretch w-full flex flex-col px-[0rem] box-border items-center justify-start relative isolate">
         <Image
-            src="/cta@3x.png"
+            src="/cta.webp"
             alt=""
             fill
             sizes="100vw"
             className="-z-10 object-cover object-top"
         />
         <div
-            className="w-full max-w-[80rem] mx-auto flex flex-col items-center justify-start gap-[1.5rem] text-[2.5rem] text-light-text-color">
+            className="w-full mx-auto flex flex-col items-center justify-start py-[5rem] gap-[1.5rem] text-[2.5rem] text-light-text-color bg-gray-300">
             <div className="relative leading-[125%] text-[2.25rem] sm:text-[1.75rem]">
                 Um Erinnerungen zu schaffen
             </div>
-        <Link
-            className="cursor-pointer [text-decoration:none] rounded-45xl bg-light-text-color shadow-[0px_138px_39px_rgba(0,_0,_0,_0),_0px_89px_35px_rgba(0,_0,_0,_0.01),_0px_50px_30px_rgba(0,_0,_0,_0.05),_0px_22px_22px_rgba(0,_0,_0,_0.09),_0px_6px_12px_rgba(0,_0,_0,_0.1),_0px_0px_0px_rgba(0,_0,_0,_0.1)] h-[3.5rem] flex flex-row py-[0rem] px-[1.5rem] box-border items-center justify-start text-[1.13rem] text-rectangle-805"
-            href="/buchung"
-            onClick={onCTAButtonClick}
-        >
+            <Link
+                className="cursor-pointer [text-decoration:none] rounded-45xl bg-light-text-color shadow-[0px_138px_39px_rgba(0,_0,_0,_0),_0px_89px_35px_rgba(0,_0,_0,_0.01),_0px_50px_30px_rgba(0,_0,_0,_0.05),_0px_22px_22px_rgba(0,_0,_0,_0.09),_0px_6px_12px_rgba(0,_0,_0,_0.1),_0px_0px_0px_rgba(0,_0,_0,_0.1)] h-[3.5rem] flex flex-row py-[0rem] px-[1.5rem] box-border items-center justify-start text-[1.13rem] text-rectangle-805"
+                href="/buchung"
+                onClick={onCTAButtonClick}
+            >
             <b className="relative leading-[1.5rem]">Jetzt reservieren</b>
             </Link>
         </div>
@@ -330,7 +331,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
                   href="/unterkuenfte#kleines-haus"
               >
                 <RoomCard
-                    image="/image1@2x.png"
+                    image="/kleine-hütte-quer.webp"
                     title="Kleiner Bungalow"
                     description="3 Betten"
                     price="ab 40€"
@@ -341,7 +342,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
                   href="/unterkuenfte#grosses-haus"
               >
                 <RoomCard
-                    image="/image2@2x.png"
+                    image="/grosse-hütte-im-wald.webp"
                     title="Großer Bungalow"
                     description="Bis zu 6 Betten"
                     price="ab 52€"
