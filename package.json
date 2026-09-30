@@ -1,41 +1,44 @@
 {
-    "name": "test",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@emotion/react": "^11.11.0",
-        "@emotion/styled": "^11.11.0",
-        "@mui/material": "^5.13.4",
-        "@mui/x-date-pickers": "^6.7.0",
-        "@react-pdf-viewer/core": "^3.12.0",
-        "@react-pdf-viewer/default-layout": "^3.12.0",
-        "date-fns": "^2.30.0",
-        "next": "16.3.3",
-        "pdfjs-dist": "^3.11.174",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-router-dom": "^6.2.1",
-        "ua-parser-js": "^1.0.35",
-        "vis-timeline": "^7.7.2"
-    },
-    "devDependencies": {
-        "@types/node": "^17.0.42",
-        "@types/react": "^18.0.28",
-        "@types/react-dom": "^18.0.11",
-        "@types/ua-parser-js": "^0.7.36",
-        "autoprefixer": "^10.4.8",
-        "eslint": "8.17.0",
-        "eslint-config-next": "13.2.4",
-        "postcss": "8.5.23",
-        "raw-loader": "^4.0.2",
-        "tailwindcss": "^3.1.8",
-        "typescript": "7.0.2"
-    },
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "export": "npm run build && next export -o build/",
-        "start": "next start",
-        "lint": "next lint"
-    }
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.4",
+    "@mui/x-date-pickers": "^6.7.0",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "date-fns": "^2.30.0",
+    "next": "16.3.3",
+    "pdfjs-dist": "^3.11.174",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.2.1",
+    "ua-parser-js": "^1.0.35",
+    "vis-timeline": "^7.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.42",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/ua-parser-js": "^0.7.36",
+    "@typescript/native-preview": "^7.0.0-dev.20260707.2",
+    "autoprefixer": "^10.4.8",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.7",
+    "postcss": "8.5.23",
+    "raw-loader": "^4.0.2",
+    "tailwindcss": "^3.1.8",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "npm run build && next export -o build/",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsgo --noEmit",
+    "typecheck:slow": "tsc --noEmit"
+  }
 }

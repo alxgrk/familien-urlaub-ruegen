@@ -11,7 +11,7 @@ The site advertises two rental units ("Kleines Ferienhaus", "Großes Ferienhaus"
 ## Stack
 
 - **Next.js 13.2.4** — Pages Router, static site generation via `next export`
-- **React 18.2**, **TypeScript 4.7** (config: `tsconfig.json`, strict mode on)
+- **React 18.2**, **TypeScript** (see "Toolchain" below — API pinned to 6.0.3, type checking via tsgo; config: `tsconfig.json`, strict mode on)
 - **Tailwind CSS 3.1** with a heavily customized theme (`tailwind.config.js`), `corePlugins.preflight: false`
 - **MUI v5** (`@mui/material`, `@mui/x-date-pickers` + `date-fns` adapter) for form inputs and the mobile drawer
 - **vis-timeline** (`components/timeline.tsx`) — largely **dead code** (render was removed from the booking page; only the `Range` type is still imported)
@@ -26,11 +26,23 @@ The site advertises two rental units ("Kleines Ferienhaus", "Großes Ferienhaus"
 | `npm run build` | Next production build (writes `.next/`) |
 | `npm run export` | `npm run build` + `next export -o build/` — produces the static site |
 | `npm run start` | Serve the production build via `next start` |
-| `npm run lint` | `next lint` |
+| `npm run lint` | `eslint .` (flat config `eslint.config.mjs`, ignores `.next/` / `build/`) |
+| `npm run typecheck` | `tsgo --noEmit` — fast Go-based checker (`@typescript/native-preview`) |
+| `npm run typecheck:slow` | `tsc --noEmit` — authoritative checker, same result, slower |
+
+### Toolchain: TypeScript is deliberately pinned to 6.x
+
+`typescript` is **pinned to `~6.0.3`** while `@typescript/native-preview` (tsgo, the Go port) does the actual type checking. This is a side-by-side setup and it is load-bearing:
+
+- `typescript-eslint` (via `eslint-config-next`) declares a peer range of `typescript >=4.8.4 <6.1.0` and **hard-throws** `typescript-eslint does not support TS 7.0` otherwise. That single mismatch is what broke `npm run lint` before.
+- **Do not bump `typescript` to 7.x** unless `typescript-eslint` supports it. Check `npm view typescript-eslint peerDependencies` first; the stable programmatic API lands in TS 7.1.
+- `tsconfig.json` targets `es2017` — TS removed `es5` as a valid `target`, so the old value made every `tsc`/`tsgo` invocation fail immediately.
+- Known divergence: tsgo can drop generic type params from JSDoc `@template` typedefs, and `skipLibCheck: true` does not suppress some parse errors in third-party `.d.ts`. Both checkers currently agree on this repo; if they ever disagree, `typecheck:slow` (`tsc`) is authoritative.
+- ESLint is on **9.x**, not 10: `eslint-plugin-react@7.37.5` (bundled with `eslint-config-next@16`) crashes on ESLint 10 with `contextOrFilename.getFilename is not a function`.
 
 ### Critical build caveats
 
-- `next.config.js` has `typescript.ignoreBuildErrors: true` and there is **no typecheck script**. `next build` / `next lint` will **not** fail on TypeScript errors. Run `npx tsc --noEmit` yourself if you need a type check.
+- `next.config.js` has `typescript.ignoreBuildErrors: true`, so `next build` will **not** fail on TypeScript errors and prints "Skipping validation of types". Use `npm run typecheck` for that.
 - The only deployable artifact is the **static export** in `build/` (used by Netlify). Do not add API routes, middleware, `getServerSideProps`, rewrites, or other server-only features — they will not work in the exported site.
 - `next.config.js` also chunks `vis-timeline` via `transpilePackages` and adds a `raw-loader` rule for `.node` files — leave both in place.
 - **Images are optimized via Netlify Image CDN**, not Next's own optimizer: `next.config.js` sets `images.loaderFile: "./lib/image-loader.ts"`, which emits `/.netlify/images?url=...&w=...&q=...` URLs when `NEXT_PUBLIC_IMAGE_CDN=true` (set in `netlify.toml`) and plain paths otherwise (local dev/builds). This is required because `next export` has no `/_next/image` server — do **not** simply remove `images.loaderFile` or set `unoptimized: true` on a whim. Hero/CTA backgrounds (`main-page-header.tsx`, `side-page-header.tsx`, `CTASection` in `index.tsx`) use `next/image` with `fill` inside `relative isolate` containers, not CSS `bg-[url(...)]`.
@@ -58,8 +70,9 @@ components/                 # Named loosely; most are presentational and Locofy-
   Sidebar.tsx               # Empty decorative `<div>` (~5% width), hidden on <lg
   room-card.tsx             # Image + title + description + price card
   flex-row.tsx              # Icon + heading bar (used by HighlightsSection / lage)
-  container-link.tsx        # Text block + "Jetzt reservieren" button
-  accommodations-container.tsx  # Two full accommodation sections (anchors #kleines-haus, #grosses-haus)
+  accommodation-section.tsx # Reusable section: asymmetric photo collage + eyebrow/title/description/fact chips + CTA (exported `SectionImage` type)
+  accommodations-container.tsx  # "Unsere Unterkünfte" heading + data for the two accommodation sections (anchors #kleines-haus, #grosses-haus)
+  gallery-section.tsx     # "Weitere Eindrücke" photo grid (anchor #weitere-eindruecke) — photos are placeholders
   timeline.tsx              # vis-timeline week selector — DEAD CODE (render commented out in buchung.tsx)
   PdfViewer.tsx             # Client-side PDF renderer (unpkg worker), "use client"
 
@@ -99,7 +112,7 @@ lib/
 - **Stray file `1` at the repo root** contains shell-error text ("zsh: permission denied: /dev/null") — an accidental redirect. Leave it; it is not referenced by anything.
 - **`public/transfer/` images are full-resolution JPGs** (several MB each). Anything served via `next/image` gets resized/re-encoded on the fly by Netlify Image CDN, so delivery is fine — but the source files still bloat the deploy. Keep them out of the repo until actually used.
 - **Footer season dates are hardcoded** (`footer.tsx`: `Hauptsaison: 20.06. - 05.09.26`, `Vorsaison: 06.06. - 20.06.26`). These must be updated annually.
-- **Accommodation prices** live in `index.tsx` (`RoomCard` "ab 40€" / "ab 52€") and descriptive text lives in `components/accommodations-container.tsx` / `container-link.tsx`.
+- **Accommodation prices** live in `index.tsx` (`RoomCard` "ab 40€" / "ab 52€") and descriptive text lives in `components/accommodations-container.tsx` (both Ferienhäuser) plus the `gemeinschaftshaus` data object in `pages/unterkuenfte.tsx`.
 - **Timeline component is dead code**: `components/timeline.tsx` is fully implemented (vis-timeline week selector, Sat–Sat weeks, season 01.06–31.10 of the selected year) but its render block is commented out in `buchung.tsx`. Only `Range` type is still imported there. Do not assume it renders on the live site.
 - **No tests** and no CI configuration exist. Verify with `npm run build` (caveat: doesn't typecheck) or manual `npm run dev` testing. Builds are intermittently flaky on this stack (Next 13.2 + Node 24): `Cannot find module for page` / ENOENT during "Collecting page data" or "Exporting" appears at random. Fix: `rm -rf .next` and re-run; if it fails twice in a row, investigate for real.
 - `nationalprops`: `PdfViewer.tsx` and the styled assets rely on `public/` paths; the PDF worker is fetched from `https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js` (runtime internet dependency).
