@@ -35,7 +35,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "npm run build && next export -o build/",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsgo --noEmit",
