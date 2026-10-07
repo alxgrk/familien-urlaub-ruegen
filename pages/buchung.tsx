@@ -36,7 +36,7 @@ const Buchung: NextPage = () => {
   const [numErwachsene, setNumErwachsene] = useState(parseQueryParam(router, "numErwachsene", 2));
   const [numKinder, setNumKinder] = useState(parseQueryParam(router, "numKinder", 0));
 
-  const birthdayBoxes = useMemo(() => Array.from(Array(numKinder).keys()), [numKinder]);
+  const birthdayBoxes = useMemo(() => numKinder >= 0 ? Array.from(Array(numKinder).keys()) : [], [numKinder]);
 
   const [
     birthdaysChildren,

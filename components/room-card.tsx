@@ -10,7 +10,7 @@ type RoomCardType = {
 };
 
 const RoomCard: NextPage<RoomCardType> = ({
-  image = "/image1@2x.png",
+  image = "/kleine-hütte-quer.webp",
   title,
   description,
   price,

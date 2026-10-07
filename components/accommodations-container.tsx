@@ -1,24 +1,83 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import { useCallback } from "react";
-import { useRouter } from "next/router";
-import ContainerLink from "./container-link";
+import AccommodationSection, {
+  SectionImage,
+} from "./accommodation-section";
+
+const unterkuenfte: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  facts: string[];
+  images: SectionImage[];
+}[] = [
+  {
+    id: "kleines-haus",
+    eyebrow: "Bis zu 3 Personen",
+    title: "Kleines Ferienhaus",
+    description:
+      "Unser kleines Ferienhaus ist ideal für zwei Personen und bietet bei maximaler Auslastung 4 Schlafplätze. Diese gemütlichen Häuschen befinden sich am Ende des Grundstücks ganz in der Nähe des Strandes zum Tromper Wiek.",
+    facts: ["2 Personen ideal", "Bis zu 4 Schlafplätze", "Auch als Doppelhaushälfte"],
+    images: [
+      {
+        src: "/kleine-hütte-hochkant.webp",
+        alt: "Kleines Ferienhaus des Familiencamps",
+        className: "col-span-1 row-span-2",
+      },
+      {
+        src: "/haus-drewoldke.webp",
+        alt: "Ferienhaus auf dem Grundstück in Drewoldke",
+        className: "col-span-1 row-span-2",
+      },
+      {
+        src: "/teeküche-drewoldke.webp",
+        alt: "Teeküche im kleinen Ferienhaus",
+        className: "col-span-1",
+      },
+      {
+        src: "/kleine-hütten-links.webp",
+        alt: "Reihe der kleinen Ferienhäuser",
+        className: "col-span-1",
+      },
+    ],
+  },
+  {
+    id: "grosses-haus",
+    eyebrow: "Bis zu 6 Personen",
+    title: "Großes Ferienhaus",
+    description:
+      "Das größte unserer Ferienhäuser bietet 4 bis maximal 6 Personen Platz und ist damit ideal für kleine Gruppen oder große Familien, die in der Nähe der Ostsee Erholung suchen. Einige der Häuser besitzen auch eine Schlafcouch die es dann bis zu 6 Personen erlaubt in unserem großen Ferienhaus zu übernachten.",
+    facts: [
+      "4 bis 6 Personen",
+      "Für Gruppen und Familien",
+      "Mit Terasse und Vordach",
+    ],
+    images: [
+      {
+        src: "/haus-1.webp",
+        alt: "Großes Ferienhaus des Familiencamps",
+        className: "col-span-1 row-span-2",
+      },
+      {
+        src: "/haus-1-dach.webp",
+        alt: "Dach und Balkon des großen Ferienhauses",
+        className: "col-span-1",
+      },
+      {
+        src: "/haus-1-mit-vorplatz.webp",
+        alt: "Vorplatz vor dem großen Ferienhaus",
+        className: "col-span-1",
+      },
+    ],
+  },
+];
 
 const AccommodationsContainer: NextPage = () => {
-  const router = useRouter();
-
-  const onReserveNowButtonSmallClick = useCallback(() => {
-    router.push("/buchung");
-  }, [router]);
-
-  const onReserveNowButtonClick = useCallback(() => {
-    router.push("/buchung");
-  }, [router]);
-
   return (
-    <div className="self-stretch flex flex-col py-[5rem] px-[2rem] items-center justify-center gap-[1rem] text-center text-base text-black font-title-2
-    sm:w-auto sm:[align-self:unset] sm:py-[2rem] sm:px-[1rem] sm:box-border">
-      <div className="self-stretch flex flex-col items-center justify-center gap-[1rem] md:w-auto md:[align-self:unset]">
+    <div
+      className="self-stretch w-full flex flex-col py-[5rem] sm:py-[2rem] px-[2rem] sm:px-[1rem] box-border items-center justify-start gap-[3rem] sm:gap-[2.5rem] text-center text-base text-black font-title-2"
+    >
+      <div className="self-stretch flex flex-col items-center justify-center gap-[1rem]">
         <b className="self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
           Unsere Unterkünfte
         </b>
@@ -26,76 +85,12 @@ const AccommodationsContainer: NextPage = () => {
           Für alle Familiengrößen
         </div>
       </div>
-      <div id="kleines-haus" className="w-full flex flex-row items-center justify-center min-h-[30rem] text-left text-[1rem] text-rectangle-807
-      lg:flex-row md:flex-col sm:flex-col sm:max-w-[26.25rem]">
-        <div className="flex-1 rounded-xl box-border overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200
-        lg:flex-row md:flex-row md:min-h-[0rem] sm:flex-col">
-          <div className="flex-1 h-[30rem] flex flex-col items-center justify-start md:h-auto sm:h-auto">
-            <Image
-              className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
-              alt=""
-              src="/image11@2x.png"
-              width={760}
-              height={480}
-            />
-            <Image
-              className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
-              alt=""
-              src="/image3@2x.png"
-              width={760}
-              height={480}
-            />
+      {unterkuenfte.map((unterkunft) => (
+          <div key={unterkunft.id}>
+            <AccommodationSection {...unterkunft} />
+            <div className="self-stretch relative my-[2.5rem] h-[0.06rem] border-t-[1px] border-solid border-gray-300" />
           </div>
-          <Image
-            className="self-stretch flex-1 relative max-w-full overflow-hidden h-[30rem] object-cover md:h-auto"
-            alt=""
-            src="/image21@2x.png"
-            width={760}
-            height={960}
-          />
-        </div>
-        <ContainerLink
-          bisZu3Personen="Bis zu 3 Personen"
-          kleinesFerienhaus="Kleines Ferienhaus"
-          unserKleinesFerienhausIst="Unser kleines Ferienhaus ist ideal für zwei Personen und bietet bei maximaler Auslastung 4 Schlafplätze. Diese gemütlichen Häuschen befinden sich am Ende des Grundstücks ganz in der Nähe des Strandes zum Tromper Wiek."
-          onFrameContainer11Click={onReserveNowButtonSmallClick}
-        />
-      </div>
-      <div id="grosses-haus" className="w-full flex flex-row items-center justify-center min-h-[30rem]
-       lg:flex-row md:flex-col sm:flex-col sm:max-w-[26.25rem]">
-        <div className="flex-1 rounded-xl box-border h-[30rem] overflow-hidden flex flex-row items-center justify-start min-h-[25rem] z-[1] border-[1px] border-solid border-dimgray-200 md:flex-[unset] md:items-center md:justify-between md:gap-[0rem] md:min-h-[0rem] md:self-stretch sm:h-auto sm:flex-col sm:flex-[unset] sm:self-stretch">
-          <div className="self-stretch flex-1 flex flex-col items-center justify-start">
-            <Image
-              className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
-              alt=""
-              src="/image12@2x.png"
-              width={760}
-              height={480}
-            />
-            <Image
-              className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
-              alt=""
-              src="/image31@2x.png"
-              width={760}
-              height={480}
-            />
-          </div>
-          <Image
-            className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full object-cover"
-            alt=""
-            src="/image13@2x.png"
-            width={760}
-            height={960}
-          />
-        </div>
-        <ContainerLink
-          bisZu3Personen="Bis zu 6 Personen"
-          kleinesFerienhaus="Großes Ferienhaus"
-          unserKleinesFerienhausIst="Das größte unserer Ferienhäuser bietet 4 bis maximal 6 Personen Platz und ist damit ideal für kleine Gruppen oder große Familien, die in der Nähe der Ostsee Erholung suchen. Einige der Häuser besitzen auch eine Schlafcouch die es dann bis zu 6 Personen erlaubt in unserem großen Ferienhaus zu übernachten."
-          propZIndex="0"
-          onFrameContainer11Click={onReserveNowButtonClick}
-        />
-      </div>
+      ))}
     </div>
   );
 };
