@@ -13,7 +13,7 @@ const unterkuenfte: {
 }[] = [
   {
     id: "kleines-haus",
-    eyebrow: "Bis zu 3 Personen",
+    eyebrow: "Bis zu 4 Personen",
     title: "Kleines Ferienhaus",
     description:
       "Unser kleines Ferienhaus ist ideal für zwei Personen und bietet bei maximaler Auslastung 4 Schlafplätze. Diese gemütlichen Häuschen befinden sich am Ende des Grundstücks ganz in der Nähe des Strandes zum Tromper Wiek.",
