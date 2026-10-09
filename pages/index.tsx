@@ -362,6 +362,11 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
             <div className="relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:text-[1rem]">
                 Sehen Sie sich die verfügbaren Bungalows an
             </div>
+            <div className="relative leading-[125%] text-dimgray-200 md:gap-[2rem] sm:gap-[1.5rem] px-[5rem] sm:px-[4.5rem] ">
+                <p className="m-0 text-center">
+                    Unterschieden wird zwischen kleinen und großen Ferienhütten, wobei zu ersterem auch 4 Doppelhaushälften zählen.
+                </p>
+            </div>
         </div>
         <div
             className="flex flex-row items-center justify-center relative gap-[1.5rem] md:flex-col md:gap-[1.5rem] md:items-center md:justify-center sm:flex-col sm:items-center sm:justify-between sm:gap-[0rem] sm:px-[1.5rem] sm:box-border">
