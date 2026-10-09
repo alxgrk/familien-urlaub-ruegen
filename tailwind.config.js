@@ -23,7 +23,7 @@ module.exports = {
         blue: "#0000ee",
         lavender: "#d9edff",
         "light-text-color": "#fff",
-        "rectangle-805": "#34a0a4",
+        "rectangle-805": "#2b7478",
         darkslategray: "#252b42",
         "rectangle-807": "#1a759f",
       },
