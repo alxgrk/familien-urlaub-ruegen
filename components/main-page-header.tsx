@@ -13,6 +13,7 @@ const MainPageHeader: NextPage = () => {
         alt="Luftaufnahme des Familiencamps Rügen nahe dem Strand der Tromper Wiek"
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         className="-z-10 object-cover object-top"
       />

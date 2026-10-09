@@ -57,6 +57,7 @@ const SidePageHeader: NextPage<SidePageHeaderType> = ({
         alt="Luftaufnahme des Familiencamps Rügen"
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         className="-z-10 object-cover object-top"
       />
