@@ -1,13 +1,12 @@
 import { Head, Html, Main, NextScript } from "next/document";
 
+import { lora } from "../lib/fonts";
+
 export default function Document() {
   return (
     <Html lang="de">
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </Head>
-      <body>
+      <Head />
+      <body className={lora.variable}>
         <Main />
         <NextScript />
       </body>

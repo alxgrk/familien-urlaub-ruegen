@@ -8,6 +8,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { deDE } from "@mui/x-date-pickers/locales";
 import { de as deDateFns } from "date-fns/locale";
 
+import { lora } from "../lib/fonts";
+
 import "./global.css";
 
 export default function MyApp(props: any) {
@@ -23,7 +25,7 @@ export default function MyApp(props: any) {
 
   const muiTheme = createTheme({
     typography: {
-      fontFamily: "'Lora', serif",
+      fontFamily: lora.style.fontFamily,
     },
   });
 

@@ -4,7 +4,7 @@ Technical map of the repository for developers. For agent-oriented pitfalls, als
 
 ## High-level picture
 
-- **Next.js 13.2.4** in **Pages Router** mode with a **static export** (`next export -o build/`). The exported `build/` folder is what Netlify publishes.
+- **Next.js 16.3.3** in **Pages Router** mode with a **static export** (`output: "export"` + `distDir: "build"` in `next.config.js`; `npm run build` writes the site directly into `build/`). The exported `build/` folder is what Netlify publishes.
 - React 18 + TypeScript; type errors are **not** checked during build (see Caveats).
 - Styling: Tailwind CSS 3.1 (custom theme in `tailwind.config.js`) + MUI v5 components for form inputs and the mobile drawer.
 - No tests, no CI config.
@@ -21,7 +21,7 @@ pages/                 All routes
   agb.tsx              AGB & Hausordnung (PDFs)
   impressum.tsx        Imprint
   dsgvo.tsx            GDPR/privacy page (very long)
-  global.css           Fonts + Tailwind + vis-timeline CSS fixes
+  global.css           Tailwind + vis-timeline CSS fixes (fonts come from `next/font`, see `lib/fonts.ts`)
 components/            Presentational components
 public/                Static assets served at site root
 build/                 The static export (deploy artifact)
@@ -83,8 +83,8 @@ Layout: `MainPageHeader` on top, then `Sidebar` (decorative) + content + `Sideba
 ## Styling model
 
 - **Tailwind arbitrary values** are the dominant style mechanism: e.g. `gap-[2rem]`, `rounded-45xl`, `bg-rectangle-805`, `text-[0.81rem]`. Theme tokens live in `tailwind.config.js`:
-  - Colors: `rectangle-805` (#34a0a4, teal = brand), `rectangle-807` (#1a759f, blue), `dimgray`, `color-text`, `lavender`, `light-text-color`, …
-  - Fonts: `DM Sans`, `Belleza`, `Montserrat`, `Inter` (loaded from Google Fonts in `pages/global.css`).
+  - Colors: `rectangle-805` (#2b7478, teal = brand), `rectangle-807` (#1a759f, blue), `dimgray`, `color-text`, `lavender`, `light-text-color`, …
+  - Fonts: **Lora only** — self-hosted via `next/font/google` (`lib/fonts.ts`, CSS variable `--font-lora`); all `fontFamily` keys (`title-2`, `belleza`, `link`, `inter`, `lora`) are aliases for it. No runtime Google Fonts requests.
   - Screens: custom breakpoints xl ≥1201, lg 961–1200, md 681–960, sm ≤680.
   - Radii: `45xl`(64px), `13xl`(32px), `81xl`(100px), …
 - **Locofy pattern** in several components: computed `CSS.Properties` via `useMemo`, `defaultProps`, and `Property.*`-typed overridable props (see `footer.tsx`, `navbar.tsx`).
@@ -97,15 +97,15 @@ Served at the site root and copied verbatim into the export.
 
 | Group | Files |
 | --- | --- |
-| Photos in use | `image*.png`, `mainpage-header@3x.png`, `sidepage-header@3x.png`, `cover@2x.png`, `cta@3x.png`, `calendar-1@2x.png`, `sonnenuntergang.png` (untracked) |
-| Icons/SVG | `icncircle-circlemd{,.1-.5}.svg`, `vector.svg`, `magnifier--24--outline.svg` |
-| Legacy/unused | `calendar-11@2x.png`, `notification*.svg` |
+| Photos in use | Individual `.webp` files named by subject (`haus-1*.webp`, `dronensicht-*.webp`, `strand-*.webp`, `kleine-hütte-*.webp`, `ausflugsziele.webp`, `cta.webp`, `kontakt-banner.webp`, …) referenced by literal path from `pages/` and `components/` |
+| Icons/SVG | `icncircle-circlemd{,1-5}.svg`, `vector.svg`, `magnifier--24--outline.svg`, `notification.svg`, `favicon.svg`, `apple-touch-icon.png` |
+| Legacy/unused | `image@2x.png`, `notification1.svg`–`notification3.svg` |
 | PDFs | `agb.pdf`, `hausordnung.pdf` |
-| Untracked media | `sonnenuntergang.png`, `transfer/` (45 full-res JPGs, ~233 MB — not committed, kept for later) |
+| Untracked media | `transfer/` (40 full-res JPGs, ~203 MB — not committed, kept for later) |
 
 ## Config files
 
-- `next.config.js` — `reactStrictMode`, `typescript.ignoreBuildErrors: true`, `transpilePackages: ['vis-timeline']`, webpack `raw-loader` rule for `.node` files.
+- `next.config.js` — `output: 'export'` + `distDir: 'build'`, `reactStrictMode`, `images.loaderFile` (Netlify Image CDN, see Caveats), `typescript.ignoreBuildErrors: true`, `transpilePackages: ['vis-timeline']`, `turbopack: {}`.
 - `tailwind.config.js` — theme tokens (see above).
 - `tsconfig.json` — strict TS, Next.js defaults.
 - `postcss.config.js` — Tailwind + autoprefixer.
@@ -113,7 +113,7 @@ Served at the site root and copied verbatim into the export.
 
 ## Caveats
 
-- `next build` / `next lint` **do not typecheck** (`ignoreBuildErrors: true`); use `npx tsc --noEmit` manually.
+- `next build` **does not typecheck** (`ignoreBuildErrors: true`); use `npm run typecheck` (tsgo) or `npm run typecheck:slow` (tsc).
 - Static export only — no API routes, `getServerSideProps`, middleware, or rewrites in production.
 - `@react-pdf-viewer` worker loads from `https://unpkg.com/pdfjs-dist@3.11.174/...` at runtime (needs internet).
 - `react-router-dom` is installed but unused; everything routes through `next/link` + `next/router`.
