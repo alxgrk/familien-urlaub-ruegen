@@ -32,6 +32,10 @@ export default function MyApp(props: any) {
       <Head>
         <title>Familiencamp Rügen</title>
         <meta
+          name="description"
+          content="Familienurlaub auf Rügen: gemütliche Ferienhäuser und Bungalows nur 150 m vom Strand der Tromper Wiek entfernt. Jetzt unverbindlich anfragen."
+        />
+        <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
