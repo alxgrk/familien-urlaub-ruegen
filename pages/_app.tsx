@@ -30,7 +30,7 @@ export default function MyApp(props: any) {
   return (
     <React.Fragment>
       <Head>
-        <title>Familiencamp Rügen</title>
+        <title>Familiencamp Rügen – Ferienhäuser am Strand in Drewoldke</title>
         <meta
           name="description"
           content="Familienurlaub auf Rügen: gemütliche Ferienhäuser und Bungalows nur 150 m vom Strand der Tromper Wiek entfernt. Jetzt unverbindlich anfragen."
