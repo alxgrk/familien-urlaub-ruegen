@@ -116,6 +116,34 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
   </div>;
 }
 
+const WelcomeSection: NextPage = () => {
+  return (
+    <section
+        className="w-full max-w-[60rem] mx-auto flex flex-col items-start justify-start gap-[1.25rem] py-[4rem] sm:py-[2.5rem] px-[1.5rem] box-border text-left leading-[1.6rem] text-dimgray-200">
+      <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[2rem] text-black">
+        Familienurlaub auf Rügen
+      </h2>
+      <p className="m-0">
+        Unser Familiencamp liegt im Küstenort Drewoldke im Norden der Insel
+        Rügen. Das naturbelassene Grundstück liegt nur rund 150 Meter vom
+        Strand der Tromper Wiek entfernt. Zwischen Bäumen und Wiesen finden
+        Familien hier Ruhe und Erholung.
+      </p>
+      <p className="m-0">
+        Zur Wahl stehen ein kleines und ein großes Ferienhaus. Beide sind
+        gemütlich eingerichtet. Sie bieten Platz für Paare, Familien und
+        kleine Gruppen. Ein Gemeinschaftshaus mit Küche und TV-Hütte lädt zu
+        geselligen Abenden ein.
+      </p>
+      <p className="m-0">
+        In der Umgebung warten Kap Arkona, die Fischerdörfer Vitt und Wiek
+        sowie viele Radwege. Ob Baden, Radfahren oder Ausflüge über die
+        Insel: Bei uns wird der Urlaub abwechslungsreich.
+      </p>
+    </section>
+  );
+};
+
 const lageItems = [
     "Naturbelassener Strand",
     "Meer in 150m Entfernung",
@@ -391,6 +419,7 @@ const Homepage: NextPage = () => {
                    <div className="w-full flex flex-row self-center items-center justify-center bg-lightskyblue">
                     <BookingStrip onSearchButtonClick={onSearchButtonClick}/>
                      </div>
+                    <WelcomeSection/>
                     <HighlightsSection onLinkClick={onLinkClick} onButtonClick={onButtonClick}/>
                     <CTASection onCTAButtonClick={onCTAButtonClick}/>
                     <RoomsSection onItemsContainerClick={onItemsContainerClick} />
