@@ -32,6 +32,7 @@ export default function MyApp(props: any) {
       <Head>
         <title>Familiencamp Rügen – Ferienhäuser am Strand in Drewoldke</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta
           name="description"
           content="Familienurlaub auf Rügen: gemütliche Ferienhäuser und Bungalows nur 150 m vom Strand der Tromper Wiek entfernt. Jetzt unverbindlich anfragen."
