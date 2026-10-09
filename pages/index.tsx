@@ -364,7 +364,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
             </div>
             <div className="relative leading-[125%] text-dimgray-200 md:gap-[2rem] sm:gap-[1.5rem] px-[5rem] sm:px-[4.5rem] ">
                 <p className="m-0 text-center">
-                    Unterschieden wird zwischen kleinen und großen Ferienhütten, wobei zu ersterem auch 4 Doppelhaushälften zählen.
+                    Unterschieden wird zwischen kleinen Ferienhütten, zu denen auch 4 Doppelhaushälften zählen, und großen Ferienhütten. Die Anzahl der Betten variiert zwischen 3, 4 oder sogar 6 Betten.
                 </p>
             </div>
         </div>
