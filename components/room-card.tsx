@@ -23,6 +23,7 @@ const RoomCard: NextPage<RoomCardType> = ({
         src={image}
         width={1436}
         height={800}
+        sizes="(max-width: 960px) 100vw, 27rem"
       />
       <div className="self-stretch flex flex-col pt-[1.5rem] px-[0.5rem] pb-[0.5rem] items-center justify-start gap-[1rem] sm:w-auto sm:[align-self:unset] sm:items-center sm:justify-between sm:gap-[0rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border">
         <div className="self-stretch flex flex-col items-start justify-start sm:w-auto sm:[align-self:unset] sm:items-start sm:justify-start">

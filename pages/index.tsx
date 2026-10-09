@@ -238,6 +238,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
             src="/ausflugsziele.webp"
             width={1504}
             height={872}
+            sizes="(max-width: 960px) 100vw, 50vw"
         />
       </div>
       <div
