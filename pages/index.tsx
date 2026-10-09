@@ -294,7 +294,7 @@ const CTASection: NextPage<{ onCTAButtonClick: () => void }> = ({onCTAButtonClic
         />
         <div
             className="w-full mx-auto flex flex-col items-center justify-start py-[5rem] gap-[1.5rem] text-[2.5rem] text-light-text-color bg-gray-300">
-            <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[1.75rem]">
+            <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[1.75rem] font-normal">
                 Um Erinnerungen zu schaffen
             </h2>
             <Link
