@@ -386,12 +386,14 @@ const Homepage: NextPage = () => {
         <div
             className="[background:linear-gradient(180deg,_#fff5eb,_#fff_48.44%,_#fff5eb)] w-full flex flex-col items-stretch justify-start lg:box-border sm:[align-self:unset]">
             <div className="flex flex-col items-stretch justify-start w-full">
-               <div className="w-full flex flex-row self-center items-center justify-center bg-lightskyblue">
-                <BookingStrip onSearchButtonClick={onSearchButtonClick}/>
-                 </div>
-                <HighlightsSection onLinkClick={onLinkClick} onButtonClick={onButtonClick}/>
-                <CTASection onCTAButtonClick={onCTAButtonClick}/>
-                <RoomsSection onItemsContainerClick={onItemsContainerClick} />
+                <main className="flex flex-col items-stretch justify-start w-full">
+                   <div className="w-full flex flex-row self-center items-center justify-center bg-lightskyblue">
+                    <BookingStrip onSearchButtonClick={onSearchButtonClick}/>
+                     </div>
+                    <HighlightsSection onLinkClick={onLinkClick} onButtonClick={onButtonClick}/>
+                    <CTASection onCTAButtonClick={onCTAButtonClick}/>
+                    <RoomsSection onItemsContainerClick={onItemsContainerClick} />
+                </main>
                 <div className="w-full max-w-[80rem] mx-auto">
                     <Footer/>
                 </div>
