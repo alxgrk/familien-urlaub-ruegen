@@ -108,9 +108,9 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
           width={24}
           height={24}
       />
-      <b className="relative text-[1.13rem] leading-[1.5rem] font-title-2 text-light-text-color text-left">
+      <span className="relative text-[1.13rem] leading-[1.5rem] font-title-2 font-bold text-light-text-color text-left">
         Verfügbarkeit prüfen
-      </b>
+      </span>
     </button>
   </div>
   </div>;
@@ -246,7 +246,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           <div className="self-stretch flex flex-col items-start justify-start gap-[0.25rem]">
             <div className="relative leading-[125%]">
               <span>{`z.B. `}</span>
-              <b>Kap Arkona</b>
+              <span className="font-bold">Kap Arkona</span>
             </div>
             <h2 className="m-0 self-stretch relative text-[2rem] leading-[125%] font-medium text-black">
               Beliebte Ausflugsziele
@@ -274,7 +274,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
             target="_blank"
             onClick={onButtonClick}
         >
-          <b className="relative leading-[1.5rem]">Mehr Entdecken</b>
+          <span className="relative leading-[1.5rem] font-bold">Mehr Entdecken</span>
         </a>
       </div>
     </div>
@@ -302,7 +302,7 @@ const CTASection: NextPage<{ onCTAButtonClick: () => void }> = ({onCTAButtonClic
                 href="/buchung"
                 onClick={onCTAButtonClick}
             >
-            <b className="relative leading-[1.5rem]">Jetzt reservieren</b>
+            <span className="relative leading-[1.5rem] font-bold">Jetzt reservieren</span>
             </Link>
         </div>
     </div>;
