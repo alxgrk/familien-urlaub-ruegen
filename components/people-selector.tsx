@@ -11,6 +11,7 @@ type PeopleSelectorProps = {
 type StepperFieldProps = {
   value: number;
   label: string;
+  ariaLabel: string;
   onChange: (value: number) => void;
 };
 
@@ -30,22 +31,27 @@ const PlusIcon = () => (
   </svg>
 );
 
-const StepperField: NextPage<StepperFieldProps> = ({value, label, onChange}) => {
+const StepperField: NextPage<StepperFieldProps> = ({value, label, ariaLabel, onChange}) => {
   return (
     <div className="flex flex-row items-center justify-center gap-[0.25rem] min-w-[5rem]">
       <button
         type="button"
         className={stepperButtonClassName}
-        aria-label={`${label} verringern`}
+        aria-label={`${ariaLabel} verringern`}
         onClick={() => onChange(Math.max(0, value - 1))}
       >
         <MinusIcon />
       </button>
       <TextField
-          className="w-[0.7rem] relative leading-[125%]"
+          className="w-[2.25rem] relative leading-[125%]"
           style={{ textAlign: 'end' }}
           value={value}
           variant="standard"
+          inputProps={{
+            'aria-label': ariaLabel,
+            inputMode: 'numeric',
+            pattern: '[0-9]*',
+          }}
           onChange={(v: any) => {
             const next = Number(v.target.value);
             if (Number.isNaN(next) || next < 0) return;
@@ -55,7 +61,7 @@ const StepperField: NextPage<StepperFieldProps> = ({value, label, onChange}) => 
       <button
         type="button"
         className={stepperButtonClassName}
-        aria-label={`${label} erhöhen`}
+        aria-label={`${ariaLabel} erhöhen`}
         onClick={() => onChange(value + 1)}
       >
         <PlusIcon />
@@ -68,9 +74,9 @@ const StepperField: NextPage<StepperFieldProps> = ({value, label, onChange}) => 
 const PeopleSelector: NextPage<PeopleSelectorProps> = ({numErwachsene, numKinder, onErwachseneChange, onKinderChange}) => {
   return (
     <div className="min-w-[17rem] flex flex-row items-center justify-center gap-[0.5rem] text-[1rem] text-dimgray-200">
-      <StepperField value={numErwachsene} label="Erw." onChange={onErwachseneChange}/>
+      <StepperField value={numErwachsene} label="Erw." ariaLabel="Anzahl Erwachsene" onChange={onErwachseneChange}/>
       <div className="relative leading-[125%]">-</div>
-      <StepperField value={numKinder} label="Kinder" onChange={onKinderChange}/>
+      <StepperField value={numKinder} label="Kinder" ariaLabel="Anzahl Kinder" onChange={onKinderChange}/>
     </div>
   );
 };
