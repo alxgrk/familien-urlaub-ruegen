@@ -129,7 +129,7 @@ const WelcomeSection: NextPage = () => {
           Familienurlaub auf <span className="text-rectangle-805">Rügen</span>
         </h2>
         <p className="m-0 text-[1.25rem] leading-[1.75rem] font-medium text-dimgray-300">
-          Nur 150 Meter vom Strand entfernt: unser
+          Nur 100 Meter vom Strand entfernt: unser
           naturbelassenes Familiencamp in Drewoldke.
         </p>
         <p className="m-0">
@@ -159,7 +159,7 @@ const WelcomeSection: NextPage = () => {
 
 const lageItems = [
     "Naturbelassener Strand",
-    "Meer in 150m Entfernung",
+    "Meer in 100m Entfernung",
     "Ruhiges Areal im Wald",
     "Campingplatz-Markt",
     "Fahrradtouren über die Insel",
