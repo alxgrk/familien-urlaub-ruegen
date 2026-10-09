@@ -4,6 +4,7 @@ import {useCallback, useMemo, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MainPageHeader from "../components/main-page-header";
+import Reveal from "../components/reveal";
 
 import FlexRow from "../components/flex-row";
 import RoomCard from "../components/room-card";
@@ -119,27 +120,41 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
 const WelcomeSection: NextPage = () => {
   return (
     <section
-        className="w-full max-w-[60rem] mx-auto flex flex-col items-start justify-start gap-[1.25rem] py-[4rem] sm:py-[2.5rem] px-[1.5rem] box-border text-left leading-[1.6rem] text-dimgray-200">
-      <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[2rem] text-black">
-        Familienurlaub auf Rügen
-      </h2>
-      <p className="m-0">
-        Unser Familiencamp liegt im Küstenort Drewoldke im Norden der Insel
-        Rügen. Das naturbelassene Grundstück liegt nur rund 150 Meter vom
-        Strand der Tromper Wiek entfernt. Zwischen Bäumen und Wiesen finden
-        Familien hier Ruhe und Erholung.
-      </p>
-      <p className="m-0">
-        Zur Wahl stehen ein kleines und ein großes Ferienhaus. Beide sind
-        gemütlich eingerichtet. Sie bieten Platz für Paare, Familien und
-        kleine Gruppen. Ein Gemeinschaftshaus mit Küche und TV-Hütte lädt zu
-        geselligen Abenden ein.
-      </p>
-      <p className="m-0">
-        In der Umgebung warten Kap Arkona, die Fischerdörfer Vitt und Wiek
-        sowie viele Radwege. Ob Baden, Radfahren oder Ausflüge über die
-        Insel: Bei uns wird der Urlaub abwechslungsreich.
-      </p>
+        className="w-full max-w-[80rem] mt-[2rem] mx-auto flex flex-row md:flex-col sm:flex-col items-center justify-center gap-[3rem] md:gap-[2rem] sm:gap-[1.5rem] py-[4rem] sm:py-[2.5rem] px-[2rem] sm:px-[1.5rem] box-border text-left">
+      <Reveal
+          delay={150}
+          className="flex-1 flex flex-col items-start justify-start gap-[1.25rem] leading-[1.6rem] text-dimgray-200">
+        <div className="rounded-full bg-lightskyblue text-rectangle-805 text-base font-medium leading-none py-[0.3rem] px-[0.9rem]">
+          Willkommen im Familiencamp
+        </div>
+        <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[2rem] text-black">
+          Familienurlaub auf <span className="text-rectangle-805">Rügen</span>
+        </h2>
+        <p className="m-0 text-[1.25rem] leading-[1.75rem] font-medium text-dimgray-300">
+          Nur 150 Meter vom Strand entfernt: unser
+          naturbelassenes Familiencamp in Drewoldke.
+        </p>
+        <p className="m-0">
+          Gemütliche Ferienhäuser und ein Gemeinschaftshaus warten
+          im Kiefernwäldchen hinter der Düne. Familien finden hier Platz zum Spielen
+          und Entspannen.
+        </p>
+        <p className="m-0">
+          Baden am Morgen, Radtour nach Kap Arkona am Nachmittag und abends
+          gesellige Stunden im Gemeinschaftshaus. So abwechslungsreich kann der
+          Urlaub sein.
+        </p>
+      </Reveal>
+        <Reveal
+            className="relative w-[45%] md:w-full sm:w-full h-[24rem] md:h-[20rem] sm:h-[15rem] shrink-0 rounded-13xl overflow-hidden">
+            <Image
+                src="/kontakt-banner.webp"
+                alt="Abendstimmung am Feld bei Drewoldke auf Rügen"
+                fill
+                sizes="(max-width: 960px) 100vw, 45vw"
+                className="object-cover animate-ken-burns motion-reduce:animate-none"
+            />
+        </Reveal>
     </section>
   );
 };
@@ -217,6 +232,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
       className="self-stretch w-full flex flex-col items-center justify-start">
     <div
         className="w-full max-w-[80rem] mx-auto flex flex-col py-[5rem] px-[4rem] sm:px-[1rem] box-border items-center justify-start gap-[2.5rem]">
+    <div className="relative mb-[2rem] box-border w-[80%] h-[0.06rem] border-t-[1px] border-solid border-gray-300"/>
     <div className="flex flex-col py-[0.5rem] px-[0rem] items-center justify-start gap-[0.5rem]">
       <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
         Unsere Highlights

@@ -43,6 +43,15 @@ module.exports = {
         "181xl": "200px",
         "81xl": "100px",
       },
+      keyframes: {
+        "ken-burns": {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.1)" },
+        },
+      },
+      animation: {
+        "ken-burns": "ken-burns 16s ease-in-out infinite alternate",
+      },
     },
     fontSize: {
       smi: "0.81rem",
