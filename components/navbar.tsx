@@ -283,7 +283,7 @@ const Navbar: NextPage<NavbarType> = (props) => {
                 >
                     <Image
                         className="w-[23.82px] h-6 overflow-hidden shrink-0 md:flex sm:flex"
-                        alt=""
+                        alt="Menü öffnen"
                         src={hamburgerMenu}
                         style={hamburgerMenuIconStyle}
                         width={24}

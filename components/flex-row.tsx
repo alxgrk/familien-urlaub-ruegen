@@ -32,7 +32,7 @@ const FlexRow: NextPage<FlexRowType> = ({
     >
       <Image
         className="relative rounded-181xl w-[4.5rem] h-[4.5rem] overflow-hidden shrink-0"
-        alt=""
+        alt={h5 ?? ""}
         src={icnCircleCircleMd}
         width={72}
         height={72}

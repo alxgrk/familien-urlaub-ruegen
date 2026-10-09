@@ -10,7 +10,7 @@ const MainPageHeader: NextPage = () => {
         text-center text-[3.5rem] text-light-text-color font-title-2 lg:self-stretch">
       <Image
         src="/dronensicht-main-page-header.webp"
-        alt=""
+        alt="Luftaufnahme des Familiencamps Rügen nahe dem Strand der Tromper Wiek"
         fill
         priority
         sizes="100vw"

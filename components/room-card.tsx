@@ -19,7 +19,7 @@ const RoomCard: NextPage<RoomCardType> = ({
     <div>
       <Image
         className="self-stretch rounded-xl max-w-full overflow-hidden h-[25rem] shrink-0 object-cover sm:w-auto sm:[align-self:unset] sm:flex-1 sm:pl-[0rem] sm:pr-[0rem] sm:box-border"
-        alt=""
+        alt={title ?? "Ferienhaus im Familiencamp Rügen"}
         src={image}
         width={1436}
         height={800}

@@ -77,7 +77,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
       <div className="flex flex-col items-start justify-center">
         <Image
             className="relative w-[1.37rem] h-[1.06rem]"
-            alt=""
+            alt="Personen"
             src="/vector.svg"
             width={22}
             height={17}
@@ -103,7 +103,7 @@ const BookingStrip: NextPage<{onSearchButtonClick: (anreise: Date, abreise: Date
     >
       <Image
           className="relative w-[1.5rem] h-[1.5rem] overflow-hidden shrink-0"
-          alt=""
+          alt="Suche"
           src="/magnifier--24--outline.svg"
           width={24}
           height={24}
@@ -234,7 +234,7 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
           className="self-stretch flex-1 flex flex-col items-start justify-center z-[1] md:flex-[unset] md:self-stretch sm:items-center sm:justify-center sm:px-[1.5rem] sm:box-border sm:flex-[unset] sm:self-stretch">
         <Image
             className="self-stretch rounded-13xl flex-1 relative rounded-m max-w-full overflow-hidden max-h-full object-cover sm:w-full sm:max-w-full"
-            alt=""
+            alt="Beliebte Ausflugsziele auf Rügen, wie Kap Arkona"
             src="/ausflugsziele.webp"
             width={1504}
             height={872}
@@ -287,7 +287,7 @@ const CTASection: NextPage<{ onCTAButtonClick: () => void }> = ({onCTAButtonClic
         className="self-stretch w-full flex flex-col px-[0rem] box-border items-center justify-start relative isolate">
         <Image
             src="/cta.webp"
-            alt=""
+            alt="Familienurlaub am Strand von Rügen"
             fill
             sizes="100vw"
             className="-z-10 object-cover object-top"

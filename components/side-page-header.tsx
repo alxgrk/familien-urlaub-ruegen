@@ -54,7 +54,7 @@ const SidePageHeader: NextPage<SidePageHeaderType> = ({
     >
       <Image
         src="/dronensicht-side-page-header.webp"
-        alt=""
+        alt="Luftaufnahme des Familiencamps Rügen"
         fill
         priority
         sizes="100vw"
