@@ -176,7 +176,7 @@ const HighlightCard: NextPage<HighlightCardProps> = ({icon, title, items, href, 
               href={href}
               onClick={onLinkClick}
           >
-            Mehr
+            {`Mehr zur ${title}`}
           </Link>
         </div>
       </div>
