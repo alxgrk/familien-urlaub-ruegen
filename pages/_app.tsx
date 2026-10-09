@@ -41,6 +41,22 @@ export default function MyApp(props: any) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Familiencamp Rügen" />
+        <meta
+          property="og:title"
+          content="Familiencamp Rügen – Ferienhäuser am Strand in Drewoldke"
+        />
+        <meta
+          property="og:description"
+          content="Familienurlaub auf Rügen: gemütliche Ferienhäuser und Bungalows nur 150 m vom Strand der Tromper Wiek entfernt. Jetzt unverbindlich anfragen."
+        />
+        <meta property="og:url" content="https://familien-urlaub-ruegen.de/" />
+        <meta
+          property="og:image"
+          content="https://familien-urlaub-ruegen.de/dronensicht-main-page-header.webp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <LocalizationProvider dateAdapter={AdapterDateFns} localeText={deDE.components.MuiLocalizationProvider.defaultProps.localeText} adapterLocale={deDateFns}>
           <ThemeProvider theme={muiTheme}>
