@@ -83,9 +83,9 @@ const AccommodationSection: NextPage<AccommodationSectionType> = ({
             </div>
           )}
           {title && (
-            <b className="self-stretch relative leading-[125%] text-[2rem] text-black">
+            <h3 className="m-0 self-stretch relative leading-[125%] text-[2rem] text-black">
               {title}
-            </b>
+            </h3>
           )}
           {description && (
             <div className="self-stretch relative leading-[1.6rem] text-dimgray-200">

@@ -78,9 +78,9 @@ const AccommodationsContainer: NextPage = () => {
       className="self-stretch w-full flex flex-col py-[5rem] sm:py-[2rem] px-[2rem] sm:px-[1rem] box-border items-center justify-start gap-[3rem] sm:gap-[2.5rem] text-center text-base text-black font-title-2"
     >
       <div className="self-stretch flex flex-col items-center justify-center gap-[1rem]">
-        <b className="self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
+        <h2 className="m-0 self-stretch relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
           Unsere Unterkünfte
-        </b>
+        </h2>
         <div className="self-stretch relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:font-title-2">
           Für alle Familiengrößen
         </div>

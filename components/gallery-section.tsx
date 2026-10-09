@@ -39,9 +39,9 @@ const GallerySection: NextPage<GallerySectionType> = ({
       className="self-stretch w-full flex flex-col items-center justify-start gap-[1.5rem]"
     >
       <div className="flex flex-col items-center justify-start gap-[0.5rem]">
-        <b className="relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
+        <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
           {title}
-        </b>
+        </h2>
         <div className="relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
           {subtitle}
         </div>

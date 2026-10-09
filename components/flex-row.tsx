@@ -41,9 +41,9 @@ const FlexRow: NextPage<FlexRowType> = ({
         className="flex-1 flex flex-row items-start justify-start"
         style={divStyle}
       >
-        <b className="flex-1 relative tracking-[0.1px] leading-[1.5rem]">
+        <h3 className="m-0 flex-1 relative tracking-[0.1px] leading-[1.5rem] text-[1.38rem] font-bold">
           {h5}
-        </b>
+        </h3>
       </div>
     </div>
   );

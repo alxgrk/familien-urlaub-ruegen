@@ -190,9 +190,9 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
     <div
         className="w-full max-w-[80rem] mx-auto flex flex-col py-[5rem] px-[4rem] sm:px-[1rem] box-border items-center justify-start gap-[2.5rem]">
     <div className="flex flex-col py-[0.5rem] px-[0rem] items-center justify-start gap-[0.5rem]">
-      <b className="relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
+      <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[2rem]">
         Unsere Highlights
-      </b>
+      </h2>
       <div className="relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100">
         Freuen Sie sich auf:
       </div>
@@ -248,9 +248,9 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
               <span>{`z.B. `}</span>
               <b>Kap Arkona</b>
             </div>
-            <div className="self-stretch relative text-[2rem] leading-[125%] font-medium text-black">
+            <h2 className="m-0 self-stretch relative text-[2rem] leading-[125%] font-medium text-black">
               Beliebte Ausflugsziele
-            </div>
+            </h2>
           </div>
           <div
               className="w-[23rem] flex flex-col items-start justify-start text-dimgray-200 sm:self-stretch sm:w-auto">
@@ -294,9 +294,9 @@ const CTASection: NextPage<{ onCTAButtonClick: () => void }> = ({onCTAButtonClic
         />
         <div
             className="w-full mx-auto flex flex-col items-center justify-start py-[5rem] gap-[1.5rem] text-[2.5rem] text-light-text-color bg-gray-300">
-            <div className="relative leading-[125%] text-[2.25rem] sm:text-[1.75rem]">
+            <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[1.75rem]">
                 Um Erinnerungen zu schaffen
-            </div>
+            </h2>
             <Link
                 className="cursor-pointer [text-decoration:none] rounded-45xl bg-light-text-color shadow-[0px_138px_39px_rgba(0,_0,_0,_0),_0px_89px_35px_rgba(0,_0,_0,_0.01),_0px_50px_30px_rgba(0,_0,_0,_0.05),_0px_22px_22px_rgba(0,_0,_0,_0.09),_0px_6px_12px_rgba(0,_0,_0,_0.1),_0px_0px_0px_rgba(0,_0,_0,_0.1)] h-[3.5rem] flex flex-row py-[0rem] px-[1.5rem] box-border items-center justify-start text-[1.13rem] text-rectangle-805"
                 href="/buchung"
@@ -315,7 +315,7 @@ const RoomsSection: NextPage<{onItemsContainerClick: () => void}> = ({onItemsCon
             className="w-full max-w-[80rem] mx-auto flex flex-col py-[5rem] px-[0rem] box-border items-center justify-start gap-[3rem] sm:gap-[0rem] sm:py-[3rem] sm:px-[0rem] sm:box-border">
         <div
             className="flex flex-col items-center justify-start gap-[0.5rem] sm:pl-[0rem] sm:pr-[0rem] sm:box-border">
-            <b className="relative leading-[125%] text-[2.25rem] sm:text-[2rem]">Unterkünfte</b>
+            <h2 className="m-0 relative leading-[125%] text-[2.25rem] sm:text-[2rem]">Unterkünfte</h2>
             <div className="relative text-[1.25rem] leading-[125%] font-medium text-dimgray-100 sm:text-[1rem]">
                 Sehen Sie sich die verfügbaren Bungalows an
             </div>
