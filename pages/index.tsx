@@ -285,14 +285,14 @@ const HighlightsSection: NextPage<{ onLinkClick: () => void, onButtonClick: () =
               className="w-[23rem] flex flex-col items-start justify-start text-dimgray-200 sm:self-stretch sm:w-auto">
             <div className="self-stretch relative leading-[125%]">
               <p className="m-0">
-                Ob Kap Arkona, Fischerdörfchen Vitt oder die Häfen von
-                Wiek, Dranske und Breege - all diese touristischen
-                Ziele können Sie leicht per Fahrrad erreichen und
-                dabei den Norden der Insel Rügen erkunden.
+                Ob Kap Arkona, das Fischerdörfchen Vitt oder die Häfen von
+                Wiek, Dranske und Breege: All diese Ziele erreichen Sie
+                leicht per Fahrrad. Dabei erkunden Sie den Norden der Insel
+                Rügen.
               </p>
               <p className="m-0">
-                Auch ein Tagesausflug zur nahegelegenen Insel
-                Hiddensee ist von Dranske oder Wiek aus möglich.
+                Auch ein Tagesausflug zur nahegelegenen Insel Hiddensee ist
+                von Dranske oder Wiek aus möglich.
               </p>
             </div>
           </div>
