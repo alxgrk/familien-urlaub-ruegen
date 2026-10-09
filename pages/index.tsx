@@ -4,7 +4,6 @@ import {useCallback, useMemo, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MainPageHeader from "../components/main-page-header";
-import Reveal from "../components/reveal";
 
 import FlexRow from "../components/flex-row";
 import RoomCard from "../components/room-card";
@@ -121,8 +120,7 @@ const WelcomeSection: NextPage = () => {
   return (
     <section
         className="w-full max-w-[80rem] mt-[2rem] mx-auto flex flex-row md:flex-col sm:flex-col items-center justify-center gap-[3rem] md:gap-[2rem] sm:gap-[1.5rem] py-[4rem] sm:py-[2.5rem] px-[2rem] sm:px-[1.5rem] box-border text-left">
-      <Reveal
-          delay={150}
+      <div
           className="flex-1 flex flex-col items-start justify-start gap-[1.25rem] leading-[1.6rem] text-dimgray-200">
         <div className="rounded-full bg-lightskyblue text-rectangle-805 text-base font-medium leading-none py-[0.3rem] px-[0.9rem]">
           Willkommen im Familiencamp
@@ -144,8 +142,8 @@ const WelcomeSection: NextPage = () => {
           gesellige Stunden im Gemeinschaftshaus. So abwechslungsreich kann der
           Urlaub sein.
         </p>
-      </Reveal>
-        <Reveal
+      </div>
+        <div
             className="relative w-[45%] md:w-full sm:w-full h-[24rem] md:h-[20rem] sm:h-[15rem] shrink-0 rounded-13xl overflow-hidden">
             <Image
                 src="/kontakt-banner.webp"
@@ -154,7 +152,7 @@ const WelcomeSection: NextPage = () => {
                 sizes="(max-width: 960px) 100vw, 45vw"
                 className="object-cover animate-ken-burns motion-reduce:animate-none"
             />
-        </Reveal>
+        </div>
     </section>
   );
 };
